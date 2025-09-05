@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   miniRT.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 14:49:00 by cwon              #+#    #+#             */
-/*   Updated: 2025/09/05 12:39:57 by cwon             ###   ########.fr       */
+/*   Created: 2025/09/05 08:05:56 by cwon              #+#    #+#             */
+/*   Updated: 2025/09/05 08:48:46 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
+#ifndef MINIRT_H
+# define MINIRT_H
 
-int	main(int argc, char **argv)
-{
-	//miniRT(argc, argv);
-	return (0);
-}
+// miniRT.c
+void	mini_rt(const int argc, char **argv);
+
+#endif

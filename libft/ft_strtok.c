@@ -1,19 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strtok.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 14:49:00 by cwon              #+#    #+#             */
-/*   Updated: 2025/09/05 12:39:57 by cwon             ###   ########.fr       */
+/*   Created: 2025/09/05 12:35:19 by cwon              #+#    #+#             */
+/*   Updated: 2025/09/05 12:38:19 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+char	*ft_strtok(char *str, const char *delim)
 {
-	//miniRT(argc, argv);
-	return (0);
+	char		*start;
+	static char	*next = NULL;
+
+	if (str)
+		next = str;
+	if (!next)
+		return (NULL);
+	while (*next && ft_strchr(delim, *next))
+		next++;
+	if (!*next)
+		return (NULL);
+	start = next;
+	while (*next && !ft_strchr(delim, *next))
+		next++;
+	if (*next)
+	{
+		*next = '\0';
+		next++;
+	}
+	return (start);
 }
