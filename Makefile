@@ -6,14 +6,14 @@
 #    By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/04 15:11:00 by cwon              #+#    #+#              #
-#    Updated: 2025/09/05 12:40:32 by cwon             ###   ########.fr        #
+#    Updated: 2025/09/11 08:56:57 by cwon             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := miniRT
 
 CC := cc
-CFLAGS := -Wall -Wextra -Werror -O3 -MMD -MP
+CFLAGS := -Wall -Wextra -Werror -O3 -lm -MMD -MP -g
 
 SRC_DIR := src
 OBJ_DIR := obj
@@ -21,12 +21,35 @@ INC_DIR := include
 
 SRC := \
 	main.c \
-	miniRT.c \
-	parser.c
+	miniRT.c
+
+ELEM_SRC := \
+	elements/cylinder.c \
+	elements/plane.c \
+	elements/sphere.c
+
+PARSER_SRC := \
+	parser/parse_elements.c \
+	parser/parse_objects.c \
+	parser/parse_util.c \
+	parser/parse.c \
+	parser/parser.c \
+	parser/util.c
+
+UTIL_SRC := \
+	util/rgb.c \
+	util/scene.c \
+	util/vector.c
 
 SRC_BONUS := 
 
-OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
+ALL_SRC := \
+	$(SRC) \
+	$(ELEM_SRC) \
+	$(PARSER_SRC) \
+	$(UTIL_SRC)
+
+OBJ := $(addprefix $(OBJ_DIR)/, $(ALL_SRC:.c=.o))
 OBJ_BONUS := $(addprefix $(OBJ_DIR)/, $(SRC_BONUS:.c=.o))
 
 DEP := $(OBJ:.o=.d) $(OBJ_BONUS:.o=.d)
@@ -47,10 +70,8 @@ all: $(NAME)
 $(NAME): $(MLX) $(LIBFT) $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -I$(INC_DIR) $(MLX_FLAGS) $(LIBFT_FLAGS) -o $@
 
-# $(NAME)_bonus: $(MLX) $(LIBFT) $(OBJ) $(OBJ_BONUS)
-#	$(CC) $(CFLAGS) $(OBJ) $(OBJ_BONUS) -I$(INC_DIR) $(MLX_FLAGS) $(LIBFT_FLAGS) -o $(NAME)
-
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
+	mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -I$(INC_DIR) -I$(MLX_DIR) -I$(LIBFT_DIR) -c $< -o $@
 
 $(OBJ_DIR):
@@ -63,13 +84,13 @@ $(LIBFT):
 	make -C $(LIBFT_DIR)
 
 clean:
-	@rm -rf $(OBJ_DIR)
-	@make -C $(MLX_DIR) clean
-	@make -C $(LIBFT_DIR) clean
+	rm -rf $(OBJ_DIR)
+	make -C $(MLX_DIR) clean
+	make -C $(LIBFT_DIR) clean
 
 fclean: clean
-	@rm -f $(NAME)
-	@make -C $(LIBFT_DIR) fclean
+	rm -f $(NAME)
+	make -C $(LIBFT_DIR) fclean
 
 re: fclean all
 

@@ -5,15 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/05 08:05:56 by cwon              #+#    #+#             */
-/*   Updated: 2025/09/05 08:48:46 by cwon             ###   ########.fr       */
+/*   Created: 2025/09/05 15:29:20 by cwon              #+#    #+#             */
+/*   Updated: 2025/09/06 19:14:45 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_H
 # define MINIRT_H
 
-// miniRT.c
 void	mini_rt(const int argc, char **argv);
 
 #endif

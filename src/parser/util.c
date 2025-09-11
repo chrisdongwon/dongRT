@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser_util.c                                      :+:      :+:    :+:   */
+/*   util.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/05 09:00:05 by cwon              #+#    #+#             */
-/*   Updated: 2025/09/05 12:26:50 by cwon             ###   ########.fr       */
+/*   Created: 2025/09/06 19:31:00 by cwon              #+#    #+#             */
+/*   Updated: 2025/09/11 07:33:11 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 
-#include <stdbool.h>
 #include <stdlib.h>
 #include <unistd.h>
 
@@ -20,7 +19,7 @@
 
 bool	has_rt_extension(const char *filename)
 {
-	size_t  len;
+	size_t	len;
 
 	len = ft_strlen(filename);
 	return (len > 3 && ft_strcmp(filename + len - 3, ".rt") == 0);
@@ -41,26 +40,34 @@ char	*trim(char *str)
 	return (str);
 }
 
+int	get_tokens(char *tokens[MAX_TOKENS], char *line)
+{
+	char	*tok;
+	int		count;
+
+	count = 0;
+	tok = ft_strtok(line, " \t");
+	while (tok)
+	{
+		if (count >= MAX_TOKENS)
+			return (-1);
+		tokens[count++] = tok;
+		tok = ft_strtok(NULL, " \t");
+	}
+	return (count);
+}
+
 void	fatal(const char *msg)
 {
-	ft_putstr_fd("Error\n", STDERR_FILENO);
-	ft_putstr_fd(msg, STDERR_FILENO);
+	ft_putendl_fd("Error", STDERR_FILENO);
+	ft_putendl_fd(msg, STDERR_FILENO);
 	exit(EXIT_FAILURE);
 }
 
-void	init_parser(t_parser *parser)
+void	usage_message(char **argv)
 {
-	parser->ambient = false;
-	parser->camera = false;
-	parser->light = false;
-}
-
-void	validate_parser(t_parser *parser)
-{
-	if (!parser->ambient)
-		fatal("No ambient light defined");
-	if (!parser->camera)
-		fatal("No camera defined");
-	if (!parser->light)
-		fatal("No light defined");
+	ft_putstr_fd("usage: ", STDERR_FILENO);
+	ft_putstr_fd(argv[0], STDERR_FILENO);
+	ft_putendl_fd(" <scene.rt>", STDERR_FILENO);
+	exit(EXIT_FAILURE);
 }

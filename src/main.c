@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 14:49:00 by cwon              #+#    #+#             */
-/*   Updated: 2025/09/05 12:39:57 by cwon             ###   ########.fr       */
+/*   Created: 2025/09/05 15:27:41 by cwon              #+#    #+#             */
+/*   Updated: 2025/09/05 15:31:58 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 int	main(int argc, char **argv)
 {
-	//miniRT(argc, argv);
+	mini_rt(argc, argv);
 	return (0);
 }

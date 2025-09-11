@@ -6,7 +6,7 @@
 #    By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/03 16:52:39 by cwon              #+#    #+#              #
-#    Updated: 2025/09/05 12:39:04 by cwon             ###   ########.fr        #
+#    Updated: 2025/09/07 16:37:53 by cwon             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ SRC = \
 	ft_isalnum.c \
 	ft_isalpha.c \
 	ft_isascii.c \
+	ft_isbetween.c \
 	ft_isdigit.c \
 	ft_isfloat.c \
 	ft_isinteger.c \

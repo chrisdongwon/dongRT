@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 15:05:50 by cwon              #+#    #+#             */
-/*   Updated: 2025/09/05 12:38:47 by cwon             ###   ########.fr       */
+/*   Updated: 2025/09/07 16:44:38 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,6 @@ int		ft_atoi(const char *nptr);
 int		ft_isfloat(const char *nptr);
 int		ft_isinteger(const char *nptr);
 
-// int functions
-int		ft_abs(int n);
-int		ft_greater_than(int a, int b);
-int		ft_less_than(int a, int b);
-
 // linked list operations
 size_t	ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
@@ -62,6 +57,12 @@ void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
+
+// math functions
+bool	ft_isbetween(double x, double low, double high);
+int		ft_abs(int n);
+int		ft_greater_than(int a, int b);
+int		ft_less_than(int a, int b);
 
 // memory functions
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
@@ -74,8 +75,8 @@ void	ft_bzero(void *s, size_t n);
 
 // put functions
 ssize_t	ft_putchar_fd(char c, int fd);
-ssize_t	ft_putstr_fd(char *s, int fd);
-void	ft_putendl_fd(char *s, int fd);
+ssize_t	ft_putstr_fd(const char *s, int fd);
+void	ft_putendl_fd(const char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 
 // string functions
