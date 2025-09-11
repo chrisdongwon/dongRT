@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 19:43:39 by cwon              #+#    #+#             */
-/*   Updated: 2025/09/11 11:45:57 by cwon             ###   ########.fr       */
+/*   Updated: 2025/09/11 12:18:00 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ static void	parse_line(int fd, t_scene *scene, t_parser *parser)
 				free(line);
 				close(fd);
 				get_next_line(-1, NULL);
+				flush_scene(scene);
 				fatal("Parser error in scene file");
 			}
 		}

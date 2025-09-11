@@ -6,12 +6,12 @@
 #    By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/03 16:52:39 by cwon              #+#    #+#              #
-#    Updated: 2025/09/11 10:17:17 by cwon             ###   ########.fr        #
+#    Updated: 2025/09/11 12:38:08 by cwon             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 
 NAME = libft.a
 

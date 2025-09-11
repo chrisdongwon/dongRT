@@ -6,14 +6,14 @@
 #    By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/04 15:11:00 by cwon              #+#    #+#              #
-#    Updated: 2025/09/11 08:56:57 by cwon             ###   ########.fr        #
+#    Updated: 2025/09/11 12:37:53 by cwon             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := miniRT
 
 CC := cc
-CFLAGS := -Wall -Wextra -Werror -O3 -lm -MMD -MP -g
+CFLAGS := -Wall -Wextra -Werror -O3 -MMD -MP -g
 
 SRC_DIR := src
 OBJ_DIR := obj

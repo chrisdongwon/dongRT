@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 15:34:01 by cwon              #+#    #+#             */
-/*   Updated: 2025/09/11 09:37:42 by cwon             ###   ########.fr       */
+/*   Updated: 2025/09/11 13:09:50 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,10 @@ t_parser_status	parse_plane(char **tokens, int count, t_scene *scene);
 t_parser_status	parse_cylinder(char **tokens, int count, t_scene *scene);
 
 // parse_util.c
-bool			parse_float(const char *str, float *out);
+bool			parse_double(const char *str, double *out);
 bool			parse_int(const char *s, int *out);
-bool			parse_rgb_str(const char *str, t_rgb *color);
-bool			parse_vector_str(const char *str, t_vector *vec, \
-bool is_normalized);
+bool			parse_rgb_str(char *str, t_rgb *color);
+bool			parse_vector_str(char *str, t_vector *vec, bool is_normalized);
 
 // parse.c
 void			parse(const int argc, char **argv);

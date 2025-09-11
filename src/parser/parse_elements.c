@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 14:14:54 by cwon              #+#    #+#             */
-/*   Updated: 2025/09/10 10:48:02 by cwon             ###   ########.fr       */
+/*   Updated: 2025/09/11 13:10:22 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 t_parser_status	parse_ambient(char **tokens, int count, t_scene *scene, \
 t_parser *parser)
 {
-	float	ratio;
+	double	ratio;
 	t_rgb	color;
 
 	if (count != 3 || parser->has_ambient)
 		return (PARSER_ERROR);
-	if (!parse_float(tokens[1], &ratio) || !ft_isbetween(ratio, 0, 1))
+	if (!parse_double(tokens[1], &ratio) || !ft_isbetween(ratio, 0, 1))
 		return (PARSER_ERROR);
 	if (!parse_rgb_str(tokens[2], &color))
 		return (PARSER_ERROR);
@@ -58,7 +58,7 @@ t_parser *parser)
 t_parser_status	parse_light(char **tokens, int count, t_scene *scene, \
 t_parser *parser)
 {
-	float		brightness;
+	double		brightness;
 	t_rgb		color;
 	t_vector	pos;
 
@@ -66,7 +66,7 @@ t_parser *parser)
 		return (PARSER_ERROR);
 	if (!parse_vector_str(tokens[1], &pos, 0))
 		return (PARSER_ERROR);
-	if (!parse_float(tokens[2], &brightness) || !ft_isbetween(brightness, 0, 1))
+	if (!parse_double(tokens[2], &brightness) || !ft_isbetween(brightness, 0, 1))
 		return (PARSER_ERROR);
 	init_rgb(&color, 255, 255, 255);
 	if (count == 4 && !parse_rgb_str(tokens[3], &color))

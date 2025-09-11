@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 19:02:47 by cwon              #+#    #+#             */
-/*   Updated: 2025/09/06 19:03:30 by cwon             ###   ########.fr       */
+/*   Updated: 2025/09/11 13:05:57 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ typedef struct s_light	t_light;
 
 struct s_light
 {
-	float		brightness;
+	double		brightness;
 	t_rgb		color;
 	t_vector	pos;
 };

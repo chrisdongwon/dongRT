@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 09:17:44 by cwon              #+#    #+#             */
-/*   Updated: 2025/09/10 16:57:06 by cwon             ###   ########.fr       */
+/*   Updated: 2025/09/11 13:10:30 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_parser_status	parse_sphere(char **tokens, int count, t_scene *scene)
 	if (sphere == NULL)
 		return (PARSER_ERROR);
 	if (!parse_vector_str(tokens[1], &sphere->center, 0) || \
-!parse_float(tokens[2], &sphere->diameter) || sphere->diameter <= 0 || \
+!parse_double(tokens[2], &sphere->diameter) || sphere->diameter <= 0 || \
 !parse_rgb_str(tokens[3], &sphere->color))
 	{
 		free(sphere);
@@ -83,8 +83,8 @@ t_parser_status	parse_cylinder(char **tokens, int count, t_scene *scene)
 		return (PARSER_ERROR);
 	if (!parse_vector_str(tokens[1], &cyl->pos, 0) || \
 !parse_vector_str(tokens[2], &cyl->dir, 1) || \
-!parse_float(tokens[3], &cyl->diameter) || cyl->diameter <= 0 || \
-!parse_float(tokens[4], &cyl->height) || cyl->height <= 0 || \
+!parse_double(tokens[3], &cyl->diameter) || cyl->diameter <= 0 || \
+!parse_double(tokens[4], &cyl->height) || cyl->height <= 0 || \
 !parse_rgb_str(tokens[5], &cyl->color))
 	{
 		free(cyl);

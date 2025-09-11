@@ -6,36 +6,13 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 16:41:06 by cwon              #+#    #+#             */
-/*   Updated: 2025/09/11 10:07:07 by cwon             ###   ########.fr       */
+/*   Updated: 2025/09/11 13:09:01 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vector.h"
 
 #include <stdio.h>
-
-#include "libft.h"
-
-bool	is_normed(t_vector *vec)
-{
-	return (ft_isbetween(vec->x, -1.0, 1.0) && \
-ft_isbetween(vec->y, -1.0, 1.0) && ft_isbetween(vec->z, -1.0, 1.0));
-}
-
-size_t	split_vector_str(char *str, char **out)
-{
-	char	*token;
-	size_t	count;
-
-	count = 0;
-	token = ft_strtok(str, ",");
-	while (token && count < 3)
-	{
-		out[count++] = token;
-		token = ft_strtok(NULL, ",");
-	}
-	return (count);
-}
 
 void	print_vector(t_vector *vec)
 {

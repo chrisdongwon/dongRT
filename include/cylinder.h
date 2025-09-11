@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 13:36:58 by cwon              #+#    #+#             */
-/*   Updated: 2025/09/11 08:49:35 by cwon             ###   ########.fr       */
+/*   Updated: 2025/09/11 13:05:53 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ typedef struct s_cylinder	t_cylinder;
 
 struct s_cylinder
 {
-	float		diameter;
-	float		height;
+	double		diameter;
+	double		height;
 	t_rgb		color;
 	t_vector	dir;
 	t_vector	pos;
