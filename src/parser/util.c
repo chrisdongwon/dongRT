@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 19:31:00 by cwon              #+#    #+#             */
-/*   Updated: 2025/09/11 07:33:11 by cwon             ###   ########.fr       */
+/*   Updated: 2025/09/11 09:37:30 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ bool	has_rt_extension(const char *filename)
 	return (len > 3 && ft_strcmp(filename + len - 3, ".rt") == 0);
 }
 
-char	*trim(char *str)
+char	*trim_whitespace(char *str)
 {
 	char	*end;
 

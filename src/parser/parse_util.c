@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 14:22:58 by cwon              #+#    #+#             */
-/*   Updated: 2025/09/10 16:54:52 by cwon             ###   ########.fr       */
+/*   Updated: 2025/09/11 10:08:15 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,24 +83,50 @@ bool	parse_rgb_str(const char *str, t_rgb *color)
 	return (is_valid_rgb(color));
 }
 
+// bool	parse_vector_str(const char *str, t_vector *vec, bool is_normalized)
+// {
+// 	char	**arr;
+// 	size_t	i;
+
+// 	arr = ft_split(str, ',');
+// 	if (arr == NULL)
+// 		fatal("ft_split failed");
+// 	i = 0;
+// 	while (arr[i])
+// 		i++;
+// 	if (i != 3)
+// 		return (free_str_array(arr));
+// 	if (!parse_float(arr[0], &vec->x) || !parse_float(arr[1], &vec->y) ||
+// !parse_float(arr[2], &vec->z))
+// 		return (free_str_array(arr));
+// 	free_str_array(arr);
+// 	if (is_normalized)
+// 		return (is_normed(vec));
+// 	return (true);
+// }
+
 bool	parse_vector_str(const char *str, t_vector *vec, bool is_normalized)
 {
-	char	**arr;
-	size_t	i;
+	char	*parts[3];
+	char	*dup;
+	int		count;
 
-	arr = ft_split(str, ',');
-	if (arr == NULL)
-		fatal("ft_split failed");
-	i = 0;
-	while (arr[i])
-		i++;
-	if (i != 3)
-		return (free_str_array(arr));
-	if (!parse_float(arr[0], &vec->x) || !parse_float(arr[1], &vec->y) || \
-!parse_float(arr[2], &vec->z))
-		return (free_str_array(arr));
-	free_str_array(arr);
+	if (!str || !vec || ft_countchar(str, ',') != 2)
+		return (0);
+	dup = ft_strdup(str);
+	if (!dup)
+		return (0);
+	count = split_vector_str(dup, parts);
+	if (count != 3
+		|| !parse_float(parts[0], &vec->x)
+		|| !parse_float(parts[1], &vec->y)
+		|| !parse_float(parts[2], &vec->z))
+	{
+		free(dup);
+		return (0);
+	}
+	free(dup);
 	if (is_normalized)
 		return (is_normed(vec));
-	return (true);
+	return (1);
 }

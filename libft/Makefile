@@ -6,12 +6,12 @@
 #    By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/03 16:52:39 by cwon              #+#    #+#              #
-#    Updated: 2025/09/07 16:37:53 by cwon             ###   ########.fr        #
+#    Updated: 2025/09/11 10:17:17 by cwon             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 NAME = libft.a
 
@@ -26,6 +26,7 @@ SRC = \
 	ft_atoi.c \
 	ft_bzero.c \
 	ft_calloc.c \
+	ft_countchar.c \
 	ft_fnmatch.c \
 	ft_fnmatch.c \
 	ft_greater_than.c \

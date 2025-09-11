@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 19:43:39 by cwon              #+#    #+#             */
-/*   Updated: 2025/09/11 08:59:35 by cwon             ###   ########.fr       */
+/*   Updated: 2025/09/11 11:45:57 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,14 @@ static void	parse_line(int fd, t_scene *scene, t_parser *parser)
 
 	while (get_next_line(fd, &line) && line != NULL)
 	{
-		trimmed = trim(line);
+		trimmed = trim_whitespace(line);
 		if (*trimmed != '\0')
 		{
 			if (parse_token(trimmed, scene, parser) == PARSER_ERROR)
 			{
 				free(line);
 				close(fd);
+				get_next_line(-1, NULL);
 				fatal("Parser error in scene file");
 			}
 		}

@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 15:05:50 by cwon              #+#    #+#             */
-/*   Updated: 2025/09/07 16:44:38 by cwon             ###   ########.fr       */
+/*   Updated: 2025/09/11 09:55:22 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ char	*ft_substr(const char *s, unsigned int start, size_t len);
 int		ft_fnmatch(const char *pattern, const char *string);
 int		ft_strcmp(const char *s1, const char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+size_t	ft_countchar(const char *s, char c);
 size_t	ft_strlcat(char *dst, const char *str, size_t size);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlen(const char *s);

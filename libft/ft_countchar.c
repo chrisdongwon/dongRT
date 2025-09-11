@@ -1,43 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector.c                                           :+:      :+:    :+:   */
+/*   ft_countchar.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/07 16:41:06 by cwon              #+#    #+#             */
-/*   Updated: 2025/09/11 10:07:07 by cwon             ###   ########.fr       */
+/*   Created: 2025/09/11 09:53:01 by cwon              #+#    #+#             */
+/*   Updated: 2025/09/11 09:56:01 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vector.h"
-
-#include <stdio.h>
-
 #include "libft.h"
 
-bool	is_normed(t_vector *vec)
+size_t	ft_countchar(const char *s, char c)
 {
-	return (ft_isbetween(vec->x, -1.0, 1.0) && \
-ft_isbetween(vec->y, -1.0, 1.0) && ft_isbetween(vec->z, -1.0, 1.0));
-}
-
-size_t	split_vector_str(char *str, char **out)
-{
-	char	*token;
 	size_t	count;
 
 	count = 0;
-	token = ft_strtok(str, ",");
-	while (token && count < 3)
+	while (*s)
 	{
-		out[count++] = token;
-		token = ft_strtok(NULL, ",");
+		if (*s == c)
+			count++;
+		s++;
 	}
 	return (count);
-}
-
-void	print_vector(t_vector *vec)
-{
-	printf("(%.2f, %.2f, %.2f)", vec->x, vec->y, vec->z);
 }

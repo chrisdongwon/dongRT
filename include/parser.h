@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 15:34:01 by cwon              #+#    #+#             */
-/*   Updated: 2025/09/10 16:57:48 by cwon             ###   ########.fr       */
+/*   Updated: 2025/09/11 09:37:42 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void			validate_parser(t_parser *parser);
 
 // util.c
 bool			has_rt_extension(const char *filename);
-char			*trim(char *str);
+char			*trim_whitespace(char *str);
 int				get_tokens(char *tokens[MAX_TOKENS], char *line);
 void			fatal(const char *msg);
 void			usage_message(char **argv);
