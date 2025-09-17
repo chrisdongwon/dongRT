@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 14:14:54 by cwon              #+#    #+#             */
-/*   Updated: 2025/09/11 13:10:22 by cwon             ###   ########.fr       */
+/*   Updated: 2025/09/15 16:56:54 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ t_parser *parser)
 		return (PARSER_ERROR);
 	if (!parse_vector_str(tokens[1], &pos, 0))
 		return (PARSER_ERROR);
-	if (!parse_double(tokens[2], &brightness) || !ft_isbetween(brightness, 0, 1))
+	if (!parse_double(tokens[2], &brightness) || \
+!ft_isbetween(brightness, 0, 1))
 		return (PARSER_ERROR);
 	init_rgb(&color, 255, 255, 255);
 	if (count == 4 && !parse_rgb_str(tokens[3], &color))

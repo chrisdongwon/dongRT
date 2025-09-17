@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sphere.h                                           :+:      :+:    :+:   */
+/*   vector_norm.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/06 19:06:45 by cwon              #+#    #+#             */
-/*   Updated: 2025/09/11 13:58:40 by cwon             ###   ########.fr       */
+/*   Created: 2025/09/15 16:22:36 by cwon              #+#    #+#             */
+/*   Updated: 2025/09/15 16:32:29 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SPHERE_H
-# define SPHERE_H
+#include "vector.h"
 
-# include "rgb.h"
-# include "vector.h"
+#include <math.h>
 
-typedef struct s_sphere	t_sphere;
-
-struct s_sphere
+double	norm(t_vector v)
 {
-	double		diameter;
-	double		radius;
-	t_rgb		color;
-	t_vector	center;
-};
+	return (sqrt(dot_product(v, v)));
+}
 
-void	print_sphere(void *ptr);
+t_vector	normalize(t_vector v)
+{
+	double		len;
+	t_vector	result;
 
-#endif
+	len = norm(v);
+	result = vector(0, 0, 0);
+	if (len > 1e-8)
+	{
+		result.x = v.x / len;
+		result.y = v.y / len;
+		result.z = v.z / len;
+	}
+	return (result);
+}

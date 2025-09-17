@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 09:17:44 by cwon              #+#    #+#             */
-/*   Updated: 2025/09/11 13:10:30 by cwon             ###   ########.fr       */
+/*   Updated: 2025/09/11 13:59:32 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ t_parser_status	parse_sphere(char **tokens, int count, t_scene *scene)
 		free(sphere);
 		return (PARSER_ERROR);
 	}
+	sphere->radius = sphere->diameter / 2.0;
 	node = ft_lstnew(sphere);
 	if (node == NULL)
 	{

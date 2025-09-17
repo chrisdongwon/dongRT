@@ -6,7 +6,7 @@
 #    By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/04 15:11:00 by cwon              #+#    #+#              #
-#    Updated: 2025/09/11 12:37:53 by cwon             ###   ########.fr        #
+#    Updated: 2025/09/17 13:13:27 by cwon             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,13 +41,19 @@ UTIL_SRC := \
 	util/scene.c \
 	util/vector.c
 
+VECTOR_SRC := \
+	vector/vector_norm.c \
+	vector/vector_product.c \
+	vector/vector.c
+
 SRC_BONUS := 
 
 ALL_SRC := \
 	$(SRC) \
 	$(ELEM_SRC) \
 	$(PARSER_SRC) \
-	$(UTIL_SRC)
+	$(UTIL_SRC) \
+	$(VECTOR_SRC)
 
 OBJ := $(addprefix $(OBJ_DIR)/, $(ALL_SRC:.c=.o))
 OBJ_BONUS := $(addprefix $(OBJ_DIR)/, $(SRC_BONUS:.c=.o))

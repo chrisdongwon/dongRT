@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sphere.h                                           :+:      :+:    :+:   */
+/*   vector_product.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/06 19:06:45 by cwon              #+#    #+#             */
-/*   Updated: 2025/09/11 13:58:40 by cwon             ###   ########.fr       */
+/*   Created: 2025/09/11 15:51:01 by cwon              #+#    #+#             */
+/*   Updated: 2025/09/15 16:57:18 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SPHERE_H
-# define SPHERE_H
+#include "vector.h"
 
-# include "rgb.h"
-# include "vector.h"
-
-typedef struct s_sphere	t_sphere;
-
-struct s_sphere
+double	dot_product(t_vector v1, t_vector v2)
 {
-	double		diameter;
-	double		radius;
-	t_rgb		color;
-	t_vector	center;
-};
+	return (v1.x * v2.x + v1.y * v2.y + v1.z * v2.z);
+}
 
-void	print_sphere(void *ptr);
-
-#endif
+t_vector	cross_product(t_vector v, t_vector w)
+{
+	return (vector(v.y * w.z - v.z * w.y, v.z * w.x - v.x * w.z, \
+v.x * w.y - v.y * w.x));
+}
