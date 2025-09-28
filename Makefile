@@ -6,7 +6,7 @@
 #    By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/04 15:11:00 by cwon              #+#    #+#              #
-#    Updated: 2025/09/17 13:13:27 by cwon             ###   ########.fr        #
+#    Updated: 2025/09/28 12:09:08 by cwon             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,12 @@ ELEM_SRC := \
 	elements/plane.c \
 	elements/sphere.c
 
+INTERSECTION_SRC :=
+	intersection/hit_cylinder.c \
+	intersection/hit_plane.c \
+	intersection/hit_sphere.c \
+	intersection/hit_util.c
+
 PARSER_SRC := \
 	parser/parse_elements.c \
 	parser/parse_objects.c \
@@ -37,13 +43,16 @@ PARSER_SRC := \
 	parser/util.c
 
 UTIL_SRC := \
+	util/interval.c \
 	util/rgb.c \
 	util/scene.c \
 	util/vector.c
 
 VECTOR_SRC := \
+	vector/ray.c \
 	vector/vector_norm.c \
 	vector/vector_product.c \
+	vector/vector_projection.c \
 	vector/vector.c
 
 SRC_BONUS := 
@@ -51,6 +60,7 @@ SRC_BONUS :=
 ALL_SRC := \
 	$(SRC) \
 	$(ELEM_SRC) \
+	$(INTERSECTION_SRC) \
 	$(PARSER_SRC) \
 	$(UTIL_SRC) \
 	$(VECTOR_SRC)

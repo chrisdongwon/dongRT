@@ -1,32 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cylinder.h                                         :+:      :+:    :+:   */
+/*   ray.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/10 13:36:58 by cwon              #+#    #+#             */
-/*   Updated: 2025/09/28 11:30:26 by cwon             ###   ########.fr       */
+/*   Created: 2025/09/17 16:55:22 by cwon              #+#    #+#             */
+/*   Updated: 2025/09/17 16:56:53 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CYLINDER_H
-# define CYLINDER_H
+#include "ray.h"
 
-# include "rgb.h"
-# include "vector.h"
-
-typedef struct s_cylinder	t_cylinder;
-
-struct s_cylinder
+t_vector	ray_at(t_ray *r, double t)
 {
-	double		diameter;
-	double		height;
-	t_rgb		color;
-	t_vector	dir;
-	t_vector	pos;
-};
-
-void	print_cylinder(void *ptr);
-
-#endif
+	return (vector_addition(r->origin, scalar_multiplication(t, r->dir)));
+}

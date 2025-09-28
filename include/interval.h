@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cylinder.h                                         :+:      :+:    :+:   */
+/*   interval.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/10 13:36:58 by cwon              #+#    #+#             */
-/*   Updated: 2025/09/28 11:30:26 by cwon             ###   ########.fr       */
+/*   Created: 2025/09/19 09:01:49 by cwon              #+#    #+#             */
+/*   Updated: 2025/09/19 10:51:19 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CYLINDER_H
-# define CYLINDER_H
+#ifndef INTERVAL_H
+# define INTERVAL_H
 
-# include "rgb.h"
-# include "vector.h"
+# include <stdbool.h>
 
-typedef struct s_cylinder	t_cylinder;
+# include "quadratic.h"
 
-struct s_cylinder
+typedef struct s_interval	t_interval;
+
+struct s_interval
 {
-	double		diameter;
-	double		height;
-	t_rgb		color;
-	t_vector	dir;
-	t_vector	pos;
+	double	min;
+	double	max;
 };
 
-void	print_cylinder(void *ptr);
+bool	in_interval(double t, t_interval range);
+double	closest_root_in_range(t_quadratic solution, t_interval range);
 
 #endif

@@ -1,32 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cylinder.h                                         :+:      :+:    :+:   */
+/*   vector_projection.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/10 13:36:58 by cwon              #+#    #+#             */
-/*   Updated: 2025/09/28 11:30:26 by cwon             ###   ########.fr       */
+/*   Created: 2025/09/28 11:57:39 by cwon              #+#    #+#             */
+/*   Updated: 2025/09/28 11:58:52 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CYLINDER_H
-# define CYLINDER_H
+#include "vector.h"
 
-# include "rgb.h"
-# include "vector.h"
-
-typedef struct s_cylinder	t_cylinder;
-
-struct s_cylinder
+t_vector	vector_projection(t_vector v, t_vector dir)
 {
-	double		diameter;
-	double		height;
-	t_rgb		color;
-	t_vector	dir;
-	t_vector	pos;
-};
-
-void	print_cylinder(void *ptr);
-
-#endif
+	return (scalar_multiplication(dot_product(v, dir), dir));
+}
