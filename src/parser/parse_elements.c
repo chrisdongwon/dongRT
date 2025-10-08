@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 14:14:54 by cwon              #+#    #+#             */
-/*   Updated: 2025/09/15 16:56:54 by cwon             ###   ########.fr       */
+/*   Updated: 2025/09/28 13:59:08 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ t_parser *parser)
 t_parser_status	parse_camera(char **tokens, int count, t_scene *scene, \
 t_parser *parser)
 {
-	int			fov;
-	t_vector	pos;
+	double		fov;
 	t_vector	dir;
+	t_vector	pos;
 
 	if (count != 4 || parser->has_camera)
 		return (PARSER_ERROR);
@@ -46,11 +46,18 @@ t_parser *parser)
 		return (PARSER_ERROR);
 	if (!parse_vector_str(tokens[2], &dir, 1))
 		return (PARSER_ERROR);
-	if (!parse_int(tokens[3], &fov) || !ft_isbetween(fov, 0, 180))
+	if (!parse_double(tokens[3], &fov) || !ft_isbetween(fov, 0, 180))
 		return (PARSER_ERROR);
-	scene->camera.pos = pos;
-	scene->camera.dir = dir;
 	scene->camera.fov = fov;
+	scene->camera.dir = normalize(dir);
+	scene->camera.pos = pos;
+	scene->camera.up = vector(0.0, 1.0, 0.0);
+	scene->camera.basis.w = normalize(scalar_multiplication(-1.0, \
+scene->camera.dir));
+	scene->camera.basis.u = normalize(cross_product(scene->camera.up, \
+scene->camera.basis.w));
+	scene->camera.basis.v = cross_product(scene->camera.basis.w, \
+scene->camera.basis.u);
 	parser->has_camera = true;
 	return (PARSER_OK);
 }

@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   camera.h                                           :+:      :+:    :+:   */
+/*   basis.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/06 19:01:28 by cwon              #+#    #+#             */
-/*   Updated: 2025/09/28 13:54:30 by cwon             ###   ########.fr       */
+/*   Created: 2025/09/28 13:52:47 by cwon              #+#    #+#             */
+/*   Updated: 2025/09/28 13:53:43 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAMERA_H
-# define CAMERA_H
+#ifndef BASIS_H
+# define BASIS_H
 
-# include "basis.h"
-# include "vector.h"
+#include "vector.h"
 
-typedef struct s_camera	t_camera;
+typedef struct s_basis	t_basis;
 
-struct s_camera
+struct s_basis
 {
-	double		fov;
-	t_basis		basis;
-	t_vector	dir;
-	t_vector	pos;
-	t_vector	up;
+	t_vector	u;
+	t_vector	v;
+	t_vector	w;
 };
 
 #endif

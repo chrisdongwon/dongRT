@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/28 11:42:14 by cwon              #+#    #+#             */
-/*   Updated: 2025/09/28 12:38:34 by cwon             ###   ########.fr       */
+/*   Updated: 2025/09/28 13:21:38 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ static t_vector	cylinder_normal(const t_cylinder *cyl, t_vector p)
 	return (vector_subtraction(v, proj));
 }
 
+// at the moment, this is a hollow cylinder?
 bool	hit_cylinder(const t_cylinder *cyl, const t_ray *ray, \
 t_interval range, t_hit *record)
 {

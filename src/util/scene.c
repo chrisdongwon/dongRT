@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 19:19:39 by cwon              #+#    #+#             */
-/*   Updated: 2025/09/11 08:55:55 by cwon             ###   ########.fr       */
+/*   Updated: 2025/09/28 13:33:00 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	print_scene(t_scene *scene)
 	print_vector(&scene->camera.pos);
 	printf(", orientation=");
 	print_vector(&scene->camera.dir);
-	printf(", fov=%d\n", scene->camera.fov);
+	printf(", fov=%.2f\n", scene->camera.fov);
 	printf("Light: origin=");
 	print_vector(&scene->light.pos);
 	printf(", brightness=%.2f, color=", scene->light.brightness);

@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 16:57:34 by cwon              #+#    #+#             */
-/*   Updated: 2025/09/28 12:08:36 by cwon             ###   ########.fr       */
+/*   Updated: 2025/09/28 13:17:46 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 
 typedef struct s_hit	t_hit;
 typedef struct s_ray	t_ray;
+typedef struct s_scene	t_scene;
 typedef struct s_sphere	t_cylinder;
 typedef struct s_sphere	t_plane;
 typedef struct s_sphere	t_sphere;
@@ -28,6 +29,7 @@ typedef struct s_sphere	t_sphere;
 struct					s_cylinder;
 struct					s_plane;
 struct					s_ray;
+struct					s_scene;
 struct					s_sphere;
 
 struct s_hit
@@ -53,5 +55,9 @@ t_hit *record);
 
 // hit_util.c
 void	reorient_normal(t_ray *ray, t_vector outward_normal, t_hit *record);
+
+// hit.c
+bool	hit_scene(const t_scene *scene, const t_ray *ray, t_interval range, \
+t_hit *record);
 
 #endif
