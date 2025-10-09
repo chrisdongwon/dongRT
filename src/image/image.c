@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   basis.h                                            :+:      :+:    :+:   */
+/*   image.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/28 13:52:47 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/09 13:23:22 by cwon             ###   ########.fr       */
+/*   Created: 2025/10/09 14:45:21 by cwon              #+#    #+#             */
+/*   Updated: 2025/10/09 14:50:15 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BASIS_H
-# define BASIS_H
+#include "image.h"
 
-# include "vector.h"
+#include "ray.h"
+#include "scene.h"
+#include "color.h"
 
-typedef struct s_basis	t_basis;
-
-struct s_basis
+void	img_put_pixel(t_image *img, int x, int y, int color)
 {
-	t_vector	u;
-	t_vector	v;
-	t_vector	w;
-};
+	char	*dst;
 
-#endif
+	if (x < 0 || y < 0 || x >= img->width || y >= img->height)
+		return ;
+	dst = img->data + (y * img->size_line + x * (img->bpp / 8));
+	*(unsigned int *)dst = color;
+}
+
+// to do: render function

@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   basis.h                                            :+:      :+:    :+:   */
+/*   get_ray.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/28 13:52:47 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/09 13:23:22 by cwon             ###   ########.fr       */
+/*   Created: 2025/09/28 13:29:18 by cwon              #+#    #+#             */
+/*   Updated: 2025/10/09 13:16:12 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BASIS_H
-# define BASIS_H
+#include "camera.h"
 
-# include "vector.h"
+#include <math.h>
 
-typedef struct s_basis	t_basis;
+#include "ray.h"
 
-struct s_basis
+t_ray	get_ray(const t_camera *cam, double u_s, double v_s)
 {
-	t_vector	u;
+	t_ray		ray;
 	t_vector	v;
-	t_vector	w;
-};
 
-#endif
+	v = vector_addition(vector_addition(cam->lower_left_corner, \
+scalar_multiplication(u_s, cam->horizontal)), \
+scalar_multiplication(v_s, cam->vertical));
+	ray.origin = cam->pos;
+	ray.dir = normalize(vector_subtraction(v, cam->pos));
+	return (ray);
+}

@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   basis.h                                            :+:      :+:    :+:   */
+/*   image.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/28 13:52:47 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/09 13:23:22 by cwon             ###   ########.fr       */
+/*   Created: 2025/10/09 14:32:04 by cwon              #+#    #+#             */
+/*   Updated: 2025/10/09 14:45:44 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BASIS_H
-# define BASIS_H
+#ifndef IMAGE_H
+# define IMAGE_H
 
-# include "vector.h"
+# include "color.h"
+//# include "mlx.h"
 
-typedef struct s_basis	t_basis;
+typedef struct s_image	t_image;
 
-struct s_basis
+struct s_image
 {
-	t_vector	u;
-	t_vector	v;
-	t_vector	w;
+	char	*data;
+	int		bpp;
+	int		endian;
+	int		height;
+	int		size_line;
+	int		width;
+	void	*ptr;
 };
+
+void	img_put_pixel(t_image *img, int x, int y, int color);
 
 #endif

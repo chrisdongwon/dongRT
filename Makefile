@@ -6,7 +6,7 @@
 #    By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/04 15:11:00 by cwon              #+#    #+#              #
-#    Updated: 2025/09/28 13:02:57 by cwon             ###   ########.fr        #
+#    Updated: 2025/10/09 13:26:59 by cwon             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,10 @@ INC_DIR := include
 SRC := \
 	main.c \
 	miniRT.c
+
+CAMERA_SRC :=
+	camera/camera.c \
+	camera/get_ray.c
 
 INTERSECTION_SRC :=
 	intersection/hit_cylinder.c \
@@ -39,8 +43,8 @@ PARSER_SRC := \
 	parser/parse_objects.c \
 	parser/parse_util.c \
 	parser/parse.c \
-	parser/parser.c \
-	parser/util.c
+	parser/parser_util.c \
+	parser/parser.c
 
 UTIL_SRC := \
 	util/interval.c \
@@ -59,6 +63,7 @@ SRC_BONUS :=
 
 ALL_SRC := \
 	$(SRC) \
+	$(CAMERA_SRC) \
 	$(INTERSECTION_SRC) \
 	$(OBJECTS_SRC) \
 	$(PARSER_SRC) \
