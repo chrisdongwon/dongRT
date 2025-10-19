@@ -5,13 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 16:17:28 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/13 22:41:50 by cwon             ###   ########.fr       */
+/*   Created: 2025/09/06 18:56:19 by cwon              #+#    #+#             */
+/*   Updated: 2025/09/28 11:59:13 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VECTOR_H
 # define VECTOR_H
+
+# include <stdbool.h>
+# include <stddef.h>
 
 typedef struct s_vector	t_vector;
 
@@ -22,22 +25,22 @@ struct s_vector
 	double	z;
 };
 
-// vector_normalize.c
-double		vector_norm(t_vector v);
+// vector_norm.c
+double		norm(t_vector v);
 t_vector	normalize(t_vector v);
 
 // vector_product.c
-double		dot_prod(t_vector u, t_vector v);
-t_vector	cross_prod(t_vector u, t_vector v);
+double		dot_product(t_vector v1, t_vector v2);
+t_vector	cross_product(t_vector v, t_vector w);
 
-// vector_transform.c
-t_vector	vector_clamp(t_vector v, double min, double max);
-t_vector	vector_reflect(t_vector v, t_vector n);
+// vector_projection.c
+t_vector	vector_projection(t_vector v, t_vector dir);
 
-// vector.c
-t_vector	vector_add(t_vector u, t_vector v);
-t_vector	vector_scale(double c, t_vector v);
-t_vector	vector_sub(t_vector u, t_vector v);
+//	vector.c
 t_vector	vector(double x, double y, double z);
+t_vector	vector_addition(t_vector v1, t_vector v2);
+t_vector	vector_subtraction(t_vector v1, t_vector v2);
+t_vector	scalar_multiplication(double c, t_vector vec);
+void		print_vector(t_vector *vec);
 
 #endif

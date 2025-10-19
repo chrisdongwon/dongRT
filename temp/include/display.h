@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   scene.h                                            :+:      :+:    :+:   */
+/*   display.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 16:41:23 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/13 16:43:30 by cwon             ###   ########.fr       */
+/*   Created: 2025/10/12 22:04:09 by cwon              #+#    #+#             */
+/*   Updated: 2025/10/12 22:04:26 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCENE_H
-# define SCENE_H
+#ifndef DISPLAY_H
+# define DISPLAY_H
 
-# include "camera.h"
-# include "vector.h"
+# include "scene.h"
+# include "mlx.h"
 
-typedef struct s_scene	t_scene;
-
-struct s_scene
+typedef struct s_mlx
 {
-	t_camera	cam;
-	//light		*lights; linked list - use t_list?
-	//t_object	*objects; linked list - use t_list?
-	t_vector	ambient_light; // optional: global ambient
-	t_vector	background; // optional: background color
-};
+	void	*mlx;
+	void	*win;
+	void	*img;
+	char	*addr;
+	int		bpp;
+	int		line_len;
+	int		endian;
+	int		width;
+	int		height;
+}	t_mlx;
+
+void	display_scene(t_scene *scene);
 
 #endif

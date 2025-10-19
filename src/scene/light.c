@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   image.h                                            :+:      :+:    :+:   */
+/*   light.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/09 14:32:04 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/09 14:45:44 by cwon             ###   ########.fr       */
+/*   Created: 2025/10/19 14:52:21 by cwon              #+#    #+#             */
+/*   Updated: 2025/10/19 15:00:17 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef IMAGE_H
-# define IMAGE_H
+#include "light.h"
 
-# include "color.h"
-//# include "mlx.h"
+#include <stdlib.h>
 
-typedef struct s_image	t_image;
+#include "libft.h"
 
-struct s_image
+t_light	*new_light(t_light_type type, t_vector v, t_color c, double intensity)
 {
-	char	*data;
-	int		bpp;
-	int		endian;
-	int		height;
-	int		size_line;
-	int		width;
-	void	*ptr;
-};
+	t_light	*l;
 
-void	img_put_pixel(t_image *img, int x, int y, int color);
-
-#endif
+	l = malloc(sizeof(t_light));
+	if (!l)
+		return (NULL);
+	l->type = type;
+	l->pos = v;
+	l->color = c;
+	l->intensity = intensity;
+	return (l);
+}

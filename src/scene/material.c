@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   scene.h                                            :+:      :+:    :+:   */
+/*   material.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 16:41:23 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/13 16:43:30 by cwon             ###   ########.fr       */
+/*   Created: 2025/10/19 15:02:22 by cwon              #+#    #+#             */
+/*   Updated: 2025/10/19 15:40:29 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCENE_H
-# define SCENE_H
+#include "material.h"
 
-# include "camera.h"
-# include "vector.h"
-
-typedef struct s_scene	t_scene;
-
-struct s_scene
+t_material	default_material(void)
 {
-	t_camera	cam;
-	//light		*lights; linked list - use t_list?
-	//t_object	*objects; linked list - use t_list?
-	t_vector	ambient_light; // optional: global ambient
-	t_vector	background; // optional: background color
-};
+	t_material	m;
 
-#endif
+	m.color = color(0.8, 0.8, 0.8);
+	m.diffuse = 0.9;
+	m.specular = 0.5;
+	m.shininess = 64.0;
+	m.reflection = 0.0;
+	m.refraction = 0.0;
+	m.ior = 1.0;
+	return (m);
+}

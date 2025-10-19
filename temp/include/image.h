@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   scene.h                                            :+:      :+:    :+:   */
+/*   image.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 16:41:23 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/13 16:43:30 by cwon             ###   ########.fr       */
+/*   Created: 2025/10/09 14:32:04 by cwon              #+#    #+#             */
+/*   Updated: 2025/10/12 22:06:26 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCENE_H
-# define SCENE_H
+#ifndef IMAGE_H
+# define IMAGE_H
 
-# include "camera.h"
-# include "vector.h"
+# include "color.h"
 
-typedef struct s_scene	t_scene;
+typedef struct s_image	t_image;
 
-struct s_scene
+struct s_image
 {
-	t_camera	cam;
-	//light		*lights; linked list - use t_list?
-	//t_object	*objects; linked list - use t_list?
-	t_vector	ambient_light; // optional: global ambient
-	t_vector	background; // optional: background color
+	char	*data;
+	int		bpp;
+	int		endian;
+	int		height;
+	int		size_line;
+	int		width;
+	void	*ptr;
 };
+
+void	img_put_pixel(t_image *img, int x, int y, int color);
+void	render(t_scene *scene, t_image *img);
 
 #endif

@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   scene.h                                            :+:      :+:    :+:   */
+/*   sphere.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 16:41:23 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/13 16:43:30 by cwon             ###   ########.fr       */
+/*   Created: 2025/09/06 19:06:45 by cwon              #+#    #+#             */
+/*   Updated: 2025/09/11 13:58:40 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCENE_H
-# define SCENE_H
+#ifndef SPHERE_H
+# define SPHERE_H
 
-# include "camera.h"
+# include "rgb.h"
 # include "vector.h"
 
-typedef struct s_scene	t_scene;
+typedef struct s_sphere	t_sphere;
 
-struct s_scene
+struct s_sphere
 {
-	t_camera	cam;
-	//light		*lights; linked list - use t_list?
-	//t_object	*objects; linked list - use t_list?
-	t_vector	ambient_light; // optional: global ambient
-	t_vector	background; // optional: background color
+	double		diameter;
+	double		radius;
+	t_rgb		color;
+	t_vector	center;
 };
+
+void	print_sphere(void *ptr);
 
 #endif

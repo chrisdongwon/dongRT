@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   scene.h                                            :+:      :+:    :+:   */
+/*   vector_product.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 16:41:23 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/13 16:43:30 by cwon             ###   ########.fr       */
+/*   Created: 2025/10/13 17:43:43 by cwon              #+#    #+#             */
+/*   Updated: 2025/10/13 17:47:17 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCENE_H
-# define SCENE_H
+#include "vector.h"
 
-# include "camera.h"
-# include "vector.h"
-
-typedef struct s_scene	t_scene;
-
-struct s_scene
+double	dot_prod(t_vector u, t_vector v)
 {
-	t_camera	cam;
-	//light		*lights; linked list - use t_list?
-	//t_object	*objects; linked list - use t_list?
-	t_vector	ambient_light; // optional: global ambient
-	t_vector	background; // optional: background color
-};
+	return (u.x * v.x + u.y * v.y + u.z * v.z);
+}
 
-#endif
+t_vector	cross_prod(t_vector u, t_vector v)
+{
+	double	x;
+	double	y;
+	double	z;
+
+	x = u.y * v.z - u.z * v.y;
+	y = u.z * v.x - u.x * v.z;
+	z = u.x * v.y - u.y * v.x;
+	return (vector(x, y, z));
+}

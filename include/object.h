@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   scene.h                                            :+:      :+:    :+:   */
+/*   object.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 16:41:23 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/13 16:43:30 by cwon             ###   ########.fr       */
+/*   Created: 2025/10/13 16:38:37 by cwon              #+#    #+#             */
+/*   Updated: 2025/10/13 16:41:12 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCENE_H
-# define SCENE_H
+#ifndef OBJECT_H
+# define OBJECT_H
 
-# include "camera.h"
-# include "vector.h"
+# include "material.h"
 
-typedef struct s_scene	t_scene;
+typedef enum e_obj_type	t_obj_type;
+typedef struct s_object	t_object;
 
-struct s_scene
+enum e_obj_type
 {
-	t_camera	cam;
-	//light		*lights; linked list - use t_list?
-	//t_object	*objects; linked list - use t_list?
-	t_vector	ambient_light; // optional: global ambient
-	t_vector	background; // optional: background color
+	SPHERE_OBJ,
+	PLANE_OBJ,
+	CYLINDER_OBJ
+};
+
+struct s_object
+{
+	t_obj_type	type;
+	void		*shape; // pointer to sphere/plane/cylinder
+	t_material	mat;
+	// t_object *next; (use t_list?)
 };
 
 #endif

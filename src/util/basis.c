@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   scene.h                                            :+:      :+:    :+:   */
+/*   basis.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 16:41:23 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/13 16:43:30 by cwon             ###   ########.fr       */
+/*   Created: 2025/10/16 10:26:31 by cwon              #+#    #+#             */
+/*   Updated: 2025/10/16 10:35:44 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCENE_H
-# define SCENE_H
+#include "basis.h"
 
-# include "camera.h"
-# include "vector.h"
+#include <math.h>
 
-typedef struct s_scene	t_scene;
-
-struct s_scene
+t_basis	basis(t_vector i, t_vector k)
 {
-	t_camera	cam;
-	//light		*lights; linked list - use t_list?
-	//t_object	*objects; linked list - use t_list?
-	t_vector	ambient_light; // optional: global ambient
-	t_vector	background; // optional: background color
-};
+	t_basis	b;
 
-#endif
+	b.i = normalize(i);
+	if (fabs(dot(i, k)) > 0.999)
+		k = vector(0.0, 0.0, 1.0);
+	b.j = normalize(cross_prod(b.i, k));
+	b.k = cross_prod(b.j, b.i);
+	return (b);
+}

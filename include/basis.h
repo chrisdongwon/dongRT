@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/28 13:52:47 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/09 13:23:22 by cwon             ###   ########.fr       */
+/*   Created: 2025/10/16 10:26:16 by cwon              #+#    #+#             */
+/*   Updated: 2025/10/18 20:06:38 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,12 @@ typedef struct s_basis	t_basis;
 
 struct s_basis
 {
-	t_vector	u;
-	t_vector	v;
-	t_vector	w;
+	t_vector	i;
+	t_vector	j;
+	t_vector	k;
 };
+
+// basis.c
+t_basis	basis(t_vector i, t_vector k);
 
 #endif

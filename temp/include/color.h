@@ -5,32 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 16:22:19 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/14 14:46:47 by cwon             ###   ########.fr       */
+/*   Created: 2025/10/09 13:20:09 by cwon              #+#    #+#             */
+/*   Updated: 2025/10/09 14:48:03 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef COLOR_H
 # define COLOR_H
 
-typedef struct s_color	t_color;
+# include "rgb.h"
+# include "vector.h"
 
-struct s_color
-{
-	double	r;
-	double	g;
-	double	b;
-};
+typedef t_vector	t_color;
 
-// color_transform.c
+// color_convert.c
 int		color_to_int(t_color c);
-t_color	color_average(const t_color *colors, int n);
+t_color	rgb_to_color(t_rgb rgb);
+t_rgb	color_to_rgb(t_color c);
 
 // color.c
 t_color	color_add(t_color a, t_color b);
-t_color	color_clamp(t_color c, double min, double max);
-t_color	color_scale(t_color c, double s);
+t_color	color_clamp(t_color c);
+t_color	color_hadamard(t_color a, t_color b);
+t_color	color_multiply(t_color a, double scalar);
 t_color	color(double r, double g, double b);
-t_color	hadamard_prod(t_color a, t_color b);
+
+// ray_color.c
+t_color	ray_color(const t_ray *ray, const t_scene *scene);
 
 #endif

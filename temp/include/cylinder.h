@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   scene.h                                            :+:      :+:    :+:   */
+/*   cylinder.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 16:41:23 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/13 16:43:30 by cwon             ###   ########.fr       */
+/*   Created: 2025/09/10 13:36:58 by cwon              #+#    #+#             */
+/*   Updated: 2025/09/28 11:30:26 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCENE_H
-# define SCENE_H
+#ifndef CYLINDER_H
+# define CYLINDER_H
 
-# include "camera.h"
+# include "rgb.h"
 # include "vector.h"
 
-typedef struct s_scene	t_scene;
+typedef struct s_cylinder	t_cylinder;
 
-struct s_scene
+struct s_cylinder
 {
-	t_camera	cam;
-	//light		*lights; linked list - use t_list?
-	//t_object	*objects; linked list - use t_list?
-	t_vector	ambient_light; // optional: global ambient
-	t_vector	background; // optional: background color
+	double		diameter;
+	double		height;
+	t_rgb		color;
+	t_vector	dir;
+	t_vector	pos;
 };
+
+void	print_cylinder(void *ptr);
 
 #endif

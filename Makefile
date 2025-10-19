@@ -6,69 +6,39 @@
 #    By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/04 15:11:00 by cwon              #+#    #+#              #
-#    Updated: 2025/10/09 13:26:59 by cwon             ###   ########.fr        #
+#    Updated: 2025/10/14 14:50:02 by cwon             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := miniRT
 
 CC := cc
-CFLAGS := -Wall -Wextra -Werror -O3 -MMD -MP -g
+CFLAGS := -Wall -Wextra -Werror -MMD -MP -O3 -g
 
 SRC_DIR := src
 OBJ_DIR := obj
 INC_DIR := include
 
+UTIL_SRC := \
+	util/color_transform.c \
+	util/color.c \
+	util/matrix_product.c \
+	util/matrix.c \
+	util/ray.c \
+	util/vector_normalize.c \
+	util/vector_product.c \
+	util/vector_transform.c \
+	util/vector.c
+
 SRC := \
 	main.c \
 	miniRT.c
 
-CAMERA_SRC :=
-	camera/camera.c \
-	camera/get_ray.c
-
-INTERSECTION_SRC :=
-	intersection/hit_cylinder.c \
-	intersection/hit_plane.c \
-	intersection/hit_sphere.c \
-	intersection/hit_util.c
-
-OBJECTS_SRC := \
-	objects/cylinder.c \
-	objects/plane.c \
-	objects/sphere.c
-
-PARSER_SRC := \
-	parser/parse_elements.c \
-	parser/parse_objects.c \
-	parser/parse_util.c \
-	parser/parse.c \
-	parser/parser_util.c \
-	parser/parser.c
-
-UTIL_SRC := \
-	util/interval.c \
-	util/rgb.c \
-	util/scene.c \
-	util/vector.c
-
-VECTOR_SRC := \
-	vector/ray.c \
-	vector/vector_norm.c \
-	vector/vector_product.c \
-	vector/vector_projection.c \
-	vector/vector.c
-
 SRC_BONUS := 
 
 ALL_SRC := \
-	$(SRC) \
-	$(CAMERA_SRC) \
-	$(INTERSECTION_SRC) \
-	$(OBJECTS_SRC) \
-	$(PARSER_SRC) \
 	$(UTIL_SRC) \
-	$(VECTOR_SRC)
+	$(SRC)
 
 OBJ := $(addprefix $(OBJ_DIR)/, $(ALL_SRC:.c=.o))
 OBJ_BONUS := $(addprefix $(OBJ_DIR)/, $(SRC_BONUS:.c=.o))

@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   image.c                                            :+:      :+:    :+:   */
+/*   light.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/09 14:45:21 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/09 14:50:15 by cwon             ###   ########.fr       */
+/*   Created: 2025/09/06 19:02:47 by cwon              #+#    #+#             */
+/*   Updated: 2025/09/11 13:05:57 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "image.h"
+#ifndef LIGHT_H
+# define LIGHT_H
 
-#include "ray.h"
-#include "scene.h"
-#include "color.h"
+# include "rgb.h"
+# include "vector.h"
 
-void	img_put_pixel(t_image *img, int x, int y, int color)
+typedef struct s_light	t_light;
+
+struct s_light
 {
-	char	*dst;
+	double		brightness;
+	t_rgb		color;
+	t_vector	pos;
+};
 
-	if (x < 0 || y < 0 || x >= img->width || y >= img->height)
-		return ;
-	dst = img->data + (y * img->size_line + x * (img->bpp / 8));
-	*(unsigned int *)dst = color;
-}
-
-// to do: render function
+#endif

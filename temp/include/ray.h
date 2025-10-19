@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   scene.h                                            :+:      :+:    :+:   */
+/*   ray.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 16:41:23 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/13 16:43:30 by cwon             ###   ########.fr       */
+/*   Created: 2025/09/17 16:52:00 by cwon              #+#    #+#             */
+/*   Updated: 2025/10/09 10:30:10 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCENE_H
-# define SCENE_H
+#ifndef RAY_H
+# define RAY_H
 
-# include "camera.h"
 # include "vector.h"
 
-typedef struct s_scene	t_scene;
+typedef struct s_ray	t_ray;
 
-struct s_scene
+struct s_ray
 {
-	t_camera	cam;
-	//light		*lights; linked list - use t_list?
-	//t_object	*objects; linked list - use t_list?
-	t_vector	ambient_light; // optional: global ambient
-	t_vector	background; // optional: background color
+	t_vector	dir;
+	t_vector	origin;
 };
+
+// ray.c
+t_vector	ray_at(t_ray *r, double t);
 
 #endif
