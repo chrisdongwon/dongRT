@@ -6,7 +6,7 @@
 #    By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/04 15:11:00 by cwon              #+#    #+#              #
-#    Updated: 2025/10/14 14:50:02 by cwon             ###   ########.fr        #
+#    Updated: 2025/10/24 14:33:39 by cwon             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,22 @@ SRC_DIR := src
 OBJ_DIR := obj
 INC_DIR := include
 
+PARSER_SRC := \
+	parser/parser_validate.c \
+	parser/parser.c
+
+SCENE_SRC := \
+	scene/camera.c \
+	scene/light_info.c \
+	scene/light.c \
+	scene/material.c \
+	scene/object.c \
+	scene/scene.c \
+	scene/shade.c \
+	scene/surface.c
+
 UTIL_SRC := \
+	util/basis.c \
 	util/color_transform.c \
 	util/color.c \
 	util/matrix_product.c \
@@ -37,6 +52,8 @@ SRC := \
 SRC_BONUS := 
 
 ALL_SRC := \
+	$(PARSER_SRC) \
+	$(SCENE_SRC) \
 	$(UTIL_SRC) \
 	$(SRC)
 

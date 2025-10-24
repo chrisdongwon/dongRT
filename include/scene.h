@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 16:41:23 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/13 16:43:30 by cwon             ###   ########.fr       */
+/*   Updated: 2025/10/24 14:40:39 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,25 @@
 # define SCENE_H
 
 # include "camera.h"
+# include "color.h"
 # include "vector.h"
 
+typedef struct s_list	t_list;
 typedef struct s_scene	t_scene;
+
+struct					s_list;
 
 struct s_scene
 {
 	t_camera	cam;
-	//light		*lights; linked list - use t_list?
-	//t_object	*objects; linked list - use t_list?
-	t_vector	ambient_light; // optional: global ambient
-	t_vector	background; // optional: background color
+	t_color		ambient_light;
+	t_color		background;
+	t_list		*lights;
+	t_list		*objects;
 };
+
+// scene.c
+void	init_scene(t_scene *scene);
+void	flush_scene(t_scene *scene);
 
 #endif

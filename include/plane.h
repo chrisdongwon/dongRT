@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 16:36:05 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/13 16:36:44 by cwon             ###   ########.fr       */
+/*   Updated: 2025/10/24 10:37:16 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ typedef struct s_plane	t_plane;
 struct s_plane
 {
 	t_vector	point;
-	t_vector	normal; // normalized
+	t_vector	normal;
 };
 
 #endif

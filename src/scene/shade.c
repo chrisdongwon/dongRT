@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 08:10:50 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/24 08:26:07 by cwon             ###   ########.fr       */
+/*   Updated: 2025/10/24 13:00:44 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ t_color	shade_specular(const t_shade *s)
 	if (s->light_proj <= 0.0 || s->shadow <= 0.0)
 		return (color(0, 0, 0));
 	reflect_dir = vector_reflect(vector_scale(-1.0, s->light_dir), s->normal);
-	angle = fmax(0.0, dot(s->view_dir, reflect_dir));
+	angle = fmax(0.0, dot_prod(s->view_dir, reflect_dir));
 	intensity = pow(angle, s->mat.shininess) * s->mat.specular * s->shadow;
 	specular = color_scale(s->light_color, intensity);
 	return (color_clamp(specular, 0.0, 1.0));

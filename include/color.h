@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 16:22:19 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/14 14:46:47 by cwon             ###   ########.fr       */
+/*   Updated: 2025/10/24 10:36:22 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 typedef struct s_color	t_color;
 
-struct s_color
+struct s_color // scaled from [0,255] to [0, 1]
 {
 	double	r;
 	double	g;
