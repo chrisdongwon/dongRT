@@ -1,49 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   parse_lines.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/24 12:42:30 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/26 14:31:47 by cwon             ###   ########.fr       */
+/*   Created: 2025/10/24 22:09:09 by cwon              #+#    #+#             */
+/*   Updated: 2025/10/25 17:15:30 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 
 #include <errno.h>
-#include <fcntl.h>
+#include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
 
 #include "libft.h"
 #include "miniRT.h"
 #include "scene.h"
 
-static int	open_scene_file(const char *path)
+static char	*trim_line(char *line, t_scene *scene)
 {
-	int	fd;
+	char	*trimmed;
 
-	fd = open(path, O_RDONLY);
-	if (fd < 0)
-		error_exit(path, strerror(errno), 0);
-	return (fd);
+	trimmed = ft_strtrim(line, "\t\n\v\f\r ");
+	free(line);
+	if (trimmed == NULL)
+		error_exit("ft_strtrim", strerror(errno), scene);
+	return (trimmed);
 }
 
-void	parse(const int argc, char **argv, t_scene *scene)
+void	parse_lines(int fd, t_scene *scene)
 {
-	int	fd;
+	char	*line;
+	t_list	*list;
 
-	validate_arg(argc, argv);
-	fd = open_scene_file(argv[1]);
-	parse_lines(fd, scene);
-	close(fd);
-	// validate_scene(scene);
-}
-
-void	parser_error(const char *context, const char *msg, t_scene *scene)
-{
-	ft_putendl_fd("Error", STDERR_FILENO);
-	error_exit(context, msg, scene);
+	while (get_next_line(fd, &line))
+	{
+		line = trim_line(line, scene);
+		if (*line != '\0')
+		{
+			list = split_line(line, scene);
+			parse_list(list, scene);
+			ft_lstclear(&list, free);
+		}
+		free(line);
+	}
 }
