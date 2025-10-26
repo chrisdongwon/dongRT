@@ -1,38 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   scene.h                                            :+:      :+:    :+:   */
+/*   parse_object.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 16:41:23 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/26 22:35:17 by cwon             ###   ########.fr       */
+/*   Created: 2025/10/26 22:22:40 by cwon              #+#    #+#             */
+/*   Updated: 2025/10/26 22:27:07 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCENE_H
-# define SCENE_H
+#include "parser.h"
 
-# include "camera.h"
-# include "color.h"
-# include "vector.h"
+#include "libft.h"
+#include "scene.h"
 
-typedef struct s_list	t_list;
-typedef struct s_scene	t_scene;
-
-struct					s_list;
-
-struct s_scene
+void	parse_object(t_list *list, t_scene *scene)
 {
-	t_camera	*cam;
-	t_color		*ambient_light;
-	t_color		background;
-	t_list		*lights;
-	t_list		*objects;
-};
-
-// scene.c
-void	init_scene(t_scene *scene);
-void	flush_scene(t_scene *scene);
-
-#endif
+	(void)list;
+	(void)scene;
+	ft_printf("object identifier detected - but which?\n");
+}
