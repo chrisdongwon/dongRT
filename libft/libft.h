@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 15:05:50 by cwon              #+#    #+#             */
-/*   Updated: 2025/09/11 09:55:22 by cwon             ###   ########.fr       */
+/*   Updated: 2025/10/27 13:17:55 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlen(const char *s);
 size_t	ft_strnlen(const char *s, size_t maxlen);
 ssize_t	ft_indexof(char *s, int c);
+void	ft_split_free(char **arr);
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 
 #endif
