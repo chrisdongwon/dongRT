@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 22:28:26 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/26 14:20:24 by cwon             ###   ########.fr       */
+/*   Updated: 2025/10/27 15:33:24 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 
 #include "libft.h"
-#include "miniRT.h"
+#include "mini_rt.h"
 #include "scene.h"
 
 static bool	add_token_to_list(t_list **head, char *token)
@@ -37,14 +38,12 @@ static bool	add_token_to_list(t_list **head, char *token)
 
 static char	*extract_token(const char *line, size_t *i)
 {
-	char	*token;
 	size_t	start;
 
 	start = *i;
 	while (line[*i] && !ft_isspace((unsigned char)line[*i]))
 		(*i)++;
-	token = ft_substr(line, start, *i - start);
-	return (token);
+	return (ft_substr(line, start, *i - start));
 }
 
 static size_t	skip_whitespace(const char *str, size_t i)
@@ -54,31 +53,30 @@ static size_t	skip_whitespace(const char *str, size_t i)
 	return (i);
 }
 
-static void	split_line_error(char *line, t_list *head, t_scene *scene)
+static void	split_line_error(t_parser *parser)
 {
-	ft_lstclear(&head, free);
-	free(line);
-	error_exit("split_line", strerror(errno), scene);
+	ft_lstclear(&parser->list, free);
+	free(parser->line);
+	close(parser->fd);
+	get_next_line(-1, NULL);
+	mini_rt_error("split_line", strerror(errno), parser->scene);
 }
 
-t_list	*split_line(char *line, t_scene *scene)
+void	split_line(t_parser *parser)
 {
 	char	*token;
 	size_t	i;
-	t_list	*head;
 
-	head = NULL;
 	i = 0;
-	while (line[i] != '\0')
+	while (parser->line[i] != '\0')
 	{
-		i = skip_whitespace(line, i);
-		if (line[i] == '\0')
+		i = skip_whitespace(parser->line, i);
+		if (parser->line[i] == '\0')
 			break ;
-		token = extract_token(line, &i);
-		if (!token || !add_token_to_list(&head, token))
-			split_line_error(line, head, scene);
+		token = extract_token(parser->line, &i);
+		if (!token || !add_token_to_list(&parser->list, token))
+			split_line_error(parser);
 	}
-	if (head == NULL)
-		split_line_error(line, head, scene);
-	return (head);
+	if (parser->list == NULL)
+		split_line_error(parser);
 }

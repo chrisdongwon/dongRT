@@ -6,11 +6,11 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 15:27:41 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/13 16:03:54 by cwon             ###   ########.fr       */
+/*   Updated: 2025/10/27 14:05:44 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
+#include "mini_rt.h"
 
 int	main(int argc, char **argv)
 {

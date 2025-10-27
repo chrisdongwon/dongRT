@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 22:22:40 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/26 22:27:07 by cwon             ###   ########.fr       */
+/*   Updated: 2025/10/27 15:42:31 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 #include "libft.h"
 #include "scene.h"
 
-void	parse_object(t_list *list, t_scene *scene)
+void	parse_object(t_parser *parser)
 {
-	(void)list;
-	(void)scene;
+	(void)parser;
 	ft_printf("object identifier detected - but which?\n");
 }

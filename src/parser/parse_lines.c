@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 22:09:09 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/25 17:15:30 by cwon             ###   ########.fr       */
+/*   Updated: 2025/10/27 15:37:56 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,36 +15,44 @@
 #include <errno.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 
 #include "libft.h"
-#include "miniRT.h"
+#include "mini_rt.h"
 #include "scene.h"
 
-static char	*trim_line(char *line, t_scene *scene)
+static char	*trim_line(t_parser *parser)
 {
 	char	*trimmed;
 
-	trimmed = ft_strtrim(line, "\t\n\v\f\r ");
-	free(line);
+	trimmed = ft_strtrim(parser->line, "\t\n\v\f\r ");
+	free(parser->line);
 	if (trimmed == NULL)
-		error_exit("ft_strtrim", strerror(errno), scene);
+	{
+		close(parser->fd);
+		get_next_line(-1, NULL);
+		mini_rt_error("ft_strtrim", strerror(errno), parser->scene);
+	}
 	return (trimmed);
 }
 
-void	parse_lines(int fd, t_scene *scene)
+static void	reset_list(t_parser *parser)
 {
-	char	*line;
-	t_list	*list;
+	ft_lstclear(&parser->list, free);
+	parser->list = NULL;
+}
 
-	while (get_next_line(fd, &line))
+void	parse_lines(t_parser *parser)
+{
+	while (get_next_line(parser->fd, &parser->line))
 	{
-		line = trim_line(line, scene);
-		if (*line != '\0')
+		parser->line = trim_line(parser);
+		if (*(parser->line) != '\0')
 		{
-			list = split_line(line, scene);
-			parse_list(list, scene);
-			ft_lstclear(&list, free);
+			split_line(parser);
+			parse_list(parser);
+			reset_list(parser);
 		}
-		free(line);
+		free(parser->line);
 	}
 }

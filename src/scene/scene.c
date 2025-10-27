@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 13:57:25 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/26 22:36:08 by cwon             ###   ########.fr       */
+/*   Updated: 2025/10/27 13:56:32 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 void	init_scene(t_scene *scene)
 {
 	ft_memset(scene, 0, sizeof(t_scene));
+	scene->background = color(0.5, 0.5, 0.5);
 }
 
 void	flush_scene(t_scene *scene)

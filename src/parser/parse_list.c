@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 22:45:51 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/26 22:21:01 by cwon             ###   ########.fr       */
+/*   Updated: 2025/10/27 15:39:44 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 #include <stdlib.h>
 
 #include "libft.h"
+
+// static char **init_objects()
+// {
+	
+// }
 
 static bool	is_object(const char *id)
 {
@@ -39,19 +44,19 @@ static char	*get_identifier(t_list *list)
 	return ((char *)list->content);
 }
 
-void	parse_list(t_list *list, t_scene *scene)
+void	parse_list(t_parser *parser)
 {
 	char	*id;
 
-	id = get_identifier(list);
+	id = get_identifier(parser->list);
 	if (ft_strcmp(id, "A") == 0)
-		parse_ambient(list, scene);
+		parse_ambient(parser);
 	else if (ft_strcmp(id, "C") == 0)
-		parse_camera(list, scene);
+		parse_camera(parser);
 	else if (ft_strcmp(id, "L") == 0)
-		parse_light(list, scene);
+		parse_light(parser);
 	else if (is_object(id))
-		parse_object(list, scene);
+		parse_object(parser);
 	else
-		parser_error("parse_list", "unknown identifier", scene);
+		parser_error("parse_list", "unknown identifier", parser);
 }

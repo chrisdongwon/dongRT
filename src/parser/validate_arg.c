@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser_validate.c                                  :+:      :+:    :+:   */
+/*   validate_arg.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 12:54:04 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/24 15:45:18 by cwon             ###   ########.fr       */
+/*   Updated: 2025/10/27 14:20:06 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <unistd.h>
 
 #include "libft.h"
-#include "miniRT.h"
+#include "mini_rt.h"
 
 static bool	has_rt_extension(const char *filename)
 {
@@ -39,5 +39,5 @@ void	validate_arg(const int argc, char **argv)
 	if (argc != 2)
 		usage_message();
 	if (!has_rt_extension(argv[1]))
-		error_exit(argv[1], "file must have .rt extension", 0);
+		mini_rt_error(argv[1], "file must have .rt extension", 0);
 }
