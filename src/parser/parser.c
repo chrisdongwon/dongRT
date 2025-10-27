@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 12:42:30 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/27 14:51:28 by cwon             ###   ########.fr       */
+/*   Updated: 2025/10/27 15:45:50 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,6 @@ void	parser_error(const char *context, const char *msg, t_parser *parser)
 	if (parser->fd != 0)
 		close(parser->fd);
 	ft_lstclear(&parser->list, free);
-	// get_next_line(-1, NULL); ?
+	get_next_line(-1, NULL);
 	mini_rt_error(context, msg, parser->scene);
 }
