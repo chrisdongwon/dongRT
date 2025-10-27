@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 22:45:51 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/27 15:39:44 by cwon             ###   ########.fr       */
+/*   Updated: 2025/10/27 15:49:38 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,7 @@
 
 #include "libft.h"
 
-// static char **init_objects()
-// {
-	
-// }
-
+// how to make this more extendable?
 static bool	is_object(const char *id)
 {
 	char	*objects[3];
