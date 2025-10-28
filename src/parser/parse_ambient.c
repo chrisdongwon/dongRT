@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 22:22:48 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/27 15:42:17 by cwon             ###   ########.fr       */
+/*   Updated: 2025/10/28 13:30:51 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,16 @@ void	parse_ambient(t_parser *parser)
 {
 	(void)parser;
 	ft_printf("ambient identifier detected\n");
-
-	// if (scene->ambient_light != NULL)
-	// 	parser_error("parse_ambient", "multiple declaration", scene);
-	// if (ft_lstsize(list) != 3)
-	// 	parser_error("parse_ambient", "invalid ambient format", scene);
-	
-	// double	ratio = ft_atof(ft_lstget(tokens, 1)->content);
-	// if (ratio < 0.0 || ratio > 1.0)
-	// 	error_exit("invalid ambient ratio", ft_lstget(tokens, 1)->content);
-	
-	// scene->ambient_light = parse_color(ft_lstget(tokens, 2)->content);
-	// scene->ambient_light.r *= ratio;
-	// scene->ambient_light.g *= ratio;
-	// scene->ambient_light.b *= ratio;
 }
+
+// if (scene->ambient_light != NULL)
+// 	parser_error("parse_ambient", "multiple declaration", scene);
+// if (ft_lstsize(list) != 3)
+// 	parser_error("parse_ambient", "invalid ambient format", scene);
+// double	ratio = ft_atof(ft_lstget(tokens, 1)->content);
+// if (ratio < 0.0 || ratio > 1.0)
+// 	error_exit("invalid ambient ratio", ft_lstget(tokens, 1)->content);
+// scene->ambient_light = parse_color(ft_lstget(tokens, 2)->content);
+// scene->ambient_light.r *= ratio;
+// scene->ambient_light.g *= ratio;
+// scene->ambient_light.b *= ratio;

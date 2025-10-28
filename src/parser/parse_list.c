@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 22:45:51 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/27 15:49:38 by cwon             ###   ########.fr       */
+/*   Updated: 2025/10/28 13:33:36 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,15 @@
 
 #include "libft.h"
 
-// how to make this more extendable?
 static bool	is_object(const char *id)
 {
-	char	*objects[3];
-	size_t	i;
+	const char	*obj_id[] = {"cy", "pl", "sp", NULL};
+	size_t		i;
 
-	objects[0] = "sp";
-	objects[1] = "pl";
-	objects[2] = "cy";
 	i = 0;
-	while (i < 3)
+	while (obj_id[i])
 	{
-		if (ft_strcmp(id, objects[i]) == 0)
+		if (ft_strcmp(id, obj_id[i]) == 0)
 			return (true);
 		i++;
 	}
