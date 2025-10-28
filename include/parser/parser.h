@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 11:06:59 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/27 15:41:32 by cwon             ###   ########.fr       */
+/*   Updated: 2025/10/28 15:21:20 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	parse_object(t_parser *parser);
 
 // parser.c
 void	init_parser(t_parser *parser, t_scene *scene, const char *path);
+void	flush_parser(t_parser *parser);
 void	parse(const int argc, char **argv, t_scene *scene);
 void	parser_error(const char *context, const char *msg, t_parser *parser);
 

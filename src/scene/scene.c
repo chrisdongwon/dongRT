@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 13:57:25 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/27 13:56:32 by cwon             ###   ########.fr       */
+/*   Updated: 2025/10/28 13:51:12 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	init_scene(t_scene *scene)
 void	flush_scene(t_scene *scene)
 {
 	free(scene->cam);
-	free(scene->ambient_light);
+	free(scene->ambient);
 	ft_lstclear(&scene->lights, free);
 	ft_lstclear(&scene->objects, flush_object);
 }

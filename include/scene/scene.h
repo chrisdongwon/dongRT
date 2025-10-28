@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 16:41:23 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/26 22:35:17 by cwon             ###   ########.fr       */
+/*   Updated: 2025/10/28 13:50:48 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ struct					s_list;
 struct s_scene
 {
 	t_camera	*cam;
-	t_color		*ambient_light;
+	t_color		*ambient;
 	t_color		background;
 	t_list		*lights;
 	t_list		*objects;

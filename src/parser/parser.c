@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 12:42:30 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/27 15:45:50 by cwon             ###   ########.fr       */
+/*   Updated: 2025/10/28 15:21:04 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,15 @@ void	init_parser(t_parser *parser, t_scene *scene, const char *path)
 	parser->scene = scene;
 }
 
+void	flush_parser(t_parser *parser)
+{
+	free(parser->line);
+	if (parser->fd != 0)
+		close(parser->fd);
+	ft_lstclear(&parser->list, free);
+	get_next_line(-1, NULL);
+}
+
 void	parse(const int argc, char **argv, t_scene *scene)
 {
 	t_parser	parser;
@@ -54,10 +63,6 @@ void	parse(const int argc, char **argv, t_scene *scene)
 void	parser_error(const char *context, const char *msg, t_parser *parser)
 {
 	ft_putendl_fd("Error", STDERR_FILENO);
-	free(parser->line);
-	if (parser->fd != 0)
-		close(parser->fd);
-	ft_lstclear(&parser->list, free);
-	get_next_line(-1, NULL);
+	flush_parser(parser);
 	mini_rt_error(context, msg, parser->scene);
 }
