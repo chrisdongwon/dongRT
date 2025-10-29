@@ -6,13 +6,14 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 22:22:48 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/28 15:40:02 by cwon             ###   ########.fr       */
+/*   Updated: 2025/10/29 15:46:35 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 
 #include <errno.h>
+#include <stdlib.h>
 #include <string.h>
 
 #include "color.h"
@@ -20,7 +21,7 @@
 #include "mini_rt.h"
 #include "scene.h"
 
-static double get_ambient_ratio(t_parser *parser, t_list *node)
+static double	get_ambient_ratio(t_parser *parser, t_list *node)
 {
 	char	*token;
 	double	ratio;
@@ -38,25 +39,23 @@ static t_color	get_ambient_color(t_parser *parser, t_list *node)
 {
 	char	**arr;
 	char	*str;
+	double	rgb[3];
 
 	str = (char *)node->content;
+	if (str[ft_strlen(str) - 1] == ',')
+		parser_error("parse_ambient", "invalid RGB format", parser);
 	arr = ft_split(str, ',');
 	if (arr == NULL)
 	{
 		flush_parser(parser);
 		mini_rt_error("get_ambient_color", strerror(errno), parser->scene);
 	}
-	if (str[ft_strlen(str) - 1] == ',' || ft_split_size(arr) != 3)
-	{
-		ft_split_free(arr);
-		parser_error("parse_ambient", "invalid RGB format", parser);
-	}
-
-	// check if R G B are integers
-
-	// convert to color (with ratio scaling)
-
-	return (color(0,0,0));
+	validate_rgb(arr, parser);
+	rgb[0] = ft_atof(arr[0]) / 255.0;
+	rgb[1] = ft_atof(arr[1]) / 255.0;
+	rgb[2] = ft_atof(arr[2]) / 255.0;
+	ft_split_free(arr);
+	return (color(rgb[0], rgb[1], rgb[2]));
 }
 
 static void	validate_ambient_argc(t_parser *parser)
@@ -69,20 +68,22 @@ static void	validate_ambient_argc(t_parser *parser)
 
 void	parse_ambient(t_parser *parser)
 {
-	t_list	*node;
 	double	ratio;
 	t_color	color;
+	t_list	*node;
 
-	ft_printf("ambient detected\n");
 	validate_ambient_argc(parser);
 	node = parser->list->next;
 	ratio = get_ambient_ratio(parser, node);
 	node = node->next;
 	color = get_ambient_color(parser, node);
-	(void)color;
-	(void)ratio;
-
-	// allocate memory for ambient
-	
-	// set ambient w/ ratio scaling
+	parser->scene->ambient = malloc(sizeof(t_color));
+	if (parser->scene->ambient == NULL)
+	{
+		flush_parser(parser);
+		mini_rt_error("parse_ambient", strerror(errno), parser->scene);
+	}
+	parser->scene->ambient->r = color.r * ratio;
+	parser->scene->ambient->g = color.g * ratio;
+	parser->scene->ambient->b = color.b * ratio;
 }

@@ -3,7 +3,7 @@ obj/parser/parse_ambient.o: src/parser/parse_ambient.c \
  libft/ft_printf/ft_printf.h libft/ft_string/ft_string.h \
  libft/get_next_line/get_next_line.h include/mini_rt.h \
  include/scene/scene.h include/scene/camera.h include/util/basis.h \
- include/util/vector.h include/util/ray.h include/util/vector.h
+ include/util/vector.h include/util/ray.h
 include/parser/parser.h:
 include/util/color.h:
 libft/libft.h:
@@ -16,4 +16,3 @@ include/scene/camera.h:
 include/util/basis.h:
 include/util/vector.h:
 include/util/ray.h:
-include/util/vector.h:

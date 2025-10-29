@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 11:06:59 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/28 15:21:20 by cwon             ###   ########.fr       */
+/*   Updated: 2025/10/29 15:44:21 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,8 @@ void	split_line(t_parser *parser);
 
 // validate_arg.c
 void	validate_arg(const int argc, char **argv);
+
+// validate_rgb.c
+void	validate_rgb(char **arr, t_parser *p);
 
 #endif

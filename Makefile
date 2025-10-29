@@ -6,7 +6,7 @@
 #    By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/04 15:11:00 by cwon              #+#    #+#              #
-#    Updated: 2025/10/27 15:43:33 by cwon             ###   ########.fr        #
+#    Updated: 2025/10/29 14:35:11 by cwon             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,8 @@ PARSER_SRC := \
 	parser/parse_object.c \
 	parser/parser.c \
 	parser/split_line.c \
-	parser/validate_arg.c
+	parser/validate_arg.c \
+	parser/validate_rgb.c
 
 SCENE_SRC := \
 	scene/camera.c \
