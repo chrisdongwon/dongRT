@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:26:16 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/18 20:06:38 by cwon             ###   ########.fr       */
+/*   Updated: 2025/10/30 13:35:01 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ struct s_basis
 };
 
 // basis.c
-t_basis	basis(t_vector i, t_vector k);
+t_basis	basis(t_vector forward, t_vector up);
 
 #endif

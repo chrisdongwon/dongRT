@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validate_rgb.c                                     :+:      :+:    :+:   */
+/*   validate_vector.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/29 15:09:11 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/30 07:30:00 by cwon             ###   ########.fr       */
+/*   Created: 2025/10/30 09:07:37 by cwon              #+#    #+#             */
+/*   Updated: 2025/10/30 09:15:51 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,24 @@
 
 #include "libft.h"
 
-static void	rgb_error(char **arr, t_parser *p, char *msg)
+static void	vector_error(char **arr, t_parser *p, char *msg)
 {
 	ft_split_free(arr);
-	parser_error("validate_rgb", msg, p);
+	parser_error("validate_vector", msg, p);
 }
 
-void	validate_rgb(char **arr, t_parser *p)
+void	validate_vector(char **arr, t_parser *p, double xyz[3])
 {
-	int		rgb[3];
 	size_t	i;
 
 	if (ft_split_size(arr) != 3)
-		rgb_error(arr, p, "invalid RGB format");
+		vector_error(arr, p, "invalid vector format");
 	i = 0;
 	while (i < 3)
 	{
-		if (!ft_isinteger(arr[i]))
-			rgb_error(arr, p, "RGB values must be integers");
-		rgb[i] = ft_atoi(arr[i]);
-		if (rgb[i] < 0 || rgb[i] > 255)
-			rgb_error(arr, p, "RGB value out of range [0, 255]");
+		if (!ft_isfloat(arr[i]))
+			vector_error(arr, p, "vector values must be numeric");
+		xyz[i] = ft_atof(arr[i]);
 		i++;
 	}
 }

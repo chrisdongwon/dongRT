@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 11:06:59 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/29 15:44:21 by cwon             ###   ########.fr       */
+/*   Updated: 2025/10/30 09:11:07 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,8 @@ void	validate_arg(const int argc, char **argv);
 
 // validate_rgb.c
 void	validate_rgb(char **arr, t_parser *p);
+
+// validate_vector.c
+void	validate_vector(char **arr, t_parser *p, double xyz[3]);
 
 #endif

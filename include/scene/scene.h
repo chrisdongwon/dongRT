@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 16:41:23 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/29 15:15:53 by cwon             ###   ########.fr       */
+/*   Updated: 2025/10/30 13:43:20 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,11 @@
 # include "camera.h"
 # include "color.h"
 
+typedef struct s_camera	t_camera;
 typedef struct s_list	t_list;
 typedef struct s_scene	t_scene;
 
+struct					s_camera;
 struct					s_list;
 
 struct s_scene

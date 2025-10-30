@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 22:22:48 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/29 15:46:35 by cwon             ###   ########.fr       */
+/*   Updated: 2025/10/30 12:44:45 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,13 @@ static t_color	get_ambient_color(t_parser *parser, t_list *node)
 	return (color(rgb[0], rgb[1], rgb[2]));
 }
 
+static void	set_ambient(t_parser *parser, t_color color, double ratio)
+{
+	parser->scene->ambient->r = color.r * ratio;
+	parser->scene->ambient->g = color.g * ratio;
+	parser->scene->ambient->b = color.b * ratio;
+}
+
 static void	validate_ambient_argc(t_parser *parser)
 {
 	if (parser->scene->ambient != NULL)
@@ -83,7 +90,5 @@ void	parse_ambient(t_parser *parser)
 		flush_parser(parser);
 		mini_rt_error("parse_ambient", strerror(errno), parser->scene);
 	}
-	parser->scene->ambient->r = color.r * ratio;
-	parser->scene->ambient->g = color.g * ratio;
-	parser->scene->ambient->b = color.b * ratio;
+	set_ambient(parser, color, ratio);
 }
