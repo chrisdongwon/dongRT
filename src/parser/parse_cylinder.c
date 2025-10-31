@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sphere.h                                           :+:      :+:    :+:   */
+/*   parse_cylinder.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 16:35:05 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/31 15:44:06 by cwon             ###   ########.fr       */
+/*   Created: 2025/10/31 12:50:14 by cwon              #+#    #+#             */
+/*   Updated: 2025/10/31 13:52:18 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SPHERE_H
-# define SPHERE_H
+#include "parser.h"
 
-# include "vector.h"
-# include "color.h"
+#include <stdio.h>
 
-typedef struct s_sphere	t_sphere;
-
-struct s_sphere
+void	parse_cylinder(t_parser *parser)
 {
-	double		radius;
-	t_color		color;
-	t_vector	center;
-};
-
-#endif
+	(void)parser;
+	printf("cylinder detected\n");
+}

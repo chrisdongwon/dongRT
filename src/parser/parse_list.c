@@ -6,30 +6,13 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 22:45:51 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/28 13:33:36 by cwon             ###   ########.fr       */
+/*   Updated: 2025/10/31 12:49:04 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 
-#include <stdlib.h>
-
 #include "libft.h"
-
-static bool	is_object(const char *id)
-{
-	const char	*obj_id[] = {"cy", "pl", "sp", NULL};
-	size_t		i;
-
-	i = 0;
-	while (obj_id[i])
-	{
-		if (ft_strcmp(id, obj_id[i]) == 0)
-			return (true);
-		i++;
-	}
-	return (false);
-}
 
 static char	*get_identifier(t_list *list)
 {
@@ -47,8 +30,12 @@ void	parse_list(t_parser *parser)
 		parse_camera(parser);
 	else if (ft_strcmp(id, "L") == 0)
 		parse_light(parser);
-	else if (is_object(id))
-		parse_object(parser);
+	else if (ft_strcmp(id, "sp") == 0)
+		parse_sphere(parser);
+	else if (ft_strcmp(id, "pl") == 0)
+		parse_plane(parser);
+	else if (ft_strcmp(id, "cy") == 0)
+		parse_cylinder(parser);
 	else
 		parser_error("parse_list", "unknown identifier", parser);
 }

@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_object.c                                     :+:      :+:    :+:   */
+/*   parse_plane.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/26 22:22:40 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/27 15:42:31 by cwon             ###   ########.fr       */
+/*   Created: 2025/10/31 12:50:17 by cwon              #+#    #+#             */
+/*   Updated: 2025/10/31 13:52:22 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 
-#include "libft.h"
-#include "scene.h"
+#include <stdio.h>
 
-void	parse_object(t_parser *parser)
+void	parse_plane(t_parser *parser)
 {
 	(void)parser;
-	ft_printf("object identifier detected - but which?\n");
+	printf("plane detected\n");
 }

@@ -6,7 +6,7 @@
 #    By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/04 15:11:00 by cwon              #+#    #+#              #
-#    Updated: 2025/10/31 07:33:21 by cwon             ###   ########.fr        #
+#    Updated: 2025/10/31 13:54:04 by cwon             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,10 +25,12 @@ LIBFT_DIR := libft
 PARSER_SRC := \
 	parser/parse_ambient.c \
 	parser/parse_camera.c \
+	parser/parse_cylinder.c \
 	parser/parse_light.c \
 	parser/parse_lines.c \
 	parser/parse_list.c \
-	parser/parse_object.c \
+	parser/parse_plane.c \
+	parser/parse_sphere.c \
 	parser/parser.c \
 	parser/split_line.c \
 	parser/validate_arg.c \
