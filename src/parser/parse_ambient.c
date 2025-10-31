@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 22:22:48 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/30 15:37:19 by cwon             ###   ########.fr       */
+/*   Updated: 2025/10/31 07:29:24 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,7 @@ static double	get_ambient_ratio(t_parser *parser, t_list *node)
 	return (ratio);
 }
 
-// do ratio scaling here
-static t_color	get_ambient_color(t_parser *parser, t_list *node)
+static t_color	get_ambient_color(t_parser *parser, t_list *node, double ratio)
 {
 	char	**arr;
 	char	*str;
@@ -52,18 +51,11 @@ static t_color	get_ambient_color(t_parser *parser, t_list *node)
 		mini_rt_error("get_ambient_color", strerror(errno), parser->scene);
 	}
 	validate_rgb(arr, parser);
-	rgb[0] = ft_atof(arr[0]) / 255.0;
-	rgb[1] = ft_atof(arr[1]) / 255.0;
-	rgb[2] = ft_atof(arr[2]) / 255.0;
+	rgb[0] = ft_atof(arr[0]) / 255.0 * ratio;
+	rgb[1] = ft_atof(arr[1]) / 255.0 * ratio;
+	rgb[2] = ft_atof(arr[2]) / 255.0 * ratio;
 	ft_split_free(arr);
 	return (color(rgb[0], rgb[1], rgb[2]));
-}
-
-static void	set_ambient(t_parser *parser, t_color color, double ratio)
-{
-	parser->scene->ambient->r = color.r * ratio;
-	parser->scene->ambient->g = color.g * ratio;
-	parser->scene->ambient->b = color.b * ratio;
 }
 
 static void	validate_ambient_argc(t_parser *parser)
@@ -84,13 +76,12 @@ void	parse_ambient(t_parser *parser)
 	node = parser->list->next;
 	ratio = get_ambient_ratio(parser, node);
 	node = node->next;
-	color = get_ambient_color(parser, node);
+	color = get_ambient_color(parser, node, ratio);
 	parser->scene->ambient = malloc(sizeof(t_color));
 	if (parser->scene->ambient == NULL)
 	{
 		flush_parser(parser);
 		mini_rt_error("parse_ambient", strerror(errno), parser->scene);
 	}
-	// this can be simplified using assignment operator...
-	set_ambient(parser, color, ratio);
+	*(parser->scene->ambient) = color;
 }

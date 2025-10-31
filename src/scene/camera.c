@@ -6,23 +6,30 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:37:42 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/18 20:20:58 by cwon             ###   ########.fr       */
+/*   Updated: 2025/10/31 07:14:20 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "camera.h"
 
 #include <math.h>
+#include <stdlib.h>
 
-t_camera	camera(t_vector origin, t_vector dir, double fov, double aspect)
+#include "mini_rt.h"
+
+t_camera	*new_camera(t_vector pos, t_vector dir, double fov)
 {
-	t_camera	cam;
+	t_camera	*cam;
 
-	cam.pos = origin;
-	cam.fov = fov;
-	cam.aspect = aspect;
-	cam.scale = tan((fov * 0.5) * M_PI / 180);
-	cam.basis = basis(dir, vector(0.0, 1.0, 0.0));
+	cam = malloc(sizeof(t_camera));
+	if (cam != NULL)
+	{
+		cam->aspect = (double)WIN_WIDTH / (double)WIN_HEIGHT;
+		cam->basis = basis(dir, vector(0.0, 1.0, 0.0));
+		cam->fov = fov;
+		cam->pos = pos;
+		cam->scale = tan((fov * 0.5) * M_PI / 180);
+	}
 	return (cam);
 }
 

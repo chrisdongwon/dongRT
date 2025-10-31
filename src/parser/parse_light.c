@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 22:22:38 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/30 15:37:36 by cwon             ###   ########.fr       */
+/*   Updated: 2025/10/31 07:30:21 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ void	parse_light(t_parser *parser)
 
 	validate_light_argc(parser);
 	node = parser->list->next;
-	
+	(void)node;
 }

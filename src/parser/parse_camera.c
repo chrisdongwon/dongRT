@@ -6,15 +6,13 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 22:22:44 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/30 13:39:30 by cwon             ###   ########.fr       */
+/*   Updated: 2025/10/31 07:22:12 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 
 #include <errno.h>
-#include <math.h>
-#include <stdlib.h>
 #include <string.h>
 
 #include "camera.h"
@@ -60,15 +58,6 @@ static t_vector	get_vector(t_parser *parser, t_list *node, bool normalized)
 	return (v);
 }
 
-static void	set_camera(t_parser *p, t_vector pos, t_vector dir, double fov)
-{
-	p->scene->cam->aspect = (double)WIN_WIDTH / (double)WIN_HEIGHT;
-	p->scene->cam->basis = basis(dir, vector(0.0, 1.0, 0.0));
-	p->scene->cam->fov = fov;
-	p->scene->cam->pos = pos;
-	p->scene->cam->scale = tan((p->scene->cam->fov * M_PI / 180.0) / 2.0);
-}
-
 static void	validate_camera_argc(t_parser *parser)
 {
 	if (parser->scene->cam != NULL)
@@ -91,11 +80,10 @@ void	parse_camera(t_parser *parser)
 	dir = get_vector(parser, node, true);
 	node = node->next;
 	fov = get_camera_fov(parser, node);
-	parser->scene->cam = malloc(sizeof(t_camera));
+	parser->scene->cam = new_camera(pos, dir, fov);
 	if (parser->scene->cam == NULL)
 	{
 		flush_parser(parser);
 		mini_rt_error("parse_camera", strerror(errno), parser->scene);
 	}
-	set_camera(parser, pos, dir, fov);
 }
