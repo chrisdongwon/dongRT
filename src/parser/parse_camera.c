@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 22:22:44 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/31 07:22:12 by cwon             ###   ########.fr       */
+/*   Updated: 2025/10/31 09:39:01 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static double	get_camera_fov(t_parser *parser, t_list *node)
 	return (ratio);
 }
 
-static t_vector	get_vector(t_parser *parser, t_list *node, bool normalized)
+static t_vector	get_cam_vector(t_parser *parser, t_list *node, bool normalized)
 {
 	char		**arr;
 	char		*str;
@@ -75,9 +75,9 @@ void	parse_camera(t_parser *parser)
 
 	validate_camera_argc(parser);
 	node = parser->list->next;
-	pos = get_vector(parser, node, false);
+	pos = get_cam_vector(parser, node, false);
 	node = node->next;
-	dir = get_vector(parser, node, true);
+	dir = get_cam_vector(parser, node, true);
 	node = node->next;
 	fov = get_camera_fov(parser, node);
 	parser->scene->cam = new_camera(pos, dir, fov);
