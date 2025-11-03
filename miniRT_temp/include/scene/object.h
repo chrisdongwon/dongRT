@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   object.c                                           :+:      :+:    :+:   */
+/*   object.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/24 14:44:43 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/24 14:46:40 by cwon             ###   ########.fr       */
+/*   Created: 2025/10/13 16:38:37 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/03 14:22:49 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "object.h"
+#ifndef OBJECT_H
+# define OBJECT_H
 
-#include <stdlib.h>
+# include "material.h"
 
-void	flush_object(void *ptr)
+typedef enum e_obj_type	t_obj_type;
+typedef struct s_object	t_object;
+
+enum e_obj_type
 {
-	t_object	*obj;
+	CYLINDER_OBJ,
+	PLANE_OBJ,
+	SPHERE_OBJ
+};
 
-	if (ptr != NULL)
-	{
-		obj = (t_object *)ptr;
-		free(obj->shape);
-	}
-}
+struct s_object
+{
+	t_material	mat;
+	t_obj_type	type;
+	void		*ptr;
+};
+
+// object.c
+void	flush_object(void *ptr);
+
+#endif

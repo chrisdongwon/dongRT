@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   light.h                                            :+:      :+:    :+:   */
+/*   mini_rt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 14:39:56 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/03 14:57:21 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/03 14:08:13 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/03 15:49:01 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIGHT_H
-# define LIGHT_H
+#include "mini_rt.h"
 
-# include "color.h"
-# include "vector.h"
+#include "scene.h"
 
-typedef struct s_light	t_light;
-
-// brightness is a ratio from 0 to 1
-struct s_light
+void	mini_rt(const int argc, char **argv)
 {
-	double		brightness;
-	t_color		color;
-	t_vector	pos;
-};
+	t_scene	scene;
 
-#endif
+	validate_arg(argc, argv);
+	parser(argv[1], &scene);
+	flush_scene(&scene);
+}

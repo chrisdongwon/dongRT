@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   light.h                                            :+:      :+:    :+:   */
+/*   scene.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 14:39:56 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/03 14:57:21 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/03 14:14:54 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/03 14:21:29 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIGHT_H
-# define LIGHT_H
+#include "scene.h"
 
-# include "color.h"
-# include "vector.h"
+#include <stdlib.h>
 
-typedef struct s_light	t_light;
+#include "libft.h"
+#include "object.h"
 
-// brightness is a ratio from 0 to 1
-struct s_light
+void	init_scene(t_scene *scene)
 {
-	double		brightness;
-	t_color		color;
-	t_vector	pos;
-};
+	ft_memset(scene, 0, sizeof(t_scene));
+	scene->background = color(0.5, 0.5, 0.5);
+}
 
-#endif
+void	flush_scene(t_scene *scene)
+{
+	free(scene->cam);
+	free(scene->ambient);
+	free(scene->light);
+	ft_lstclear(&scene->objects, flush_object);
+}

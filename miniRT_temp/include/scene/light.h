@@ -1,38 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   object.h                                           :+:      :+:    :+:   */
+/*   light.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 16:38:37 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/24 22:42:51 by cwon             ###   ########.fr       */
+/*   Created: 2025/10/13 16:29:26 by cwon              #+#    #+#             */
+/*   Updated: 2025/10/30 15:31:31 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef OBJECT_H
-# define OBJECT_H
+#ifndef LIGHT_H
+# define LIGHT_H
 
-# include "material.h"
+# include "color.h"
+# include "vector.h"
 
-typedef enum e_obj_type	t_obj_type;
-typedef struct s_object	t_object;
+typedef struct s_light	t_light;
 
-enum e_obj_type
+struct s_light
 {
-	CYLINDER_OBJ,
-	PLANE_OBJ,
-	SPHERE_OBJ
+	double			intensity;
+	t_color			color;
+	t_vector		pos;
 };
 
-struct s_object
-{
-	t_material	mat;
-	t_obj_type	type;
-	void		*shape; // pointer to sphere/plane/cylinder
-};
-
-// object.c
-void	flush_object(void *ptr);
+t_light	*new_light(t_vector v, t_color c, double intensity);
 
 #endif

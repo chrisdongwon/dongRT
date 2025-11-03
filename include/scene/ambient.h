@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   light.h                                            :+:      :+:    :+:   */
+/*   ambient.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 14:39:56 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/03 14:57:21 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/03 14:58:18 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/03 15:00:07 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIGHT_H
-# define LIGHT_H
+#ifndef AMBIENT_H
+# define AMBIENT_H
 
 # include "color.h"
-# include "vector.h"
 
-typedef struct s_light	t_light;
+typedef struct s_ambient	t_ambient;
 
-// brightness is a ratio from 0 to 1
-struct s_light
+// ratio from 0 to 1
+struct s_ambient
 {
-	double		brightness;
-	t_color		color;
-	t_vector	pos;
+	double	ratio;
+	t_color	color;
 };
 
 #endif

@@ -6,7 +6,7 @@
 #    By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/04 15:11:00 by cwon              #+#    #+#              #
-#    Updated: 2025/10/31 13:54:04 by cwon             ###   ########.fr        #
+#    Updated: 2025/11/03 15:50:13 by cwon             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,54 +22,26 @@ INC_DIR := include
 MLX_DIR := minilibx-linux
 LIBFT_DIR := libft
 
-PARSER_SRC := \
-	parser/parse_ambient.c \
-	parser/parse_camera.c \
-	parser/parse_cylinder.c \
-	parser/parse_light.c \
-	parser/parse_lines.c \
-	parser/parse_list.c \
-	parser/parse_plane.c \
-	parser/parse_sphere.c \
-	parser/parser.c \
-	parser/split_line.c \
-	parser/validate_arg.c \
-	parser/validate_rgb.c \
-	parser/validate_vector.c
+PARSER_SRC :=
 
-SCENE_SRC := \
-	scene/camera.c \
-	scene/light_info.c \
-	scene/light.c \
-	scene/material.c \
-	scene/object.c \
-	scene/scene.c \
-	scene/shade.c \
-	scene/surface.c
+SCENE_SRC :=
 
-UTIL_SRC := \
-	util/basis.c \
-	util/color_transform.c \
-	util/color.c \
-	util/matrix_product.c \
-	util/matrix.c \
-	util/ray.c \
-	util/vector_normalize.c \
-	util/vector_product.c \
-	util/vector_transform.c \
-	util/vector.c
+UTIL_SRC := 
 
-SRC := \
-	main.c \
-	mini_rt.c
+MINIRT_SRC := \
+	miniRT/mini_rt.c \
+	miniRT/validate.c
 
-SRC_BONUS := 
+SRC_BONUS :=
+
+MAIN := main.c
 
 ALL_SRC := \
 	$(PARSER_SRC) \
 	$(SCENE_SRC) \
 	$(UTIL_SRC) \
-	$(SRC)
+	$(MINIRT_SRC) \
+	$(MAIN)
 
 OBJ := $(addprefix $(OBJ_DIR)/, $(ALL_SRC:.c=.o))
 OBJ_BONUS := $(addprefix $(OBJ_DIR)/, $(SRC_BONUS:.c=.o))

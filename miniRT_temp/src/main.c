@@ -1,32 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   scene.c                                            :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/24 13:57:25 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/31 07:31:35 by cwon             ###   ########.fr       */
+/*   Created: 2025/09/05 15:27:41 by cwon              #+#    #+#             */
+/*   Updated: 2025/10/27 14:05:44 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "scene.h"
+#include "mini_rt.h"
 
-#include <stdlib.h>
-
-#include "libft.h"
-#include "object.h"
-
-void	init_scene(t_scene *scene)
+int	main(int argc, char **argv)
 {
-	ft_memset(scene, 0, sizeof(t_scene));
-	scene->background = color(0.5, 0.5, 0.5);
-}
-
-void	flush_scene(t_scene *scene)
-{
-	free(scene->cam);
-	free(scene->ambient);
-	free(scene->light);
-	ft_lstclear(&scene->objects, flush_object);
+	mini_rt(argc, argv);
+	return (0);
 }

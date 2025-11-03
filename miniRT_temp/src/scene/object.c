@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   light.h                                            :+:      :+:    :+:   */
+/*   object.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 14:39:56 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/03 14:57:21 by cwon             ###   ########.fr       */
+/*   Created: 2025/10/24 14:44:43 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/03 14:22:54 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIGHT_H
-# define LIGHT_H
+#include "object.h"
 
-# include "color.h"
-# include "vector.h"
+#include <stdlib.h>
 
-typedef struct s_light	t_light;
-
-// brightness is a ratio from 0 to 1
-struct s_light
+void	flush_object(void *ptr)
 {
-	double		brightness;
-	t_color		color;
-	t_vector	pos;
-};
+	t_object	*obj;
 
-#endif
+	if (ptr != NULL)
+	{
+		obj = (t_object *)ptr;
+		free(obj->ptr);
+	}
+}

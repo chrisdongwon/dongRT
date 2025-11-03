@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   light.h                                            :+:      :+:    :+:   */
+/*   sphere.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 14:39:56 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/03 14:57:21 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/03 14:41:52 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/03 15:06:30 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIGHT_H
-# define LIGHT_H
+#ifndef SPHERE_H
+# define SPHERE_H
 
 # include "color.h"
 # include "vector.h"
 
-typedef struct s_light	t_light;
+typedef struct s_sphere	t_sphere;
 
-// brightness is a ratio from 0 to 1
-struct s_light
+// is radius positive or nonnegative?
+struct s_sphere
 {
-	double		brightness;
-	t_color		color;
-	t_vector	pos;
+	double		radius;
+	t_vector	center;
 };
 
 #endif

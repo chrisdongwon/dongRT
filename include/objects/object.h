@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   light.h                                            :+:      :+:    :+:   */
+/*   object.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 14:39:56 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/03 14:57:21 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/03 15:02:56 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/03 15:17:12 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIGHT_H
-# define LIGHT_H
+#ifndef OBJECT_H
+# define OBJECT_H
 
 # include "color.h"
-# include "vector.h"
 
-typedef struct s_light	t_light;
+typedef enum e_obj_type	t_obj_type;
+typedef struct s_object	t_object;
 
-// brightness is a ratio from 0 to 1
-struct s_light
+enum e_obj_type
 {
-	double		brightness;
+	OBJ_CYLINDER,
+	OBJ_PLANE,
+	OBJ_SPHERE
+};
+
+struct s_object
+{
 	t_color		color;
-	t_vector	pos;
+	t_obj_type	type;
+	void		*element;
 };
 
 #endif
