@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   surface.c                                          :+:      :+:    :+:   */
+/*   object.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/19 20:24:37 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/19 20:25:59 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/03 21:46:07 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/03 21:47:31 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "surface.h"
+#include "object.h"
 
-t_surface	surface(t_material mat, t_vector normal, t_vector hit_point)
+#include <stdlib.h>
+
+void	free_object(void *ptr)
 {
-	t_surface	s;
+	t_object	*obj;
 
-	s.mat = mat;
-	s.normal = normalize(normal);
-	s.hit_point = hit_point;
-	return (s);
+	if (ptr != NULL)
+	{
+		obj = (t_object *)ptr;
+		free(obj->element);
+		free(ptr);
+	}
 }

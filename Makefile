@@ -6,7 +6,7 @@
 #    By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/04 15:11:00 by cwon              #+#    #+#              #
-#    Updated: 2025/11/03 15:50:13 by cwon             ###   ########.fr        #
+#    Updated: 2025/11/03 21:52:20 by cwon             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,9 +22,14 @@ INC_DIR := include
 MLX_DIR := minilibx-linux
 LIBFT_DIR := libft
 
-PARSER_SRC :=
+OBJECTS_SRC := \
+	objects/object.c
 
-SCENE_SRC :=
+PARSER_SRC := \
+	parser/parser.c
+
+SCENE_SRC := \
+	scene/scene.c
 
 UTIL_SRC := 
 
@@ -32,11 +37,12 @@ MINIRT_SRC := \
 	miniRT/mini_rt.c \
 	miniRT/validate.c
 
-SRC_BONUS :=
+# SRC_BONUS :=
 
 MAIN := main.c
 
 ALL_SRC := \
+	$(OBJECTS_SRC) \
 	$(PARSER_SRC) \
 	$(SCENE_SRC) \
 	$(UTIL_SRC) \

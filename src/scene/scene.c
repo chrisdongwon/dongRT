@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   object.h                                           :+:      :+:    :+:   */
+/*   scene.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 16:38:37 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/03 14:22:49 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/03 21:21:09 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/03 21:51:19 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef OBJECT_H
-# define OBJECT_H
+#include "scene.h"
 
-# include "material.h"
+#include <stdlib.h>
 
-typedef enum e_obj_type	t_obj_type;
-typedef struct s_object	t_object;
+#include "libft.h"
+#include "object.h"
 
-enum e_obj_type
+void	init_scene(t_scene *scene)
 {
-	CYLINDER_OBJ,
-	PLANE_OBJ,
-	SPHERE_OBJ
-};
+	ft_memset(scene, 0, sizeof(t_scene));
+}
 
-struct s_object
+void	flush_scene(t_scene *scene)
 {
-	t_material	mat;
-	t_obj_type	type;
-	void		*ptr;
-};
-
-// object.c
-void	flush_object(void *ptr);
-
-#endif
+	free(scene->ambient);
+	free(scene->camera);
+	free(scene->light);
+	ft_lstclear(&scene->objects, free_object);
+}

@@ -1,44 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mini_rt.c                                          :+:      :+:    :+:   */
+/*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/05 15:30:13 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/27 14:11:46 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/03 21:23:37 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/03 22:32:39 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mini_rt.h"
+#include "parser.h"
 
+#include <fcntl.h>
 #include <stdlib.h>
 #include <unistd.h>
 
 #include "libft.h"
-#include "parser.h"
+#include "mini_rt.h"
 #include "scene.h"
 
-void	mini_rt_error(const char *context, const char *msg, t_scene *scene)
+void	flush_parser(t_parser *p)
 {
-	ft_putstr_fd("miniRT: ", STDERR_FILENO);
-	if (context != NULL)
-	{
-		ft_putstr_fd(context, STDERR_FILENO);
-		ft_putstr_fd(": ", STDERR_FILENO);
-	}
-	ft_putendl_fd(msg, STDERR_FILENO);
-	if (scene != NULL)
-		flush_scene(scene);
-	exit(EXIT_FAILURE);
+	if (p->fd != 0)
+		close(p->fd);
+	free(p->line);
+	get_next_line(-1, NULL);
+	flush_scene(p->scene);
 }
 
-void	mini_rt(const int argc, char **argv)
+void	init_parser(t_parser *p, const char *filename, t_scene *scene)
 {
-	t_scene	scene;
+	p->fd = open(filename, O_RDONLY);
+	if (p->fd < 0)
+		mini_rt_error(scene);
+	p->line = NULL;
+	p->scene = scene;
+}
 
-	init_scene(&scene);
-	parse(argc, argv, &scene);
+void	parser(const char *filename, t_scene *scene)
+{
+	t_parser	p;
+	
+	init_parser(&p, filename, scene);
 	// STUB
-	flush_scene(&scene);
+	flush_parser(&p);
 }

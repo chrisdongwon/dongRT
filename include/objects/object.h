@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 15:02:56 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/03 15:17:12 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/03 21:45:44 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,8 @@ struct s_object
 	t_obj_type	type;
 	void		*element;
 };
+
+// object.c
+void	free_object(void *ptr);
 
 #endif

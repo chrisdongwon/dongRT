@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 15:10:19 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/03 15:13:08 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/03 21:49:39 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,16 @@ typedef struct s_light		t_light;
 typedef struct s_list		t_list;
 typedef struct s_scene		t_scene;
 
-struct						s_ambient;
-struct						s_camera;
-struct						s_light;
-struct						s_list;
-
 struct s_scene
 {
 	t_ambient	*ambient;
 	t_camera	*camera;
 	t_light		*light;
-	t_list		*obj_list;
+	t_list		*objects;
 };
+
+// scene.c
+void	init_scene(t_scene *scene);
+void	flush_scene(t_scene *scene);
 
 #endif

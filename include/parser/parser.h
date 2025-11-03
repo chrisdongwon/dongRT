@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   basis.h                                            :+:      :+:    :+:   */
+/*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/16 10:26:16 by cwon              #+#    #+#             */
-/*   Updated: 2025/10/30 13:35:01 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/03 21:21:43 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/03 22:31:18 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BASIS_H
-# define BASIS_H
+#ifndef PARSER_H
+# define PARSER_H
 
-# include "vector.h"
+typedef struct s_parser	t_parser;
+typedef struct s_scene	t_scene;
 
-typedef struct s_basis	t_basis;
-
-struct s_basis
+struct s_parser
 {
-	t_vector	i;
-	t_vector	j;
-	t_vector	k;
+	int		fd;
+	char	*line;
+	t_scene	*scene;
 };
 
-// basis.c
-t_basis	basis(t_vector forward, t_vector up);
+// parser.c
+void	flush_parser(t_parser *p);
+void	init_parser(t_parser *p, const char *filename, t_scene *scene);
+void	parser(const char *filename, t_scene *scene);
 
 #endif
