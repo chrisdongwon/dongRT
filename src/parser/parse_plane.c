@@ -6,13 +6,16 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 14:25:10 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/04 14:29:37 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/04 15:52:21 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 
+#include <stdio.h>
+
 void	parse_plane(t_parser *p)
 {
 	(void)p;
+	printf("plane detected\n");
 }

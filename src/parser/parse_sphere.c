@@ -6,13 +6,16 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 14:24:53 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/04 14:29:41 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/04 15:52:26 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 
+#include <stdio.h>
+
 void	parse_sphere(t_parser *p)
 {
 	(void)p;
+	printf("sphere detected\n");
 }

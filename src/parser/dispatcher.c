@@ -6,13 +6,11 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 14:39:47 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/04 15:38:02 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/04 15:53:18 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "dispatcher.h"
-
-#include <stdio.h> // erase later
 
 #include "libft.h"
 #include "parser.h"
@@ -32,11 +30,8 @@ void	dispatch_subparser(t_parser *p)
 	while (p->subparser[i].id)
 	{
 		if (ft_strcmp(id, p->subparser[i].id) == 0)
-		{
-			printf("%s detected\n", p->subparser[i].id);
-			return ;
-		}
+			return ((p->subparser[i].fn)(p));
 		i++;
 	}
-	parser_error(p, NULL, "Unknown identifier");
+	parser_error(p, id, "Unknown identifier");
 }

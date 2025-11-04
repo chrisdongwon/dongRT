@@ -6,13 +6,16 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 14:24:42 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/04 14:29:31 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/04 15:52:17 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 
+#include <stdio.h>
+
 void	parse_light(t_parser *p)
 {
 	(void)p;
+	printf("light detected\n");
 }
