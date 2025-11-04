@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 21:23:37 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/03 22:32:39 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/04 15:36:56 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,30 +19,53 @@
 #include "libft.h"
 #include "mini_rt.h"
 #include "scene.h"
+#include "dispatcher.h"
 
 void	flush_parser(t_parser *p)
 {
 	if (p->fd != 0)
 		close(p->fd);
-	free(p->line);
 	get_next_line(-1, NULL);
-	flush_scene(p->scene);
+	reset_parser(p);
 }
 
 void	init_parser(t_parser *p, const char *filename, t_scene *scene)
 {
+	static t_dispatcher	entries[] = {\
+{"A", parse_ambient}, \
+{"C", parse_camera}, \
+{"L", parse_light}, \
+{"sp", parse_sphere}, \
+{"pl", parse_plane}, \
+{"cy", parse_cylinder}, \
+{NULL, NULL}};
+
+	p->line = NULL;
+	p->list = NULL;
 	p->fd = open(filename, O_RDONLY);
 	if (p->fd < 0)
 		mini_rt_error(scene);
-	p->line = NULL;
 	p->scene = scene;
+	p->subparser = entries;
 }
 
-void	parser(const char *filename, t_scene *scene)
+void	parser_error(t_parser *p, const char *context, const char *msg)
 {
-	t_parser	p;
-	
-	init_parser(&p, filename, scene);
-	// STUB
-	flush_parser(&p);
+	ft_putendl_fd("Error", STDERR_FILENO);
+	ft_putstr_fd("miniRT: ", STDERR_FILENO);
+	if (context != NULL)
+	{
+		ft_putstr_fd(context, STDERR_FILENO);
+		ft_putstr_fd(": ", STDERR_FILENO);
+	}
+	ft_putendl_fd(msg, STDERR_FILENO);
+	flush_parser(p);
+	flush_scene(p->scene);
+	exit(EXIT_FAILURE);
+}
+
+void	reset_parser(t_parser *p)
+{
+	free(p->line);
+	ft_lstclear(&p->list, free);
 }

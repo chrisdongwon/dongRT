@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mini_rt.c                                          :+:      :+:    :+:   */
+/*   dispatcher.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 14:08:13 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/04 09:20:51 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/04 13:50:49 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/04 14:44:47 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mini_rt.h"
+#ifndef DISPATCHER_H
+# define DISPATCHER_H
 
-#include <stdio.h>
-#include <stdlib.h>
+typedef struct s_dispatcher	t_dispatcher;
+typedef struct s_parser		t_parser;
+typedef void				(*t_parser_fn)(t_parser *p);
 
-#include "scene.h"
-#include "parser.h"
-
-void	mini_rt_error(t_scene *scene)
+struct s_dispatcher
 {
-	perror("miniRT");
-	flush_scene(scene);
-	exit(EXIT_FAILURE);
-}
+	const char	*id;
+	t_parser_fn	fn;
+};
 
-// after parsing, need to implement rendering
-void	mini_rt(const int argc, char **argv)
-{
-	t_scene	scene;
+// dispatcher.c
+void	dispatch_subparser(t_parser *p);
 
-	validate_arg(argc, argv);
-	init_scene(&scene);
-	parse(argv[1], &scene);
-	flush_scene(&scene);
-}
+#endif

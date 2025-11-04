@@ -6,7 +6,7 @@
 #    By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/03 16:52:39 by cwon              #+#    #+#              #
-#    Updated: 2025/10/28 15:17:44 by cwon             ###   ########.fr        #
+#    Updated: 2025/11/04 13:24:07 by cwon             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,6 +62,7 @@ SRC = \
 	ft_putnbr_fd.c \
 	ft_putstr_fd.c \
 	ft_split_free.c \
+	ft_split_list.c \
 	ft_split_size.c \
 	ft_split.c \
 	ft_str_realloc.c \
