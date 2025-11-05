@@ -2,7 +2,8 @@
     "files.associations": {
         "*.h": "c",
         "ios": "c",
-        "__node_handle": "c"
+        "__node_handle": "c",
+        "ratio": "c"
     },
     "makefile.configureOnOpen": false,
     "C_Cpp.default.compilerPath": "/usr/bin/clang"

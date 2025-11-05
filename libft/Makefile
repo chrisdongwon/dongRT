@@ -6,7 +6,7 @@
 #    By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/03 16:52:39 by cwon              #+#    #+#              #
-#    Updated: 2025/11/04 13:24:07 by cwon             ###   ########.fr        #
+#    Updated: 2025/11/05 13:10:33 by cwon             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,7 @@ SRC = \
 	ft_lstadd_front.c \
 	ft_lstclear.c \
 	ft_lstdelone.c \
+	ft_lstget.c \
 	ft_lstiter.c \
 	ft_lstlast.c \
 	ft_lstmap.c \

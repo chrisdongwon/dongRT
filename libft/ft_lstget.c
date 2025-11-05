@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_ambient.c                                    :+:      :+:    :+:   */
+/*   ft_lstget.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/04 14:23:14 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/05 13:49:16 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/05 13:08:51 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/05 13:50:18 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser.h"
+#include "libft.h"
 
-#include "ambient.h"
-#include "scene.h"
-
-// color - check for format, integer values only, check range, then convert
-void	parse_ambient(t_parser *p)
+void	*ft_lstget(t_list *lst, size_t index)
 {
-	check_multiple_declarations(p, p->scene->ambient, "A");
-	check_token_count(p, "A", 3);
-	p->scene->ambient->ratio = get_ratio(p, 1, "A");
-	p->scene->ambient->color = get_color(p, 2, "A");
+	size_t	i;
+
+	i = 0;
+	while (lst && i < index)
+	{
+		lst = lst->next;
+		i++;
+	}
+	if (!lst)
+		return (NULL);
+	return (lst->content);
 }

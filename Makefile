@@ -6,7 +6,7 @@
 #    By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/04 15:11:00 by cwon              #+#    #+#              #
-#    Updated: 2025/11/04 14:50:05 by cwon             ###   ########.fr        #
+#    Updated: 2025/11/05 13:46:53 by cwon             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,10 +29,12 @@ PARSER_SRC := \
 	parser/dispatcher.c \
 	parser/parse_ambient.c \
 	parser/parse_camera.c \
+	parser/parse_convert.c \
 	parser/parse_cylinder.c \
 	parser/parse_light.c \
 	parser/parse_plane.c \
 	parser/parse_sphere.c \
+	parser/parse_utils.c \
 	parser/parse.c \
 	parser/parser.c
 
