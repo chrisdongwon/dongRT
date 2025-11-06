@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 14:58:18 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/03 15:00:07 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/06 12:59:36 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 
 typedef struct s_ambient	t_ambient;
 
-// ratio from 0 to 1
 struct s_ambient
 {
 	double	ratio;

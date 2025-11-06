@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 15:02:56 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/03 21:45:44 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/06 14:36:36 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,13 @@
 
 typedef enum e_obj_type	t_obj_type;
 typedef struct s_object	t_object;
+typedef struct s_parser	t_parser;
 
 enum e_obj_type
 {
-	OBJ_CYLINDER,
-	OBJ_PLANE,
-	OBJ_SPHERE
+	CYLINDER,
+	PLANE,
+	SPHERE
 };
 
 struct s_object
@@ -33,6 +34,7 @@ struct s_object
 };
 
 // object.c
+void	append_object(t_parser *p, void *elem, t_obj_type t, t_color c);
 void	free_object(void *ptr);
 
 #endif

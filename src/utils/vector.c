@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_ambient.c                                    :+:      :+:    :+:   */
+/*   vector.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/04 14:23:14 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/05 13:49:16 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/06 12:02:24 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/06 12:05:01 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser.h"
+#include "vector.h"
 
-#include "ambient.h"
-#include "scene.h"
+#include <math.h>
 
-// color - check for format, integer values only, check range, then convert
-void	parse_ambient(t_parser *p)
+bool	is_normalized(t_vector v)
 {
-	check_multiple_declarations(p, p->scene->ambient, "A");
-	check_token_count(p, "A", 3);
-	p->scene->ambient->ratio = get_ratio(p, 1, "A");
-	p->scene->ambient->color = get_color(p, 2, "A");
+	return (norm(v) == 1.0);
+}
+
+double	norm(t_vector v)
+{
+	return (sqrt(v.x * v.x + v.y * v.y + v.z * v.z));
 }

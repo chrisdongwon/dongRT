@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 14:39:56 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/03 14:57:21 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/06 12:59:42 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 
 typedef struct s_light	t_light;
 
-// brightness is a ratio from 0 to 1
 struct s_light
 {
 	double		brightness;
