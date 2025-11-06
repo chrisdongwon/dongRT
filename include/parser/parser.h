@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 21:21:43 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/06 15:27:08 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/06 16:20:49 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void		parse_sphere(t_parser *p);
 // parse_utils.c
 void		*parser_malloc(t_parser *p, const size_t size);
 void		check_multiple_declarations(t_parser *p, void *ptr);
-void		check_terminal_comma(t_parser *p, const char *str);
+void		check_commas(t_parser *p, const char *str);
 void		check_token_count(t_parser *p, size_t expected);
 
 // parse.c

@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 13:38:01 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/06 15:30:52 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/06 16:21:05 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ t_color	get_color(t_parser *p, size_t index)
 	t_color	color;
 
 	str = (char *)ft_lstget(p->list, index);
-	check_terminal_comma(p, str);
+	check_commas(p, str);
 	arr = ft_split(str, ',');
 	if (arr == NULL)
 	{
@@ -88,7 +88,7 @@ t_vector	get_vector(t_parser *p, size_t index, bool normalized)
 	t_vector	v;
 
 	str = (char *)ft_lstget(p->list, index);
-	check_terminal_comma(p, str);
+	check_commas(p, str);
 	arr = ft_split(str, ',');
 	if (arr == NULL)
 	{

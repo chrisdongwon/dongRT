@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 09:56:29 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/06 13:34:18 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/06 16:20:39 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ void	check_multiple_declarations(t_parser *p, void *ptr)
 		parser_error(p, "Multiple declaration detected");
 }
 
-void	check_terminal_comma(t_parser *p, const char *str)
+void	check_commas(t_parser *p, const char *str)
 {
-	if (str[ft_strlen(str) - 1] == ',')
+	if (str[0] == ',' || str[ft_strlen(str) - 1] == ',')
 		parser_error(p, "Invalid format");
 }
 
