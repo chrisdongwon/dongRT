@@ -1,39 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector.h                                           :+:      :+:    :+:   */
+/*   vector_norm.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 14:34:56 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/07 14:30:48 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/06 12:02:24 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/07 13:14:40 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VECTOR_H
-# define VECTOR_H
+#include "vector.h"
 
-# include <stdbool.h>
+#include <math.h>
 
-typedef struct s_vector	t_vector;
-
-struct s_vector
+bool	is_normalized(t_vector v)
 {
-	double	x;
-	double	y;
-	double	z;
-};
+	return (norm(v) == 1.0);
+}
 
-// vector_norm.c
-bool		is_normalized(t_vector v);
-double		norm(t_vector v);
-t_vector	normalize(t_vector v);
+double	norm(t_vector v)
+{
+	return (sqrt(v.x * v.x + v.y * v.y + v.z * v.z));
+}
 
-// vector_product.c
-t_vector	cross(t_vector u, t_vector v);
-
-// vector.c
-t_vector	add(t_vector u, t_vector v);
-t_vector	scale(double c, t_vector v);
-
-#endif
+t_vector	normalize(t_vector v)
+{
+	return (scale(1.0 / norm(v), v));
+}

@@ -1,39 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector.h                                           :+:      :+:    :+:   */
+/*   ray.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 14:34:56 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/07 14:30:48 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/07 14:21:26 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/07 14:22:21 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VECTOR_H
-# define VECTOR_H
+#ifndef RAY_H
+# define RAY_H
 
-# include <stdbool.h>
+# include "vector.h"
 
-typedef struct s_vector	t_vector;
+typedef struct s_ray	t_ray;
 
-struct s_vector
+struct s_ray
 {
-	double	x;
-	double	y;
-	double	z;
+	t_vector	dir;
+	t_vector	origin;
 };
-
-// vector_norm.c
-bool		is_normalized(t_vector v);
-double		norm(t_vector v);
-t_vector	normalize(t_vector v);
-
-// vector_product.c
-t_vector	cross(t_vector u, t_vector v);
-
-// vector.c
-t_vector	add(t_vector u, t_vector v);
-t_vector	scale(double c, t_vector v);
 
 #endif

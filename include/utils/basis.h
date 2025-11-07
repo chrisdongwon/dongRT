@@ -1,39 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector.h                                           :+:      :+:    :+:   */
+/*   basis.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 14:34:56 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/07 14:30:48 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/06 16:50:10 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/07 14:00:47 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VECTOR_H
-# define VECTOR_H
+#ifndef BASIS_H
+# define BASIS_H
 
-# include <stdbool.h>
+# include "vector.h"
 
-typedef struct s_vector	t_vector;
+typedef struct s_basis	t_basis;
 
-struct s_vector
+struct s_basis
 {
-	double	x;
-	double	y;
-	double	z;
+	t_vector	forward;
+	t_vector	right;
+	t_vector	up;
 };
 
-// vector_norm.c
-bool		is_normalized(t_vector v);
-double		norm(t_vector v);
-t_vector	normalize(t_vector v);
-
-// vector_product.c
-t_vector	cross(t_vector u, t_vector v);
-
-// vector.c
-t_vector	add(t_vector u, t_vector v);
-t_vector	scale(double c, t_vector v);
+// basis.c
+t_basis	camera_basis(t_vector dir);
 
 #endif

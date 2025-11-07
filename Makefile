@@ -6,7 +6,7 @@
 #    By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/04 15:11:00 by cwon              #+#    #+#              #
-#    Updated: 2025/11/06 12:58:55 by cwon             ###   ########.fr        #
+#    Updated: 2025/11/07 14:19:43 by cwon             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,10 +35,16 @@ PARSER_SRC := \
 	parser/parse.c \
 	parser/parser.c
 
+RENDER_SRC := \
+	render/frame.c
+
 SCENE_SRC := \
 	scene/scene.c
 
 UTILS_SRC := \
+	utils/basis.c \
+	utils/vector_norm.c \
+	utils/vector_product.c \
 	utils/vector.c
 
 MINIRT_SRC := \
@@ -52,6 +58,7 @@ MAIN := main.c
 ALL_SRC := \
 	$(OBJECTS_SRC) \
 	$(PARSER_SRC) \
+	$(RENDER_SRC) \
 	$(SCENE_SRC) \
 	$(UTILS_SRC) \
 	$(MINIRT_SRC) \

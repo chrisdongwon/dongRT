@@ -1,39 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector.h                                           :+:      :+:    :+:   */
+/*   frame.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 14:34:56 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/07 14:30:48 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/07 14:10:54 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/07 14:14:23 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VECTOR_H
-# define VECTOR_H
+#ifndef FRAME_H
+# define FRAME_H
 
-# include <stdbool.h>
+# include "basis.h"
+# include "camera.h"
 
-typedef struct s_vector	t_vector;
+typedef struct s_frame	t_frame;
 
-struct s_vector
+struct s_frame
 {
-	double	x;
-	double	y;
-	double	z;
+	double		focal_len;
+	double		pixel_h;
+	double		pixel_w;
+	double		viewport_h;
+	double		viewport_w;
+	t_basis		basis;
+	t_vector	pos;
 };
 
-// vector_norm.c
-bool		is_normalized(t_vector v);
-double		norm(t_vector v);
-t_vector	normalize(t_vector v);
-
-// vector_product.c
-t_vector	cross(t_vector u, t_vector v);
-
-// vector.c
-t_vector	add(t_vector u, t_vector v);
-t_vector	scale(double c, t_vector v);
+// frame.c
+t_frame	init_frame(t_camera cam);
 
 #endif
