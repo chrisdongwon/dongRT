@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 14:34:56 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/07 14:30:48 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/10 12:01:42 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,12 @@ double		norm(t_vector v);
 t_vector	normalize(t_vector v);
 
 // vector_product.c
+double		dot(t_vector u, t_vector v);
 t_vector	cross(t_vector u, t_vector v);
 
 // vector.c
 t_vector	add(t_vector u, t_vector v);
 t_vector	scale(double c, t_vector v);
+t_vector	subtract(t_vector u, t_vector v);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 13:13:12 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/07 14:32:03 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/10 11:58:45 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,14 @@ t_vector	scale(double c, t_vector v)
 	v.y = c * v.y;
 	v.z = c * v.z;
 	return (v);
+}
+
+t_vector	subtract(t_vector u, t_vector v)
+{
+	t_vector	result;
+
+	result.x = u.x - v.x;
+	result.y = u.y - v.y;
+	result.z = u.z - v.z;
+	return (result);
 }

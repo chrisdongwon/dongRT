@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector_product.c                                   :+:      :+:    :+:   */
+/*   quadratic.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/07 13:37:17 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/10 12:01:15 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/10 10:47:17 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/10 14:12:32 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vector.h"
+#ifndef QUADRATIC_H
+# define QUADRATIC_H
 
-double	dot(t_vector u, t_vector v)
-{
-	return (u.x * v.x + u.y * v.y + u.z * v.z);
-}
+# include <stdbool.h>
 
-t_vector	cross(t_vector u, t_vector v)
-{
-	t_vector	result;
+bool	solve_quadratic(const double abc[3], double *t);
 
-	result.x = u.y * v.z - u.z * v.y;
-	result.y = u.z * v.x - u.x * v.z;
-	result.z = u.x * v.y - u.y * v.x;
-	return (result);
-}
+#endif

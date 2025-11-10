@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 21:46:07 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/06 14:51:03 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/10 14:07:15 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,23 +33,23 @@ static	t_list	*new_obj_node(t_parser *p, t_object *obj)
 	return (node);
 }
 
-static	t_object	*new_object(t_parser *p, void *e, t_obj_type t, t_color c)
+static	t_object	*new_object(t_parser *p, void *ptr, t_obj_type t, t_color c)
 {
 	t_object	*obj;
 
 	obj = parser_malloc(p, sizeof(t_object));
 	obj->color = c;
-	obj->element = e;
+	obj->ptr = ptr;
 	obj->type = t;
 	return (obj);
 }
 
-void	append_object(t_parser *p, void *elem, t_obj_type t, t_color c)
+void	append_object(t_parser *p, void *shape, t_obj_type t, t_color c)
 {
 	t_object	*obj;
 	t_list		*node;
 
-	obj = new_object(p, elem, t, c);
+	obj = new_object(p, shape, t, c);
 	node = new_obj_node(p, obj);
 	ft_lstadd_back(&p->scene->objects, node);
 }
@@ -61,7 +61,7 @@ void	free_object(void *ptr)
 	if (ptr != NULL)
 	{
 		obj = (t_object *)ptr;
-		free(obj->element);
+		free(obj->ptr);
 		free(ptr);
 	}
 }
