@@ -6,7 +6,7 @@
 #    By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/04 15:11:00 by cwon              #+#    #+#              #
-#    Updated: 2025/11/10 11:09:36 by cwon             ###   ########.fr        #
+#    Updated: 2025/11/11 14:51:08 by cwon             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,8 +35,7 @@ PARSER_SRC := \
 	parser/parse.c \
 	parser/parser.c
 
-RENDER_SRC := \
-	render/frame.c
+RENDER_SRC :=
 
 SCENE_SRC := \
 	scene/scene.c
