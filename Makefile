@@ -6,7 +6,7 @@
 #    By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/04 15:11:00 by cwon              #+#    #+#              #
-#    Updated: 2025/11/11 14:51:08 by cwon             ###   ########.fr        #
+#    Updated: 2025/11/12 08:30:30 by cwon             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,10 @@ PARSER_SRC := \
 	parser/parse.c \
 	parser/parser.c
 
-RENDER_SRC :=
+RENDERER_SRC := \
+	renderer/minilibx.c \
+	renderer/render.c \
+	renderer/renderer.c
 
 SCENE_SRC := \
 	scene/scene.c
@@ -58,7 +61,7 @@ MAIN := main.c
 ALL_SRC := \
 	$(OBJECTS_SRC) \
 	$(PARSER_SRC) \
-	$(RENDER_SRC) \
+	$(RENDERER_SRC) \
 	$(SCENE_SRC) \
 	$(UTILS_SRC) \
 	$(MINIRT_SRC) \
