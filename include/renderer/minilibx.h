@@ -6,13 +6,14 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 08:07:31 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/12 15:24:50 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/12 15:50:39 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINILIBX_H
 # define MINILIBX_H
 
+# define ESC_KEY 65307
 # define X_BUTTON 17
 
 # include <stdbool.h>
@@ -37,6 +38,7 @@ struct s_minilibx
 bool	init_minilibx(t_minilibx *m);
 int		close_window(t_renderer *r);
 int		create_trgb(int t, int r, int g, int b);
+int		handle_key(int keycode, t_renderer *r);
 void	put_pixel(t_minilibx *m, int x, int y, int color);
 
 #endif

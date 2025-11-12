@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 08:14:03 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/12 15:27:22 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/12 15:50:23 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,13 @@ int	close_window(t_renderer *r)
 int	create_trgb(int t, int r, int g, int b)
 {
 	return (t << 24 | r << 16 | g << 8 | b);
+}
+
+int	handle_key(int keycode, t_renderer *r)
+{
+	if (keycode == ESC_KEY)
+		close_window(r);
+	return (0);
 }
 
 void	put_pixel(t_minilibx *m, int x, int y, int color)

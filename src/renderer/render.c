@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 07:46:04 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/12 15:28:24 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/12 15:50:49 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ static void	render_scene(t_renderer *r)
 		y++;
 	}
 	mlx_put_image_to_window(m->mlx, m->win, m->img, 0, 0);
+	mlx_key_hook(m->win, handle_key, r);
 	mlx_hook(m->win, X_BUTTON, 0, close_window, r);
 	mlx_loop(m->mlx);
 }
