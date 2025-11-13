@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   camera.h                                           :+:      :+:    :+:   */
+/*   matrix.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 14:38:16 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/13 15:57:39 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/13 15:44:16 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/13 15:53:29 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAMERA_H
-# define CAMERA_H
+#ifndef MATRIX_H
+# define MATRIX_H
 
-# include "basis.h"
-# include "matrix.h"
+typedef struct s_matrix	t_matrix;
 
-typedef struct s_camera	t_camera;
-
-struct s_camera
+struct s_matrix
 {
-	double		aspect;
-	double		fov;
-	double		scale;
-	t_basis		basis;
-	t_matrix	mat;	
-	t_vector	dir;
-	t_vector	pos;
+	double	m[4][4];
 };
 
-// camera.c
-void	init_camera(t_camera *cam);
+// matrix.c
+t_matrix	id_matrix(void);
 
 #endif

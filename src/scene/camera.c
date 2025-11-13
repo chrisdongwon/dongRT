@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   quadratic.h                                        :+:      :+:    :+:   */
+/*   camera.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/10 10:47:17 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/10 14:12:32 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/13 12:24:57 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/13 15:57:46 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef QUADRATIC_H
-# define QUADRATIC_H
+#include "camera.h"
 
-# include <stdbool.h>
+#include <math.h>
 
-bool	solve_quadratic(const double abc[3], double *t);
+#include "mini_rt.h"
 
-#endif
+void	init_camera(t_camera *cam)
+{
+	cam->aspect = (double)WIDTH / (double)HEIGHT;
+	cam->basis = init_basis(cam->dir);
+	cam->scale = tan((cam->fov * 0.5) * M_PI / 180.0);
+	
+}

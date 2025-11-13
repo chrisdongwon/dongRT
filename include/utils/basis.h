@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/06 16:50:10 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/07 14:00:47 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/13 12:08:22 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/13 13:47:52 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ struct s_basis
 };
 
 // basis.c
-t_basis	camera_basis(t_vector dir);
+t_basis	init_basis(t_vector forward);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/04 15:11:00 by cwon              #+#    #+#              #
-#    Updated: 2025/11/12 08:30:30 by cwon             ###   ########.fr        #
+#    Updated: 2025/11/13 15:53:44 by cwon             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,11 +41,13 @@ RENDERER_SRC := \
 	renderer/renderer.c
 
 SCENE_SRC := \
+	scene/camera.c \
 	scene/scene.c
 
 UTILS_SRC := \
 	utils/basis.c \
-	utils/quadratic.c \
+	utils/matrix.c \
+	utils/ray.c \
 	utils/vector_norm.c \
 	utils/vector_product.c \
 	utils/vector.c

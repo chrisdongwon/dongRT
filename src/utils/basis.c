@@ -5,26 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/06 16:52:50 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/07 14:40:03 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/13 13:46:58 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/13 13:49:01 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "basis.h"
 
-#include <math.h>
-
-t_basis	camera_basis(t_vector dir)
+t_basis	init_basis(t_vector forward)
 {
-	t_basis		basis;
-	t_vector	up;
+	const double	epsilon = 1e-6;
+	const t_vector	alt_up = {0.0, 0.0, 1.0};
+	const t_vector	world_up = {0.0, 1.0, 0.0};
+	t_basis			basis;
 
-	basis.forward = normalize(dir);
-	if (fabs(basis.forward.y) > 0.999)
-		up = (t_vector){0.0, 0.0, 1.0};
-	else
-		up = (t_vector){0.0, 1.0, 0.0};
-	basis.right = normalize(cross(up, basis.forward));
-	basis.up = normalize(cross(basis.forward, basis.right));
+	basis.forward = forward;
+	basis.right = normalize(cross(basis.forward, world_up));
+	if (norm(basis.right) < epsilon)
+		basis.right = normalize(cross(basis.forward, alt_up));
+	basis.up = normalize(cross(basis.right, basis.forward));
 	return (basis);
 }

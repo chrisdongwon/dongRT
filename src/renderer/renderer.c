@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 08:19:07 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/12 14:13:52 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/13 14:29:03 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,17 @@
 
 #include <stdlib.h>
 
-#include "minilibx.h"
-#include "scene.h"
+#include "camera.h"
 #include "mini_rt.h"
+#include "minilibx.h"
 #include "mlx.h"
+#include "scene.h"
 
 void	init_renderer(t_renderer *r, t_scene *s, t_minilibx *m)
 {
 	if (!init_minilibx(m))
 		mini_rt_error(s);
+	init_camera(s->camera);
 	r->scene = s;
 	r->minilibx = m;
 }
