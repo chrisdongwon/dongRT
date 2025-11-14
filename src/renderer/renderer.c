@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 08:19:07 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/13 14:29:03 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/14 13:29:14 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,19 @@
 #include "mlx.h"
 #include "scene.h"
 
-void	init_renderer(t_renderer *r, t_scene *s, t_minilibx *m)
+t_renderer	init_renderer(t_scene *const s, t_minilibx *const m)
 {
+	t_renderer r;
+
 	if (!init_minilibx(m))
 		mini_rt_error(s);
 	init_camera(s->camera);
-	r->scene = s;
-	r->minilibx = m;
+	r.scene = s;
+	r.minilibx = m;
+	return (r);
 }
 
-void	flush_renderer(t_renderer *r)
+void	flush_renderer(t_renderer *const r)
 {
 	if (r->minilibx->img != NULL)
 		mlx_destroy_image(r->minilibx->mlx, r->minilibx->img);

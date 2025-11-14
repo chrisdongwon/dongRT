@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 07:46:04 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/13 14:26:58 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/14 13:29:38 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "mlx.h"
 #include "scene.h"
 
-static void	render_scene(t_renderer *r)
+static void	render_scene(t_renderer *const r)
 {
 	int			trgb;
 	int			x;
@@ -31,10 +31,8 @@ static void	render_scene(t_renderer *r)
 		x = 0;
 		while (x < WIDTH)
 		{
-			// replace with proper scene rendering
 			trgb = create_trgb(0, x * 255 / WIDTH, y * 255 / HEIGHT, 128);
 			put_pixel(m, x, y, trgb);
-			
 			x++;
 		}
 		y++;
@@ -45,12 +43,12 @@ static void	render_scene(t_renderer *r)
 	mlx_loop(m->mlx);
 }
 
-void	render(t_scene *s)
+void	render(t_scene *const s)
 {
 	t_renderer	renderer;
 	t_minilibx	minilibx;
 
-	init_renderer(&renderer, s, &minilibx);
+	renderer = init_renderer(s, &minilibx);
 	render_scene(&renderer);
 	flush_renderer(&renderer);
 }

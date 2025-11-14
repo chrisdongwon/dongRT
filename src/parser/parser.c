@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 21:23:37 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/05 15:10:01 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/14 12:59:34 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 #include "mini_rt.h"
 #include "scene.h"
 
-void	flush_parser(t_parser *p)
+void	flush_parser(t_parser *const p)
 {
 	if (p->fd != 0)
 		close(p->fd);
@@ -29,7 +29,7 @@ void	flush_parser(t_parser *p)
 	reset_parser(p);
 }
 
-void	init_parser(t_parser *p, const char *filename, t_scene *scene)
+void	init_parser(t_parser *const p, const char *path, t_scene *const s)
 {
 	static t_dispatcher	entries[] = {\
 {"A", parse_ambient}, \
@@ -40,15 +40,15 @@ void	init_parser(t_parser *p, const char *filename, t_scene *scene)
 {"cy", parse_cylinder}, \
 {NULL, NULL}};
 
-	ft_memset(p, 0, sizeof(t_parser));
-	p->fd = open(filename, O_RDONLY);
+	ft_memset(p, 0, sizeof(*p));
+	p->fd = open(path, O_RDONLY);
 	if (p->fd < 0)
-		mini_rt_error(scene);
-	p->scene = scene;
+		mini_rt_error(s);
+	p->scene = s;
 	p->subparser = entries;
 }
 
-void	parser_error(t_parser *p, const char *msg)
+void	parser_error(t_parser *const p, const char *msg)
 {
 	ft_putendl_fd("Error", STDERR_FILENO);
 	ft_putstr_fd("miniRT: ", STDERR_FILENO);
@@ -60,7 +60,7 @@ void	parser_error(t_parser *p, const char *msg)
 	exit(EXIT_FAILURE);
 }
 
-void	reset_parser(t_parser *p)
+void	reset_parser(t_parser *const p)
 {
 	free(p->line);
 	ft_lstclear(&p->list, free);

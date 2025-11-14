@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 14:38:16 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/13 15:57:39 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/14 15:50:46 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ struct s_camera
 	double		aspect;
 	double		fov;
 	double		scale;
-	t_basis		basis;
-	t_matrix	mat;	
 	t_vector	dir;
 	t_vector	pos;
+	t_basis		basis;
+	t_matrix	mat;
 };
 
 // camera.c

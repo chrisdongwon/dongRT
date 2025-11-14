@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 21:21:43 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/06 16:20:49 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/14 13:23:11 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,39 +35,39 @@ struct s_parser
 };
 
 // convert_utils.c
-void		check_rgb(t_parser *p, char **arr);
-void		check_vector(t_parser *p, char **arr);
+void		check_rgb(t_parser *const p, char **arr);
+void		check_vector(t_parser *const p, char **arr);
 
 // convert.c
-double		get_float(t_parser *p, size_t index);
-double		get_fov(t_parser *p, size_t index);
-double		get_ratio(t_parser *p, size_t index);
-t_color		get_color(t_parser *p, size_t index);
-t_vector	get_vector(t_parser *p, size_t index, bool normalized);
+double		get_float(t_parser *const p, size_t index);
+double		get_fov(t_parser *const p, size_t index);
+double		get_ratio(t_parser *const p, size_t index);
+t_color		get_color(t_parser *const p, size_t index);
+t_vector	get_vector(t_parser *const p, size_t index, bool normalized);
 
 // parse_elements.c
-void		parse_ambient(t_parser *p);
-void		parse_camera(t_parser *p);
-void		parse_light(t_parser *p);
+void		parse_ambient(t_parser *const p);
+void		parse_camera(t_parser *const p);
+void		parse_light(t_parser *const p);
 
-// parse_objects.
-void		parse_cylinder(t_parser *p);
-void		parse_plane(t_parser *p);
-void		parse_sphere(t_parser *p);
+// parse_objects.c
+void		parse_cylinder(t_parser *const p);
+void		parse_plane(t_parser *const p);
+void		parse_sphere(t_parser *const p);
 
 // parse_utils.c
-void		*parser_malloc(t_parser *p, const size_t size);
-void		check_multiple_declarations(t_parser *p, void *ptr);
-void		check_commas(t_parser *p, const char *str);
-void		check_token_count(t_parser *p, size_t expected);
+void		*parser_malloc(t_parser *const p, size_t size);
+void		check_multiple_declarations(t_parser *const p, const void *ptr);
+void		check_commas(t_parser *const p, const char *str);
+void		check_token_count(t_parser *const p, size_t expected);
 
 // parse.c
-void		parse(const char *filename, t_scene *scene);
+void		parse(const char *filename, t_scene *const scene);
 
 // parser.c
-void		flush_parser(t_parser *p);
-void		init_parser(t_parser *p, const char *filename, t_scene *scene);
-void		parser_error(t_parser *p, const char *msg);
-void		reset_parser(t_parser *p);
+void		flush_parser(t_parser *const p);
+void		init_parser(t_parser *const p, const char *path, t_scene *const s);
+void		parser_error(t_parser *const p, const char *msg);
+void		reset_parser(t_parser *const p);
 
 #endif

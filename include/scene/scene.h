@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 15:10:19 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/03 21:49:39 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/14 12:48:25 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ struct s_scene
 };
 
 // scene.c
-void	init_scene(t_scene *scene);
-void	flush_scene(t_scene *scene);
+void	init_scene(t_scene *const scene);
+void	flush_scene(t_scene *const scene);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 14:34:56 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/11 13:46:42 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/14 15:50:15 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdbool.h>
 
+typedef struct s_point	t_point;
 typedef struct s_vector	t_vector;
 
 struct s_vector

@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 09:56:29 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/06 16:20:39 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/14 13:23:08 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "libft.h"
 #include "mini_rt.h"
 
-void	*parser_malloc(t_parser *p, const size_t size)
+void	*parser_malloc(t_parser *const p, size_t size)
 {
 	void	*ptr;
 
@@ -30,19 +30,19 @@ void	*parser_malloc(t_parser *p, const size_t size)
 	return (ptr);
 }
 
-void	check_multiple_declarations(t_parser *p, void *ptr)
+void	check_multiple_declarations(t_parser *const p, const void *ptr)
 {
 	if (ptr != NULL)
 		parser_error(p, "Multiple declaration detected");
 }
 
-void	check_commas(t_parser *p, const char *str)
+void	check_commas(t_parser *const p, const char *str)
 {
 	if (str[0] == ',' || str[ft_strlen(str) - 1] == ',')
 		parser_error(p, "Invalid format");
 }
 
-void	check_token_count(t_parser *p, size_t expected)
+void	check_token_count(t_parser *const p, size_t expected)
 {
 	if (ft_lstsize(p->list) != expected)
 		parser_error(p, "Invalid argument count");

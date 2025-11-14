@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dispatcher.h                                       :+:      :+:    :+:   */
+/*   point.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/04 13:50:49 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/14 13:07:52 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/14 14:31:30 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/14 15:56:47 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DISPATCHER_H
-# define DISPATCHER_H
+#ifndef POINT_H
+# define POINT_H
 
-typedef struct s_dispatcher	t_dispatcher;
-typedef struct s_parser		t_parser;
-typedef void				(*t_parser_fn)(t_parser *p);
+# include "vector.h"
 
-struct s_dispatcher
+typedef struct s_point	t_point;
+typedef struct s_camera	t_camera;
+
+struct s_point
 {
-	const char	*id;
-	t_parser_fn	fn;
+	double	x;
+	double	y;
 };
 
-// dispatcher.c
-void	dispatch_subparser(t_parser *const p);
+// point.c
+t_point		init_ndc(double px, double py);
+t_vector	ssc_to_vector(t_camera *const cam, t_point *const p);
+void		ndc_to_ssc(t_point *const p);
 
 #endif

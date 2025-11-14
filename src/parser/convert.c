@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 13:38:01 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/06 16:21:05 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/14 13:20:52 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@
 #include "mini_rt.h"
 #include "vector.h"
 
-double	get_float(t_parser *p, size_t index)
+double	get_float(t_parser *const p, size_t index)
 {
-	char	*str;
-	double	value;
+	const char	*str;
+	double		value;
 
-	str = (char *)ft_lstget(p->list, index);
+	str = (const char *)ft_lstget(p->list, index);
 	if (!ft_isfloat(str))
 		parser_error(p, "Value must be numeric");
 	value = ft_atof(str);
@@ -31,24 +31,24 @@ double	get_float(t_parser *p, size_t index)
 	return (value);
 }
 
-double	get_fov(t_parser *p, size_t index)
+double	get_fov(t_parser *const p, size_t index)
 {
-	char	*str;
-	double	fov;
+	const char	*str;
+	double		fov;
 
 	str = (char *)ft_lstget(p->list, index);
 	if (!ft_isfloat(str))
-		parser_error(p, "Ratio must be numeric");
+		parser_error(p, "FOV must be numeric");
 	fov = ft_atof(str);
 	if (fov < 0.0 || fov > 180.0)
 		parser_error(p, "FOV out of range [0, 180]");
 	return (fov);
 }
 
-double	get_ratio(t_parser *p, size_t index)
+double	get_ratio(t_parser *const p, size_t index)
 {
-	char	*str;
-	double	ratio;
+	const char	*str;
+	double		ratio;
 
 	str = (char *)ft_lstget(p->list, index);
 	if (!ft_isfloat(str))
@@ -59,11 +59,11 @@ double	get_ratio(t_parser *p, size_t index)
 	return (ratio);
 }
 
-t_color	get_color(t_parser *p, size_t index)
+t_color	get_color(t_parser *const p, size_t index)
 {
-	char	**arr;
-	char	*str;
-	t_color	color;
+	char		**arr;
+	const char	*str;
+	t_color		color;
 
 	str = (char *)ft_lstget(p->list, index);
 	check_commas(p, str);
@@ -81,10 +81,10 @@ t_color	get_color(t_parser *p, size_t index)
 	return (color);
 }
 
-t_vector	get_vector(t_parser *p, size_t index, bool normalized)
+t_vector	get_vector(t_parser *const p, size_t index, bool normalized)
 {
 	char		**arr;
-	char		*str;
+	const char	*str;
 	t_vector	v;
 
 	str = (char *)ft_lstget(p->list, index);
