@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.h                                            :+:      :+:    :+:   */
+/*   color.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 14:36:56 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/15 14:03:44 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/15 13:44:26 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/15 14:03:33 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLOR_H
-# define COLOR_H
+#include "color.h"
 
-typedef struct s_color	t_color;
+#include <math.h>
 
-struct s_color
+int rgba_to_int(t_color c, double a)
 {
-	double	r;
-	double	g;
-	double	b;
-};
+    int A = (int)(fmin(fmax(a, 0), 1) * 255);
+    int R = (int)(fmin(fmax(c.r, 0), 1) * 255);
+    int G = (int)(fmin(fmax(c.g, 0), 1) * 255);
+    int B = (int)(fmin(fmax(c.b, 0), 1) * 255);
 
-// color.h
-int rgba_to_int(t_color c, double a);
-
-#endif
+    return (A << 24) | (R << 16) | (G << 8) | B;
+}

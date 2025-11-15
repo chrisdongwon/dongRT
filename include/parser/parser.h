@@ -6,14 +6,13 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 21:21:43 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/14 13:23:11 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/15 12:28:57 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSER_H
 # define PARSER_H
 
-# include <stdbool.h>
 # include <stddef.h>
 
 # include "color.h"

@@ -6,14 +6,12 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 15:44:16 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/15 12:04:10 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/15 12:29:30 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MATRIX_H
 # define MATRIX_H
-
-# include <stdbool.h>
 
 # include "vector.h"
 

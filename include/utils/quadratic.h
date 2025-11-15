@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.h                                            :+:      :+:    :+:   */
+/*   quadratic.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 14:36:56 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/15 14:03:44 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/15 12:41:01 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/15 13:11:57 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLOR_H
-# define COLOR_H
+#ifndef QUADRATIC_H
+# define QUADRATIC_H
 
-typedef struct s_color	t_color;
+# include <stdbool.h>
 
-struct s_color
+typedef struct s_quadratic	t_quadratic;
+
+struct s_quadratic
 {
-	double	r;
-	double	g;
-	double	b;
+	bool	real_roots;
+	double	t1;
+	double	t2;
 };
 
-// color.h
-int rgba_to_int(t_color c, double a);
+// quadratic.c
+double		min_positive_root(const t_quadratic *const q);
+t_quadratic	solve_quadratic(double abc[3]);
 
 #endif

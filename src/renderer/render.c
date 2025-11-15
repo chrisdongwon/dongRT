@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 07:46:04 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/14 13:29:38 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/15 14:10:13 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,13 @@
 #include "minilibx.h"
 #include "mlx.h"
 #include "scene.h"
+#include "color.h"
+#include "ray.h"
+#include "hit.h"
+#include "camera.h"
+#include "light.h"
+#include "object.h"
+#include "libft.h"
 
 static void	render_scene(t_renderer *const r)
 {

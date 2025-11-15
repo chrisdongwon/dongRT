@@ -6,7 +6,7 @@
 #    By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/04 15:11:00 by cwon              #+#    #+#              #
-#    Updated: 2025/11/15 11:28:28 by cwon             ###   ########.fr        #
+#    Updated: 2025/11/15 13:56:42 by cwon             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,9 +36,12 @@ PARSER_SRC := \
 	parser/parser.c
 
 RENDERER_SRC := \
+	renderer/hit_sphere.c \
+	renderer/hit.c \
 	renderer/minilibx.c \
 	renderer/render.c \
-	renderer/renderer.c
+	renderer/renderer.c \
+	renderer/shade.c
 
 SCENE_SRC := \
 	scene/camera.c \
@@ -46,9 +49,11 @@ SCENE_SRC := \
 
 UTILS_SRC := \
 	utils/basis.c \
+	utils/color.c \
 	utils/matrix_transform.c \
 	utils/matrix.c \
 	utils/point.c \
+	utils/quadratic.c \
 	utils/ray.c \
 	utils/vector_norm.c \
 	utils/vector_product.c \

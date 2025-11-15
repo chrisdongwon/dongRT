@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.h                                            :+:      :+:    :+:   */
+/*   hit.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 14:36:56 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/15 14:03:44 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/15 12:35:44 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/15 13:01:07 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLOR_H
-# define COLOR_H
+#include "hit.h"
 
-typedef struct s_color	t_color;
+#include "libft.h"
 
-struct s_color
+void	init_hit(t_hit *const h)
 {
-	double	r;
-	double	g;
-	double	b;
-};
-
-// color.h
-int rgba_to_int(t_color c, double a);
-
-#endif
+	ft_memset(h, 0, sizeof(*h));
+}
