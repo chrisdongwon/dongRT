@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 07:46:04 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/15 14:10:13 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/15 14:33:32 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@
 #include "object.h"
 #include "libft.h"
 
+// need:
+// hit dispatcher
+// see if intersection works
+// then color shit in
 static void	render_scene(t_renderer *const r)
 {
 	int			trgb;

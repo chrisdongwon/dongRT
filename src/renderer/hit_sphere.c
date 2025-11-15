@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 13:00:20 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/15 13:20:40 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/15 14:32:32 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ const t_vector *const v, double abc[3])
 	abc[2] = dot(*v, *v) - s->radius * s->radius;
 }
 
+// i am not convinced that this works
 t_hit	hit_sphere(const t_ray *const r, const t_sphere *const s)
 {
 	double		abc[3];
