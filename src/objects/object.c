@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 21:46:07 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/14 13:19:01 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/15 11:36:00 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include "parser.h"
 #include "scene.h"
 
-static	t_list	*new_obj_node(t_parser *p, t_object *obj)
+static	t_list	*new_obj_node(t_parser *const p, t_object *obj)
 {
 	t_list	*node;
 
@@ -33,7 +33,8 @@ static	t_list	*new_obj_node(t_parser *p, t_object *obj)
 	return (node);
 }
 
-static	t_object	*new_object(t_parser *p, void *ptr, t_obj_type t, t_color c)
+static	t_object	*new_object(t_parser *const p, void *const ptr,
+t_obj_type t, t_color c)
 {
 	t_object	*obj;
 
@@ -44,7 +45,8 @@ static	t_object	*new_object(t_parser *p, void *ptr, t_obj_type t, t_color c)
 	return (obj);
 }
 
-void	append_object(t_parser *p, void *shape, t_obj_type t, t_color c)
+void	append_object(t_parser *const p, void *const shape, t_obj_type t,
+t_color c)
 {
 	t_object	*obj;
 	t_list		*node;

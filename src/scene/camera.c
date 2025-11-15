@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 12:24:57 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/14 10:16:58 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/15 11:42:20 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "matrix.h"
 #include "mini_rt.h"
 
-static t_matrix	init_matrix(t_camera *cam)
+static t_matrix	init_matrix(t_camera *const cam)
 {
 	t_matrix	rot;
 	t_matrix	trans;
@@ -27,7 +27,7 @@ static t_matrix	init_matrix(t_camera *cam)
 	return (matrix_prod(&rot, &trans));
 }
 
-void	init_camera(t_camera *cam)
+void	init_camera(t_camera *const cam)
 {
 	cam->aspect = (double)WIDTH / (double)HEIGHT;
 	cam->scale = tan((cam->fov * 0.5) * M_PI / 180.0);

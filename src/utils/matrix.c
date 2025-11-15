@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 15:50:20 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/14 10:19:08 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/15 11:48:24 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static t_matrix	zero_matrix(void)
 	return (mat);
 }
 
-t_matrix	basis_matrix(t_basis *b, bool invert_z)
+t_matrix	basis_matrix(const t_basis *const b, bool invert_z)
 {
 	double		dir;
 	t_matrix	mat;
@@ -54,7 +54,7 @@ t_matrix	id_matrix(void)
 	return (mat);
 }
 
-t_matrix	matrix_prod(t_matrix *a, t_matrix *b)
+t_matrix	matrix_prod(const t_matrix *const a, const t_matrix *const b)
 {
 	t_matrix	mat;
 	size_t		i;
@@ -81,7 +81,7 @@ t_matrix	matrix_prod(t_matrix *a, t_matrix *b)
 	return (mat);
 }
 
-t_matrix	translate_matrix(t_vector *v)
+t_matrix	translate_matrix(const t_vector *const v)
 {
 	t_matrix	mat;
 

@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 15:44:16 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/14 10:17:24 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/15 12:04:10 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define MATRIX_H
 
 # include <stdbool.h>
+
+# include "vector.h"
 
 typedef struct s_basis	t_basis;
 typedef struct s_matrix	t_matrix;
@@ -24,10 +26,14 @@ struct s_matrix
 	double	m[4][4];
 };
 
+// matrix_transform.c
+t_vector	transform(const t_matrix *const mat, const t_vector *const u, \
+bool translate);
+
 // matrix.c
-t_matrix	basis_matrix(t_basis *b, bool invert_z);
+t_matrix	basis_matrix(const t_basis *const b, bool invert_z);
 t_matrix	id_matrix(void);
-t_matrix	matrix_prod(t_matrix *a, t_matrix *b);
-t_matrix	translate_matrix(t_vector *v);
+t_matrix	matrix_prod(const t_matrix *const a, const t_matrix *const b);
+t_matrix	translate_matrix(const t_vector *const v);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 08:19:07 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/14 13:29:14 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/15 11:36:56 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 t_renderer	init_renderer(t_scene *const s, t_minilibx *const m)
 {
-	t_renderer r;
+	t_renderer	r;
 
 	if (!init_minilibx(m))
 		mini_rt_error(s);

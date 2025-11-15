@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 15:07:41 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/14 13:20:29 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/15 11:37:39 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ typedef struct s_cylinder	t_cylinder;
 
 struct s_cylinder
 {
-	double	height;
-	double	radius;
+	double		height;
+	double		radius;
 	t_vector	center;
 	t_vector	dir;
 };

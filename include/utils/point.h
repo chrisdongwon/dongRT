@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 14:31:30 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/14 15:56:47 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/15 07:37:37 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ struct s_point
 
 // point.c
 t_point		init_ndc(double px, double py);
-t_vector	ssc_to_vector(t_camera *const cam, t_point *const p);
+t_vector	ssc_to_vector(const t_camera *cam, const t_point *p);
 void		ndc_to_ssc(t_point *const p);
 
 #endif
