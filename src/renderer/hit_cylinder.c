@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mini_rt.h                                          :+:      :+:    :+:   */
+/*   hit_cylinder.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 14:05:45 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/17 10:50:38 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/17 09:49:44 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/17 10:30:13 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINI_RT_H
-# define MINI_RT_H
+#include "hit.h"
 
-# define WIDTH 800
-# define HEIGHT 600
+#include "object.h"
 
-typedef struct s_scene	t_scene;
+t_hit	hit_cylinder(const t_ray *const r, const t_object *const obj)
+{
+	t_hit	hit;
 
-// mini_rt.c
-void	mini_rt_error(t_scene *const scene);
-void	mini_rt(int argc, char **argv);
-
-// validate.c
-void	validate_arg(int argc, char **argv);
-
-#endif
+	init_hit(&hit);
+	(void)r;
+	(void)obj;
+	return (hit);
+}

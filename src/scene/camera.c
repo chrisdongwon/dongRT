@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 12:24:57 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/15 11:42:20 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/17 10:55:32 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static t_matrix	init_matrix(t_camera *const cam)
 
 	rot = basis_matrix(&cam->basis, true);
 	trans = translate_matrix(&cam->pos);
-	return (matrix_prod(&rot, &trans));
+	return (matrix_prod(&trans, &rot));
 }
 
 void	init_camera(t_camera *const cam)

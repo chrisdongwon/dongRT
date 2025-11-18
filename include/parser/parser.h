@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 21:21:43 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/15 12:28:57 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/17 09:45:38 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ struct s_parser
 	char			*line;
 	const char		*id;
 	int				fd;
-	t_dispatcher	*subparser;
+	t_dispatcher	*dispatcher;
 	t_list			*list;
 	t_scene			*scene;
 };

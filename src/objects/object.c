@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 21:46:07 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/15 11:36:00 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/17 10:14:26 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 #include <stdlib.h>
 
+#include "dispatcher.h"
 #include "libft.h"
 #include "mini_rt.h"
 #include "parser.h"
@@ -42,11 +43,11 @@ t_obj_type t, t_color c)
 	obj->color = c;
 	obj->ptr = ptr;
 	obj->type = t;
+	obj->hit_fn = get_hit_fn(p);
 	return (obj);
 }
 
-void	append_object(t_parser *const p, void *const shape, t_obj_type t,
-t_color c)
+void	append_object(t_parser *const p, void *shape, t_obj_type t, t_color c)
 {
 	t_object	*obj;
 	t_list		*node;

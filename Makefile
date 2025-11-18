@@ -6,7 +6,7 @@
 #    By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/04 15:11:00 by cwon              #+#    #+#              #
-#    Updated: 2025/11/15 13:56:42 by cwon             ###   ########.fr        #
+#    Updated: 2025/11/17 10:02:23 by cwon             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,8 @@ PARSER_SRC := \
 	parser/parser.c
 
 RENDERER_SRC := \
+	renderer/hit_cylinder.c \
+	renderer/hit_plane.c \
 	renderer/hit_sphere.c \
 	renderer/hit.c \
 	renderer/minilibx.c \
@@ -49,7 +51,6 @@ SCENE_SRC := \
 
 UTILS_SRC := \
 	utils/basis.c \
-	utils/color.c \
 	utils/matrix_transform.c \
 	utils/matrix.c \
 	utils/point.c \

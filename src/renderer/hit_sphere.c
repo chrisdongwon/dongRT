@@ -6,15 +6,18 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 13:00:20 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/15 14:32:32 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/17 10:51:16 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "hit.h"
 
+#include <stdio.h>
+
+#include "object.h"
+#include "quadratic.h"
 #include "ray.h"
 #include "sphere.h"
-#include "quadratic.h"
 
 static void	compute_coefficients(const t_ray *const r, const t_sphere *const s,
 const t_vector *const v, double abc[3])
@@ -24,15 +27,16 @@ const t_vector *const v, double abc[3])
 	abc[2] = dot(*v, *v) - s->radius * s->radius;
 }
 
-// i am not convinced that this works
-t_hit	hit_sphere(const t_ray *const r, const t_sphere *const s)
+t_hit	hit_sphere(const t_ray *const r, const t_object *const obj)
 {
 	double		abc[3];
 	t_hit		hit;
 	t_quadratic	q;
 	t_vector	v;
+	t_sphere	*s;
 
 	init_hit(&hit);
+	s = (t_sphere *)obj->ptr;
 	v = subtract(r->origin, s->center);
 	compute_coefficients(r, s, &v, abc);
 	q = solve_quadratic(abc);

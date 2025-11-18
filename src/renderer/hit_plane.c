@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.c                                            :+:      :+:    :+:   */
+/*   hit_plane.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/15 13:44:26 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/15 14:03:33 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/17 09:51:53 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/17 10:30:23 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "color.h"
+#include "hit.h"
 
-#include <math.h>
+#include "object.h"
 
-int rgba_to_int(t_color c, double a)
+t_hit	hit_plane(const t_ray *const r, const t_object *const obj)
 {
-    int A = (int)(fmin(fmax(a, 0), 1) * 255);
-    int R = (int)(fmin(fmax(c.r, 0), 1) * 255);
-    int G = (int)(fmin(fmax(c.g, 0), 1) * 255);
-    int B = (int)(fmin(fmax(c.b, 0), 1) * 255);
+	t_hit	hit;
 
-    return (A << 24) | (R << 16) | (G << 8) | B;
+	init_hit(&hit);
+	(void)r;
+	(void)obj;
+	return (hit);
 }

@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 14:36:56 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/15 14:03:44 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/17 10:02:08 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,5 @@ struct s_color
 	double	g;
 	double	b;
 };
-
-// color.h
-int rgba_to_int(t_color c, double a);
 
 #endif

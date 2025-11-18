@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 12:27:14 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/15 13:31:03 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/17 09:54:34 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@
 
 typedef struct s_hit	t_hit;
 typedef struct s_light	t_light;
+typedef struct s_object	t_object;
 typedef struct s_ray	t_ray;
-typedef struct s_sphere	t_sphere;
+typedef struct s_scene	t_scene;
 
 struct s_hit
 {
@@ -30,10 +31,17 @@ struct s_hit
 	t_vector	point;
 };
 
+// hit_cylinder.c
+t_hit	hit_cylinder(const t_ray *const r, const t_object *const obj);
+
+// hit_plane.c
+t_hit	hit_plane(const t_ray *const r, const t_object *const obj);
+
 // hit_sphere.c
-t_hit	hit_sphere(const t_ray *const r, const t_sphere *const s);
+t_hit	hit_sphere(const t_ray *const r, const t_object *const obj);
 
 // hit.c
+t_hit	hit_scene(const t_scene *s, const t_ray *const r);
 void	init_hit(t_hit *const h);
 
 // shade.c
