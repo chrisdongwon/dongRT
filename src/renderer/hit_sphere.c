@@ -6,13 +6,11 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 13:00:20 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/17 10:51:16 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/19 10:01:38 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "hit.h"
-
-#include <stdio.h>
 
 #include "object.h"
 #include "quadratic.h"

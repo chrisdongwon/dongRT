@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 12:44:18 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/17 10:49:14 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/19 10:06:43 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,15 @@ static void	swap(double *const a, double *const b)
 	*b = temp;
 }
 
-double min_positive_root(const t_quadratic *q)
+double	min_positive_root(const t_quadratic *q)
 {
-    if (q->t1 > 1e-6 && q->t2 > 1e-6)
-        return (q->t1);
-    if (q->t1 > 1e-6)
-        return (q->t1);
-    if (q->t2 > 1e-6)
-        return (q->t2);
-    return (-1.0);
+	if (q->t1 > 1e-6 && q->t2 > 1e-6)
+		return (q->t1);
+	if (q->t1 > 1e-6)
+		return (q->t1);
+	if (q->t2 > 1e-6)
+		return (q->t2);
+	return (-1.0);
 }
 
 t_quadratic	solve_quadratic(double abc[3])

@@ -6,20 +6,34 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 09:51:53 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/17 10:30:23 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/19 10:04:49 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "hit.h"
 
 #include "object.h"
+#include "plane.h"
+#include "ray.h"
 
 t_hit	hit_plane(const t_ray *const r, const t_object *const obj)
 {
-	t_hit	hit;
+	double		proj;
+	t_hit		hit;
+	t_plane		*p;
+	t_vector	v;
 
 	init_hit(&hit);
-	(void)r;
-	(void)obj;
+	p = (t_plane *)obj->ptr;
+	proj = dot(r->dir, p->normal);
+	if (proj == 0.0)
+		return (hit);
+	v = subtract(p->point, r->origin);
+	hit.t = dot(v, p->normal) / proj;
+	if (hit.t < 0)
+		return (hit);
+	hit.is_hit = true;
+	hit.point = add(r->origin, scale(hit.t, r->dir));
+	hit.normal = p->normal;
 	return (hit);
 }

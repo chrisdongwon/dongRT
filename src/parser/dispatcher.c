@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 14:39:47 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/17 10:13:15 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/19 10:07:03 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	dispatch_subparser(t_parser *const p)
 	while (p->dispatcher[i].id)
 	{
 		if (ft_strcmp(p->id, p->dispatcher[i].id) == 0)
-			return((p->dispatcher[i].parse_fn)(p));
+			return ((p->dispatcher[i].parse_fn)(p));
 		i++;
 	}
 	parser_error(p, "Unknown identifier");

@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 14:42:18 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/18 15:08:59 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/19 10:06:52 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ int	color_to_rgb(const t_color *const c)
 {
 	int	r;
 	int	g;
-	int b;
+	int	b;
 
-    r = fmin(fmax(c->r * 255.0, 0.0), 255.0);
-    g = fmin(fmax(c->g * 255.0, 0.0), 255.0);
-    b = fmin(fmax(c->b * 255.0, 0.0), 255.0);
-    return (r << 16 | g << 8 | b);
+	r = fmin(fmax(c->r * 255.0, 0.0), 255.0);
+	g = fmin(fmax(c->g * 255.0, 0.0), 255.0);
+	b = fmin(fmax(c->b * 255.0, 0.0), 255.0);
+	return (r << 16 | g << 8 | b);
 }
