@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.h                                            :+:      :+:    :+:   */
+/*   color.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 14:36:56 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/18 14:44:41 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/18 14:42:18 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/18 15:08:59 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLOR_H
-# define COLOR_H
+#include "color.h"
 
-typedef struct s_color	t_color;
+#include <math.h>
 
-struct s_color
+int	color_to_rgb(const t_color *const c)
 {
-	double	r;
-	double	g;
-	double	b;
-};
+	int	r;
+	int	g;
+	int b;
 
-// color.c
-int	color_to_rgb(const t_color *const c);
-
-#endif
+    r = fmin(fmax(c->r * 255.0, 0.0), 255.0);
+    g = fmin(fmax(c->g * 255.0, 0.0), 255.0);
+    b = fmin(fmax(c->b * 255.0, 0.0), 255.0);
+    return (r << 16 | g << 8 | b);
+}

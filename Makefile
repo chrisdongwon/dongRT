@@ -6,7 +6,7 @@
 #    By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/04 15:11:00 by cwon              #+#    #+#              #
-#    Updated: 2025/11/17 10:02:23 by cwon             ###   ########.fr        #
+#    Updated: 2025/11/18 14:45:35 by cwon             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,6 +51,7 @@ SCENE_SRC := \
 
 UTILS_SRC := \
 	utils/basis.c \
+	utils/color.c \
 	utils/matrix_transform.c \
 	utils/matrix.c \
 	utils/point.c \

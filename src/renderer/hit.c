@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 12:35:44 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/17 10:33:40 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/18 15:08:32 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,12 @@ t_hit	hit_scene(const t_scene *s, const t_ray *const r)
 	{
 		obj = (t_object *)node->content;
 		temp = obj->hit_fn(r, obj);
+		temp.color = obj->color;
 		if (temp.is_hit && temp.t < hit.t)
 			hit = temp;
 		node = node->next;
 	}
-    return (hit);
+	return (hit);
 }
 
 void	init_hit(t_hit *const h)

@@ -6,13 +6,13 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 11:27:46 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/17 11:04:17 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/18 13:44:18 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "matrix.h"
 
-static void apply_translation(const t_matrix *const mat, t_vector *v)
+static void	apply_translation(const t_matrix *const mat, t_vector *v)
 {
 	v->x += mat->m[0][3];
 	v->y += mat->m[1][3];
