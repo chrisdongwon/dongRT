@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 09:21:31 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/14 13:05:28 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/20 13:38:01 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include "libft.h"
 #include "mini_rt.h"
 
-static char	*trim_whitespace(char *line, t_parser *const p)
+static char	*trim_whitespace(char *line, t_parser *p)
 {
 	char	*trimmed;
 
@@ -32,7 +32,7 @@ static char	*trim_whitespace(char *line, t_parser *const p)
 	return (trimmed);
 }
 
-static void	parse_element(t_parser *const p)
+static void	parse_element(t_parser *p)
 {
 	p->list = ft_split_list(p->line, "\t\n\v\f\r ");
 	if (p->list == NULL)
@@ -43,7 +43,7 @@ static void	parse_element(t_parser *const p)
 	dispatch_subparser(p);
 }
 
-void	parse(const char *filename, t_scene *const scene)
+void	parse(const char *filename, t_scene *scene)
 {
 	t_parser	p;
 

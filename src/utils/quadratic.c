@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 12:44:18 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/19 10:06:43 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/20 15:36:22 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 
 #include "libft.h"
 
-static void	init_quadratic(t_quadratic *const q)
+static void	init_quadratic(t_quadratic *q)
 {
 	ft_memset(q, 0, sizeof(*q));
 }
 
-static void	swap(double *const a, double *const b)
+static void	swap(double *a, double *b)
 {
 	double	temp;
 

@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 13:50:49 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/17 10:08:31 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/20 13:42:59 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ struct s_dispatcher
 };
 
 // dispatcher.c
-t_hit_fn	get_hit_fn(t_parser *const p);
-void		dispatch_subparser(t_parser *const p);
+t_hit_fn	get_hit_fn(t_parser *p);
+void		dispatch_subparser(t_parser *p);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 21:23:37 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/17 09:59:53 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/20 13:38:34 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 #include "mini_rt.h"
 #include "scene.h"
 
-void	flush_parser(t_parser *const p)
+void	flush_parser(t_parser *p)
 {
 	if (p->fd != 0)
 		close(p->fd);
@@ -30,7 +30,7 @@ void	flush_parser(t_parser *const p)
 	reset_parser(p);
 }
 
-void	init_parser(t_parser *const p, const char *path, t_scene *const s)
+void	init_parser(t_parser *p, const char *path, t_scene *s)
 {
 	static t_dispatcher	entries[] = {\
 {"A", parse_ambient, NULL}, \
@@ -49,7 +49,7 @@ void	init_parser(t_parser *const p, const char *path, t_scene *const s)
 	p->dispatcher = entries;
 }
 
-void	parser_error(t_parser *const p, const char *msg)
+void	parser_error(t_parser *p, const char *msg)
 {
 	ft_putendl_fd("Error", STDERR_FILENO);
 	ft_putstr_fd("miniRT: ", STDERR_FILENO);
@@ -61,7 +61,7 @@ void	parser_error(t_parser *const p, const char *msg)
 	exit(EXIT_FAILURE);
 }
 
-void	reset_parser(t_parser *const p)
+void	reset_parser(t_parser *p)
 {
 	free(p->line);
 	ft_lstclear(&p->list, free);

@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 14:42:18 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/19 10:06:52 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/20 14:48:15 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include <math.h>
 
-int	color_to_rgb(const t_color *const c)
+int	color_to_rgb(const t_color *c)
 {
 	int	r;
 	int	g;

@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 12:01:33 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/15 12:18:45 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/20 15:36:51 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ struct s_ray
 };
 
 // ray.c
-t_ray	generate_ray(const t_camera *const cam, double px, double py);
+t_ray	generate_ray(const t_camera *cam, double px, double py);
 
 #endif

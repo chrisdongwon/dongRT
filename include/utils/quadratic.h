@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 12:41:01 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/15 13:11:57 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/20 15:36:10 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ struct s_quadratic
 };
 
 // quadratic.c
-double		min_positive_root(const t_quadratic *const q);
+double		min_positive_root(const t_quadratic *q);
 t_quadratic	solve_quadratic(double abc[3]);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 09:51:53 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/19 10:04:49 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/20 15:33:47 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "plane.h"
 #include "ray.h"
 
-t_hit	hit_plane(const t_ray *const r, const t_object *const obj)
+t_hit	hit_plane(const t_ray *r, const t_object *obj)
 {
 	double		proj;
 	t_hit		hit;

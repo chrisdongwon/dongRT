@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 08:14:03 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/17 09:08:29 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/20 15:34:30 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include "renderer.h"
 #include "scene.h"
 
-bool	init_minilibx(t_minilibx *const m)
+bool	init_minilibx(t_minilibx *m)
 {
 	m->mlx = mlx_init();
 	if (!m->mlx)
@@ -30,7 +30,7 @@ bool	init_minilibx(t_minilibx *const m)
 	return (true);
 }
 
-int	close_window(t_renderer *const r)
+int	close_window(t_renderer *r)
 {
 	flush_renderer(r);
 	flush_scene(r->scene);
@@ -43,14 +43,14 @@ int	create_trgb(int t, int r, int g, int b)
 	return (t << 24 | r << 16 | g << 8 | b);
 }
 
-int	handle_key(int keycode, t_renderer *const r)
+int	handle_key(int keycode, t_renderer *r)
 {
 	if (keycode == ESC_KEY)
 		close_window(r);
 	return (0);
 }
 
-void	put_pixel(t_minilibx *const m, int x, int y, int color)
+void	put_pixel(t_minilibx *m, int x, int y, int color)
 {
 	char	*dst;
 

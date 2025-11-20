@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 13:38:01 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/14 13:20:52 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/20 13:39:51 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "mini_rt.h"
 #include "vector.h"
 
-double	get_float(t_parser *const p, size_t index)
+double	get_float(t_parser *p, size_t index)
 {
 	const char	*str;
 	double		value;
@@ -31,7 +31,7 @@ double	get_float(t_parser *const p, size_t index)
 	return (value);
 }
 
-double	get_fov(t_parser *const p, size_t index)
+double	get_fov(t_parser *p, size_t index)
 {
 	const char	*str;
 	double		fov;
@@ -45,7 +45,7 @@ double	get_fov(t_parser *const p, size_t index)
 	return (fov);
 }
 
-double	get_ratio(t_parser *const p, size_t index)
+double	get_ratio(t_parser *p, size_t index)
 {
 	const char	*str;
 	double		ratio;
@@ -59,7 +59,7 @@ double	get_ratio(t_parser *const p, size_t index)
 	return (ratio);
 }
 
-t_color	get_color(t_parser *const p, size_t index)
+t_color	get_color(t_parser *p, size_t index)
 {
 	char		**arr;
 	const char	*str;
@@ -81,7 +81,7 @@ t_color	get_color(t_parser *const p, size_t index)
 	return (color);
 }
 
-t_vector	get_vector(t_parser *const p, size_t index, bool normalized)
+t_vector	get_vector(t_parser *p, size_t index, bool normalized)
 {
 	char		**arr;
 	const char	*str;

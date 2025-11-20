@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 21:21:09 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/14 12:52:55 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/20 13:36:43 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@
 #include "libft.h"
 #include "object.h"
 
-void	init_scene(t_scene *const scene)
+void	init_scene(t_scene *scene)
 {
 	ft_memset(scene, 0, sizeof(*scene));
 }
 
-void	flush_scene(t_scene *const scene)
+void	flush_scene(t_scene *scene)
 {
 	free(scene->ambient);
 	free(scene->camera);

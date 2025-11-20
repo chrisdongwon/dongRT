@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 14:08:13 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/14 12:45:02 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/20 13:35:14 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include "parser.h"
 #include "renderer.h"
 
-void	mini_rt_error(t_scene *const scene)
+void	mini_rt_error(t_scene *scene)
 {
 	perror("miniRT");
 	flush_scene(scene);

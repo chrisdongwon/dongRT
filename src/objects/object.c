@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 21:46:07 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/17 10:14:26 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/20 14:44:43 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #include "parser.h"
 #include "scene.h"
 
-static	t_list	*new_obj_node(t_parser *const p, t_object *obj)
+static	t_list	*new_obj_node(t_parser *p, t_object *obj)
 {
 	t_list	*node;
 
@@ -34,8 +34,7 @@ static	t_list	*new_obj_node(t_parser *const p, t_object *obj)
 	return (node);
 }
 
-static	t_object	*new_object(t_parser *const p, void *const ptr,
-t_obj_type t, t_color c)
+static	t_object	*new_object(t_parser *p, void *ptr, t_obj_type t, t_color c)
 {
 	t_object	*obj;
 
@@ -47,12 +46,12 @@ t_obj_type t, t_color c)
 	return (obj);
 }
 
-void	append_object(t_parser *const p, void *shape, t_obj_type t, t_color c)
+void	append_object(t_parser *p, void *ptr, t_obj_type t, t_color c)
 {
 	t_object	*obj;
 	t_list		*node;
 
-	obj = new_object(p, shape, t, c);
+	obj = new_object(p, ptr, t, c);
 	node = new_obj_node(p, obj);
 	ft_lstadd_back(&p->scene->objects, node);
 }

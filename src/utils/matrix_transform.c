@@ -6,21 +6,20 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 11:27:46 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/18 13:44:18 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/20 14:48:49 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "matrix.h"
 
-static void	apply_translation(const t_matrix *const mat, t_vector *v)
+static void	apply_translation(const t_matrix *mat, t_vector *v)
 {
 	v->x += mat->m[0][3];
 	v->y += mat->m[1][3];
 	v->z += mat->m[2][3];
 }
 
-t_vector	transform(const t_matrix *const mat, const t_vector *const u,
-bool translate)
+t_vector	transform(const t_matrix *mat, const t_vector *u, bool translate)
 {
 	t_vector	v;
 

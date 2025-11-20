@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 14:39:47 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/19 10:07:03 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/20 13:42:52 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 #include "libft.h"
 #include "parser.h"
 
-static const char	*get_identifier(t_parser *const p)
+static const char	*get_identifier(t_parser *p)
 {
 	return ((const char *)p->list->content);
 }
 
-t_hit_fn	get_hit_fn(t_parser *const p)
+t_hit_fn	get_hit_fn(t_parser *p)
 {
 	size_t	i;
 
@@ -36,7 +36,7 @@ t_hit_fn	get_hit_fn(t_parser *const p)
 	return (NULL);
 }
 
-void	dispatch_subparser(t_parser *const p)
+void	dispatch_subparser(t_parser *p)
 {
 	size_t	i;
 

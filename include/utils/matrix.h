@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 15:44:16 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/15 12:29:30 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/20 14:49:08 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,12 @@ struct s_matrix
 };
 
 // matrix_transform.c
-t_vector	transform(const t_matrix *const mat, const t_vector *const u, \
-bool translate);
+t_vector	transform(const t_matrix *mat, const t_vector *u, bool translate);
 
 // matrix.c
-t_matrix	basis_matrix(const t_basis *const b, bool invert_z);
+t_matrix	basis_matrix(const t_basis *b, bool invert_z);
 t_matrix	id_matrix(void);
-t_matrix	matrix_prod(const t_matrix *const a, const t_matrix *const b);
-t_matrix	translate_matrix(const t_vector *const v);
+t_matrix	matrix_prod(const t_matrix *a, const t_matrix *b);
+t_matrix	translate_matrix(const t_vector *v);
 
 #endif

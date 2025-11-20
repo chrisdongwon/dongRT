@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 12:09:44 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/14 13:09:43 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/20 13:40:22 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #include "mini_rt.h"
 #include "scene.h"
 
-void	parse_ambient(t_parser *const p)
+void	parse_ambient(t_parser *p)
 {
 	check_multiple_declarations(p, p->scene->ambient);
 	check_token_count(p, 3);
@@ -29,7 +29,7 @@ void	parse_ambient(t_parser *const p)
 	p->scene->ambient->color = get_color(p, 2);
 }
 
-void	parse_camera(t_parser *const p)
+void	parse_camera(t_parser *p)
 {
 	check_multiple_declarations(p, p->scene->camera);
 	check_token_count(p, 4);
@@ -39,7 +39,7 @@ void	parse_camera(t_parser *const p)
 	p->scene->camera->fov = get_fov(p, 3);
 }
 
-void	parse_light(t_parser *const p)
+void	parse_light(t_parser *p)
 {
 	check_multiple_declarations(p, p->scene->light);
 	check_token_count(p, 4);

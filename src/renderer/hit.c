@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 12:35:44 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/18 15:08:32 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/20 15:34:14 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include "object.h"
 #include "scene.h"
 
-t_hit	hit_scene(const t_scene *s, const t_ray *const r)
+t_hit	hit_scene(const t_scene *s, const t_ray *r)
 {
 	t_hit		hit;
 	t_hit		temp;
@@ -39,7 +39,7 @@ t_hit	hit_scene(const t_scene *s, const t_ray *const r)
 	return (hit);
 }
 
-void	init_hit(t_hit *const h)
+void	init_hit(t_hit *h)
 {
 	ft_memset(h, 0, sizeof(*h));
 	h->t = INFINITY;

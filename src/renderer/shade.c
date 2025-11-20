@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 13:28:28 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/18 15:09:23 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/20 15:34:53 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 #include "light.h"
 
-static double	compute_projection(const t_hit *const h, const t_light *const l)
+static double	compute_projection(const t_hit *h, const t_light *l)
 {
 	t_vector	dir;
 
@@ -26,7 +26,7 @@ static double	compute_projection(const t_hit *const h, const t_light *const l)
 	return (fmax(0, dot(h->normal, dir)));
 }
 
-t_color	lambertian_shade(const t_hit *const h, const t_light *const l)
+t_color	lambertian_shade(const t_hit *h, const t_light *l)
 {
 	double		proj;
 	t_color		color;

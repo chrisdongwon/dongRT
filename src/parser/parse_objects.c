@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 12:26:56 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/17 09:37:38 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/20 13:40:44 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include "plane.h"
 #include "sphere.h"
 
-void	parse_cylinder(t_parser *const p)
+void	parse_cylinder(t_parser *p)
 {
 	t_color		color;
 	t_cylinder	*cylinder;
@@ -35,7 +35,7 @@ void	parse_cylinder(t_parser *const p)
 	append_object(p, cylinder, CYLINDER, color);
 }
 
-void	parse_plane(t_parser *const p)
+void	parse_plane(t_parser *p)
 {
 	t_color	color;
 	t_plane	*plane;
@@ -50,7 +50,7 @@ void	parse_plane(t_parser *const p)
 	append_object(p, plane, PLANE, color);
 }
 
-void	parse_sphere(t_parser *const p)
+void	parse_sphere(t_parser *p)
 {
 	t_color		color;
 	t_sphere	*sphere;

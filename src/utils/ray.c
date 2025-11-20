@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 14:15:13 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/17 12:23:14 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/20 15:36:56 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "camera.h"
 #include "point.h"
 
-t_ray	generate_ray(const t_camera *const cam, double px, double py)
+t_ray	generate_ray(const t_camera *cam, double px, double py)
 {
 	static const t_vector	origin = (t_vector){0, 0, 0};
 	t_point					p;

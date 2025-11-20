@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 13:00:20 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/19 10:01:38 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/20 15:34:06 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@
 #include "ray.h"
 #include "sphere.h"
 
-static void	compute_coefficients(const t_ray *const r, const t_sphere *const s,
-const t_vector *const v, double abc[3])
+static void	compute_coefficients(const t_ray *r, const t_sphere *s,
+const t_vector *v, double abc[3])
 {
 	abc[0] = dot(r->dir, r->dir);
 	abc[1] = 2.0 * dot(*v, r->dir);
 	abc[2] = dot(*v, *v) - s->radius * s->radius;
 }
 
-t_hit	hit_sphere(const t_ray *const r, const t_object *const obj)
+t_hit	hit_sphere(const t_ray *r, const t_object *obj)
 {
 	double		abc[3];
 	t_hit		hit;

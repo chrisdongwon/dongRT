@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 14:43:26 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/18 12:47:37 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/20 14:50:24 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ t_vector	ssc_to_vector(const t_camera *cam, const t_point *p)
 	return (v);
 }
 
-void	ndc_to_ssc(t_point *const p)
+void	ndc_to_ssc(t_point *p)
 {
 	p->x = 2.0 * p->x - 1.0;
 	p->y = 1.0 - 2.0 * p->y;

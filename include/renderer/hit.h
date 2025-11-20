@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 12:27:14 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/18 14:35:24 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/20 15:33:29 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,19 @@ struct s_hit
 };
 
 // hit_cylinder.c
-t_hit	hit_cylinder(const t_ray *const r, const t_object *const obj);
+t_hit	hit_cylinder(const t_ray *r, const t_object *obj);
 
 // hit_plane.c
-t_hit	hit_plane(const t_ray *const r, const t_object *const obj);
+t_hit	hit_plane(const t_ray *r, const t_object *obj);
 
 // hit_sphere.c
-t_hit	hit_sphere(const t_ray *const r, const t_object *const obj);
+t_hit	hit_sphere(const t_ray *r, const t_object *obj);
 
 // hit.c
-t_hit	hit_scene(const t_scene *s, const t_ray *const r);
-void	init_hit(t_hit *const h);
+t_hit	hit_scene(const t_scene *s, const t_ray *r);
+void	init_hit(t_hit *h);
 
 // shade.c
-t_color	lambertian_shade(const t_hit *const h, const t_light *const l);
+t_color	lambertian_shade(const t_hit *h, const t_light *l);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 08:26:56 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/14 13:17:30 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/20 13:39:18 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include "libft.h"
 
-void	check_rgb(t_parser *const p, char **arr)
+void	check_rgb(t_parser *p, char **arr)
 {
 	int		temp;
 	size_t	i;
@@ -42,7 +42,7 @@ void	check_rgb(t_parser *const p, char **arr)
 	}
 }
 
-void	check_vector(t_parser *const p, char **arr)
+void	check_vector(t_parser *p, char **arr)
 {
 	size_t	i;
 
