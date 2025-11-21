@@ -6,7 +6,7 @@
 #    By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/04 15:11:00 by cwon              #+#    #+#              #
-#    Updated: 2025/11/18 14:45:35 by cwon             ###   ########.fr        #
+#    Updated: 2025/11/21 13:09:10 by cwon             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,6 +59,7 @@ UTILS_SRC := \
 	utils/ray.c \
 	utils/vector_norm.c \
 	utils/vector_product.c \
+	utils/vector_projection.c \
 	utils/vector.c
 
 MINIRT_SRC := \

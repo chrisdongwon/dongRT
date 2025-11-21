@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cylinder.h                                         :+:      :+:    :+:   */
+/*   vector_projection.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 15:07:41 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/21 12:21:52 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/21 12:59:27 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/21 13:13:40 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CYLINDER_H
-# define CYLINDER_H
+#include "vector.h"
 
-# include "vector.h"
-
-typedef struct s_cylinder	t_cylinder;
-
-struct s_cylinder
+static t_vector	proj(t_vector u, t_vector v)
 {
-	double		height;
-	double		radius;
-	t_vector	axis;
-	t_vector	center;
-};
+	double	norm_sq;
 
-#endif
+	norm_sq = dot(v, v);
+	if (norm_sq < EPSILON)
+		return ((t_vector){0, 0, 0});
+	return (scale(dot(u, v) / norm_sq, v));
+}
+
+t_vector	perp(t_vector u, t_vector v)
+{
+	return (subtract(u, proj(u, v)));
+}

@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 14:34:56 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/21 09:57:15 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/21 13:10:00 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ t_vector	normalize(t_vector v);
 // vector_product.c
 double		dot(t_vector u, t_vector v);
 t_vector	cross(t_vector u, t_vector v);
+
+// vector_projection.c
+t_vector	perp(t_vector u, t_vector v);
 
 // vector.c
 t_vector	add(t_vector u, t_vector v);

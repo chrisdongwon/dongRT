@@ -3,7 +3,9 @@
         "*.h": "c",
         "ios": "c",
         "__node_handle": "c",
-        "ratio": "c"
+        "ratio": "c",
+        "queue": "c",
+        "stack": "c"
     },
     "makefile.configureOnOpen": false,
     "C_Cpp.default.compilerPath": "/usr/bin/clang"

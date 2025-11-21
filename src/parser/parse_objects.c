@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 12:26:56 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/20 13:40:44 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/21 12:21:35 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	parse_cylinder(t_parser *p)
 
 	check_token_count(p, 6);
 	temp.center = get_vector(p, 1, false);
-	temp.dir = get_vector(p, 2, true);
+	temp.axis = get_vector(p, 2, true);
 	temp.radius = get_float(p, 3) / 2.0;
 	temp.height = get_float(p, 4);
 	color = get_color(p, 5);
