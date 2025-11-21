@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 14:15:13 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/20 15:36:56 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/21 10:23:33 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 t_ray	generate_ray(const t_camera *cam, double px, double py)
 {
-	static const t_vector	origin = (t_vector){0, 0, 0};
+	static const t_vector	origin = {0, 0, 0};
 	t_point					p;
 	t_ray					r;
 	t_vector				v;

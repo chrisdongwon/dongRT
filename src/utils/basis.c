@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 13:46:58 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/15 11:43:03 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/21 10:47:53 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,14 @@
 
 t_basis	init_basis(t_vector forward)
 {
-	const double	epsilon = 1e-6;
 	const t_vector	alt_up = {0.0, 0.0, 1.0};
 	const t_vector	world_up = {0.0, 1.0, 0.0};
 	t_basis			basis;
 
 	basis.forward = forward;
 	basis.right = normalize(cross(basis.forward, world_up));
-	if (norm(basis.right) < epsilon)
+	if (norm(basis.right) < EPSILON)
 		basis.right = normalize(cross(basis.forward, alt_up));
-	basis.up = normalize(cross(basis.right, basis.forward));
+	basis.up = cross(basis.right, basis.forward);
 	return (basis);
 }

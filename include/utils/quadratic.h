@@ -6,12 +6,14 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 12:41:01 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/20 15:36:10 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/21 09:42:20 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef QUADRATIC_H
 # define QUADRATIC_H
+
+# define EPSILON 1e-6
 
 # include <stdbool.h>
 

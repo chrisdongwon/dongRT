@@ -6,12 +6,14 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 14:34:56 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/15 14:32:10 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/21 09:57:15 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VECTOR_H
 # define VECTOR_H
+
+# define EPSILON 1e-6
 
 # include <stdbool.h>
 
@@ -36,7 +38,6 @@ t_vector	cross(t_vector u, t_vector v);
 
 // vector.c
 t_vector	add(t_vector u, t_vector v);
-// t_vector	reflect(t_vector v, t_vector normal);
 t_vector	scale(double c, t_vector v);
 t_vector	subtract(t_vector u, t_vector v);
 

@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 12:02:24 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/19 10:53:42 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/21 09:41:29 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 bool	is_normalized(t_vector v)
 {
-	return (fabs(norm(v) - 1.0) < 1e-6);
+	return (fabs(norm(v) - 1.0) < EPSILON);
 }
 
 double	norm(t_vector v)
