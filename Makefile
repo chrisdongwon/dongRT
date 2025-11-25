@@ -6,21 +6,32 @@
 #    By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/04 15:11:00 by cwon              #+#    #+#              #
-#    Updated: 2025/11/21 13:09:10 by cwon             ###   ########.fr        #
+#    Updated: 2025/11/25 14:35:18 by cwon             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := miniRT
+BONUS_NAME := miniRT_bonus
 
 CC := cc
 CFLAGS := -Wall -Wextra -Werror -MMD -MP -O3 -g
 
-SRC_DIR := src
+MANDATORY_SRC_DIR := mandatory/src
+MANDATORY_INC_DIR := mandatory/include
+
+BONUS_SRC_DIR := bonus/src
+BONUS_INC_DIR := bonus/include
+
 OBJ_DIR := obj
-INC_DIR := include
 
 MLX_DIR := minilibx-linux
 LIBFT_DIR := libft
+
+MLX := $(MLX_DIR)/libmlx.a
+LIBFT := $(LIBFT_DIR)/libft.a
+
+MLX_FLAGS := -L$(MLX_DIR) -lmlx -lX11 -lXext -lm
+LIBFT_FLAGS := -L$(LIBFT_DIR) -lft
 
 OBJECTS_SRC := \
 	objects/object.c
@@ -66,11 +77,10 @@ MINIRT_SRC := \
 	miniRT/mini_rt.c \
 	miniRT/validate.c
 
-# SRC_BONUS :=
-
 MAIN := main.c
+MAIN_BONUS := main_bonus.c
 
-ALL_SRC := \
+MANDATORY_SRC := \
 	$(OBJECTS_SRC) \
 	$(PARSER_SRC) \
 	$(RENDERER_SRC) \
@@ -79,29 +89,39 @@ ALL_SRC := \
 	$(MINIRT_SRC) \
 	$(MAIN)
 
-OBJ := $(addprefix $(OBJ_DIR)/, $(ALL_SRC:.c=.o))
-OBJ_BONUS := $(addprefix $(OBJ_DIR)/, $(SRC_BONUS:.c=.o))
-DEP := $(OBJ:.o=.d) $(OBJ_BONUS:.o=.d)
+BONUS_SRC := \
+	$(MAIN_BONUS)
 
-MLX := $(MLX_DIR)/libmlx.a
-LIBFT := $(LIBFT_DIR)/libft.a
+MANDATORY_OBJ := $(addprefix $(OBJ_DIR)/, $(MANDATORY_SRC:.c=.o))
+BONUS_OBJ := $(addprefix $(OBJ_DIR)/, $(BONUS_SRC:.c=.o))
 
-MLX_FLAGS := -L$(MLX_DIR) -lmlx -lX11 -lXext -lm
-LIBFT_FLAGS := -L$(LIBFT_DIR) -lft
+DEP := $(MANDATORY_OBJ:.o=.d) $(BONUS_OBJ:.o=.d)
 
-INC_SUBDIRS := $(shell find $(INC_DIR) -type d)
-CFLAGS += $(addprefix -I, $(INC_SUBDIRS)) -I$(MLX_DIR) -I$(LIBFT_DIR)
+MANDATORY_INC := $(shell find $(MANDATORY_INC_DIR) -type d)
+BONUS_INC     := $(shell find $(BONUS_INC_DIR) -type d)
+
+MANDATORY_CFLAGS := $(addprefix -I, $(MANDATORY_INC))
+BONUS_CFLAGS     := $(addprefix -I, $(BONUS_INC))
+
+CFLAGS += -I$(MLX_DIR) -I$(LIBFT_DIR)
 
 all: $(NAME)
 
-# bonus: $(NAME)_bonus
+bonus: $(BONUS_NAME)
 
-$(NAME): $(MLX) $(LIBFT) $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) $(MLX_FLAGS) $(LIBFT_FLAGS) -o $@
+$(NAME): $(MLX) $(LIBFT) $(MANDATORY_OBJ)
+	$(CC) $(CFLAGS) $(MANDATORY_CFLAGS) $(MANDATORY_OBJ) $(MLX_FLAGS) $(LIBFT_FLAGS) -o $@
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+$(BONUS_NAME): $(MLX) $(LIBFT) $(BONUS_OBJ)
+	$(CC) $(CFLAGS) $(MANDATORY_CFLAGS) $(BONUS_CFLAGS) $(BONUS_OBJ) $(MLX_FLAGS) $(LIBFT_FLAGS) -o $@
+
+$(OBJ_DIR)/%.o: $(MANDATORY_SRC_DIR)/%.c
 	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(MANDATORY_CFLAGS) -c $< -o $@
+
+$(OBJ_DIR)/%.o: $(BONUS_SRC_DIR)/%.c
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) $(MANDATORY_CFLAGS) $(BONUS_CFLAGS) -c $< -o $@
 
 $(MLX):
 	$(MAKE) -C $(MLX_DIR)
@@ -115,11 +135,11 @@ clean:
 	$(MAKE) -C $(LIBFT_DIR) clean
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) $(BONUS_NAME)
 	$(MAKE) -C $(LIBFT_DIR) fclean
 
 re: fclean all
 
 -include $(DEP)
 
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re

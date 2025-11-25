@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 07:46:04 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/20 15:34:36 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/25 14:47:38 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ static int	render_pixel(int px, int py, const t_scene *s)
 		color = lambertian_shade(&hit, s->light);
 		return (color_to_rgb(&color));
 	}
-	//return (create_trgb(0, 255, 255, 255));
 	return (create_trgb(0, px * 255 / WIDTH, py * 255 / HEIGHT, 128));
 }
 

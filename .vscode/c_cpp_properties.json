@@ -3,7 +3,8 @@
         {
             "name": "Mac",
             "includePath": [
-                "${workspaceFolder}/include/**",
+                "${workspaceFolder}/mandatory/include/**",
+                "${workspaceFolder}/bonus/include/**",
                 "${workspaceFolder}/libft/**",
                 "${workspaceFolder}/**"
             ],
