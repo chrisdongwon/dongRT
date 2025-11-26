@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_bonus.c                                       :+:      :+:    :+:   */
+/*   ray_bonus.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 14:03:52 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/26 13:45:42 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/13 14:15:13 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/26 13:45:27 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mini_rt_bonus.h"
+#include "ray_bonus.h"
 
-int	main(int argc, char **argv)
+#include "camera_bonus.h"
+#include "point_bonus.h"
+
+t_ray	generate_ray(const t_camera *cam, double px, double py)
 {
-	mini_rt(argc, argv);
-	return (0);
+	static const t_vector	origin = {0, 0, 0};
+	t_point					p;
+	t_ray					r;
+	t_vector				v;
+
+	p = init_ndc(px, py);
+	ndc_to_ssc(&p);
+	v = ssc_to_vector(cam, &p);
+	r.dir = normalize(transform(&cam->mat, &v, false));
+	r.origin = transform(&cam->mat, &origin, true);
+	return (r);
 }

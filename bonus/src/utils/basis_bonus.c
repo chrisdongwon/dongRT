@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_bonus.c                                       :+:      :+:    :+:   */
+/*   basis_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 14:03:52 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/26 13:45:42 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/13 13:46:58 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/26 13:45:07 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mini_rt_bonus.h"
+#include "basis_bonus.h"
 
-int	main(int argc, char **argv)
+t_basis	init_basis(t_vector forward)
 {
-	mini_rt(argc, argv);
-	return (0);
+	const t_vector	alt_up = {0.0, 0.0, 1.0};
+	const t_vector	world_up = {0.0, 1.0, 0.0};
+	t_basis			basis;
+
+	basis.forward = forward;
+	basis.right = normalize(cross(basis.forward, world_up));
+	if (norm(basis.right) < EPSILON)
+		basis.right = normalize(cross(basis.forward, alt_up));
+	basis.up = cross(basis.right, basis.forward);
+	return (basis);
 }

@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_bonus.c                                       :+:      :+:    :+:   */
+/*   vector_projection_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 14:03:52 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/26 13:45:42 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/21 12:59:27 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/26 13:45:39 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mini_rt_bonus.h"
+#include "vector_bonus.h"
 
-int	main(int argc, char **argv)
+static t_vector	proj(t_vector u, t_vector v)
 {
-	mini_rt(argc, argv);
-	return (0);
+	double	norm_sq;
+
+	norm_sq = dot(v, v);
+	if (norm_sq < EPSILON)
+		return ((t_vector){0, 0, 0});
+	return (scale(dot(u, v) / norm_sq, v));
+}
+
+t_vector	perp(t_vector u, t_vector v)
+{
+	return (subtract(u, proj(u, v)));
 }

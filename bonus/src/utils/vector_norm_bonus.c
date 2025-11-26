@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_bonus.c                                       :+:      :+:    :+:   */
+/*   vector_norm_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 14:03:52 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/26 13:45:42 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/06 12:02:24 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/26 13:45:32 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mini_rt_bonus.h"
+#include "vector_bonus.h"
 
-int	main(int argc, char **argv)
+#include <math.h>
+
+bool	is_normalized(t_vector v)
 {
-	mini_rt(argc, argv);
-	return (0);
+	return (fabs(norm(v) - 1.0) < EPSILON);
+}
+
+double	norm(t_vector v)
+{
+	return (sqrt(v.x * v.x + v.y * v.y + v.z * v.z));
+}
+
+t_vector	normalize(t_vector v)
+{
+	return (scale(1.0 / norm(v), v));
 }

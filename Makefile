@@ -6,7 +6,7 @@
 #    By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/04 15:11:00 by cwon              #+#    #+#              #
-#    Updated: 2025/11/25 14:35:18 by cwon             ###   ########.fr        #
+#    Updated: 2025/11/26 14:11:04 by cwon             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,7 +78,6 @@ MINIRT_SRC := \
 	miniRT/validate.c
 
 MAIN := main.c
-MAIN_BONUS := main_bonus.c
 
 MANDATORY_SRC := \
 	$(OBJECTS_SRC) \
@@ -89,7 +88,59 @@ MANDATORY_SRC := \
 	$(MINIRT_SRC) \
 	$(MAIN)
 
+OBJECTS_BONUS_SRC := \
+	objects/object_bonus.c
+
+PARSER_BONUS_SRC := \
+	parser/convert_utils_bonus.c \
+	parser/convert_bonus.c \
+	parser/dispatcher_bonus.c \
+	parser/parse_elements_bonus.c \
+	parser/parse_objects_bonus.c \
+	parser/parse_utils_bonus.c \
+	parser/parse_bonus.c \
+	parser/parser_bonus.c
+
+RENDERER_BONUS_SRC := \
+	renderer/hit_cylinder_bonus.c \
+	renderer/hit_plane_bonus.c \
+	renderer/hit_sphere_bonus.c \
+	renderer/hit_bonus.c \
+	renderer/minilibx_bonus.c \
+	renderer/render_bonus.c \
+	renderer/renderer_bonus.c \
+	renderer/shade_bonus.c
+
+SCENE_BONUS_SRC := \
+	scene/camera_bonus.c \
+	scene/scene_bonus.c
+
+UTILS_BONUS_SRC := \
+	utils/basis_bonus.c \
+	utils/color_bonus.c \
+	utils/matrix_transform_bonus.c \
+	utils/matrix_bonus.c \
+	utils/point_bonus.c \
+	utils/quadratic_bonus.c \
+	utils/ray_bonus.c \
+	utils/vector_norm_bonus.c \
+	utils/vector_product_bonus.c \
+	utils/vector_projection_bonus.c \
+	utils/vector.c
+
+MINIRT_BONUS_SRC := \
+	miniRT/mini_rt_bonus.c \
+	miniRT/validate_bonus.c
+
+MAIN_BONUS := main_bonus.c
+
 BONUS_SRC := \
+	$(OBJECTS_BONUS_SRC) \
+	$(PARSER_BONUS_SRC) \
+	$(RENDERER_BONUS_SRC) \
+	$(SCENE_BONUS_SRC) \
+	$(UTILS_BONUS_SRC) \
+	$(MINIRT_BONUS_SRC) \
 	$(MAIN_BONUS)
 
 MANDATORY_OBJ := $(addprefix $(OBJ_DIR)/, $(MANDATORY_SRC:.c=.o))

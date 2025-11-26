@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_bonus.c                                       :+:      :+:    :+:   */
+/*   ambient_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 14:03:52 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/26 13:45:42 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/03 14:58:18 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/26 13:41:37 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mini_rt_bonus.h"
+#ifndef AMBIENT_BONUS_H
+# define AMBIENT_BONUS_H
 
-int	main(int argc, char **argv)
+# include "color_bonus.h"
+
+typedef struct s_ambient	t_ambient;
+
+struct s_ambient
 {
-	mini_rt(argc, argv);
-	return (0);
-}
+	double	ratio;
+	t_color	color;
+};
+
+#endif

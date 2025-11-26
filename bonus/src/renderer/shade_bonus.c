@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   shade.c                                            :+:      :+:    :+:   */
+/*   shade_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 13:28:28 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/26 13:44:53 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/26 13:44:42 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "hit.h"
+#include "hit_bonus.h"
 
 #include <math.h>
 
-#include "light.h"
+#include "light_bonus.h"
 
 static double	compute_projection(const t_hit *h, const t_light *l)
 {

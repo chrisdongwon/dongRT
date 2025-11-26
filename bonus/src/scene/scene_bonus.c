@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_bonus.c                                       :+:      :+:    :+:   */
+/*   scene_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 14:03:52 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/26 13:45:42 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/03 21:21:09 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/26 13:45:04 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mini_rt_bonus.h"
+#include "scene_bonus.h"
 
-int	main(int argc, char **argv)
+#include <stdlib.h>
+
+#include "libft.h"
+#include "object_bonus.h"
+
+void	init_scene(t_scene *scene)
 {
-	mini_rt(argc, argv);
-	return (0);
+	ft_memset(scene, 0, sizeof(*scene));
+}
+
+void	flush_scene(t_scene *scene)
+{
+	free(scene->ambient);
+	free(scene->camera);
+	free(scene->light);
+	ft_lstclear(&scene->objects, free_object);
 }

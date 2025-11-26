@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_bonus.c                                       :+:      :+:    :+:   */
+/*   plane_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 14:03:52 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/26 13:45:42 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/03 15:06:40 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/26 13:41:17 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mini_rt_bonus.h"
+#ifndef PLANE_BONUS_H
+# define PLANE_BONUS_H
 
-int	main(int argc, char **argv)
+# include "vector_bonus.h"
+
+typedef struct s_plane	t_plane;
+
+struct s_plane
 {
-	mini_rt(argc, argv);
-	return (0);
-}
+	t_vector	normal;
+	t_vector	point;
+};
+
+#endif

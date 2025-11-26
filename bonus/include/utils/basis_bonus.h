@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_bonus.c                                       :+:      :+:    :+:   */
+/*   basis_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 14:03:52 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/26 13:45:42 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/13 12:08:22 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/26 14:14:33 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mini_rt_bonus.h"
+#ifndef BASIS_BONUS_H
+# define BASIS_BONUS_H
 
-int	main(int argc, char **argv)
+# include "vector_bonus.h"
+
+typedef struct s_basis	t_basis;
+
+struct s_basis
 {
-	mini_rt(argc, argv);
-	return (0);
-}
+	t_vector	forward;
+	t_vector	right;
+	t_vector	up;
+};
+
+// basis.c
+t_basis	init_basis(t_vector forward);
+
+#endif

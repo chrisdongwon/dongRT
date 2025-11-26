@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_bonus.c                                       :+:      :+:    :+:   */
+/*   light_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 14:03:52 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/26 13:45:42 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/03 14:39:56 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/26 13:41:43 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mini_rt_bonus.h"
+#ifndef LIGHT_BONUS_H
+# define LIGHT_BONUS_H
 
-int	main(int argc, char **argv)
+# include "color_bonus.h"
+# include "vector_bonus.h"
+
+typedef struct s_light	t_light;
+
+struct s_light
 {
-	mini_rt(argc, argv);
-	return (0);
-}
+	double		brightness;
+	t_color		color;
+	t_vector	pos;
+};
+
+#endif

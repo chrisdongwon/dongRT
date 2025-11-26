@@ -1,19 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_bonus.c                                       :+:      :+:    :+:   */
+/*   scene_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 14:03:52 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/26 13:45:42 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/03 15:10:19 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/26 13:37:02 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mini_rt_bonus.h"
+#ifndef SCENE_BONUS_H
+# define SCENE_BONUS_H
 
-int	main(int argc, char **argv)
+typedef struct s_ambient	t_ambient;
+typedef struct s_camera		t_camera;
+typedef struct s_light		t_light;
+typedef struct s_list		t_list;
+typedef struct s_scene		t_scene;
+
+struct s_scene
 {
-	mini_rt(argc, argv);
-	return (0);
-}
+	t_ambient	*ambient;
+	t_camera	*camera;
+	t_light		*light;
+	t_list		*objects;
+};
+
+// scene.c
+void	init_scene(t_scene *scene);
+void	flush_scene(t_scene *scene);
+
+#endif

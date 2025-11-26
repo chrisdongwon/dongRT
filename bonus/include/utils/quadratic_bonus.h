@@ -1,19 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_bonus.c                                       :+:      :+:    :+:   */
+/*   quadratic_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 14:03:52 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/26 13:45:42 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/15 12:41:01 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/26 13:37:19 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mini_rt_bonus.h"
+#ifndef QUADRATIC_BONUS_H
+# define QUADRATIC_BONUS_H
 
-int	main(int argc, char **argv)
+# define EPSILON 1e-6
+
+# include <stdbool.h>
+
+typedef struct s_quadratic	t_quadratic;
+
+struct s_quadratic
 {
-	mini_rt(argc, argv);
-	return (0);
-}
+	bool	real_roots;
+	double	t1;
+	double	t2;
+};
+
+// quadratic.c
+double		min_positive_root(const t_quadratic *q);
+t_quadratic	solve_quadratic(double abc[3]);
+
+#endif

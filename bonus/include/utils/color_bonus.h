@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_bonus.c                                       :+:      :+:    :+:   */
+/*   color_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 14:03:52 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/26 13:45:42 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/03 14:36:56 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/26 13:37:11 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mini_rt_bonus.h"
+#ifndef COLOR_BONUS_H
+# define COLOR_BONUS_H
 
-int	main(int argc, char **argv)
+typedef struct s_color	t_color;
+
+struct s_color
 {
-	mini_rt(argc, argv);
-	return (0);
-}
+	double	r;
+	double	g;
+	double	b;
+};
+
+// color.c
+int	color_to_rgb(const t_color *c);
+
+#endif

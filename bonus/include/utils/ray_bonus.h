@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_bonus.c                                       :+:      :+:    :+:   */
+/*   ray_bonus.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 14:03:52 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/26 13:45:42 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/13 12:01:33 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/26 13:42:00 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mini_rt_bonus.h"
+#ifndef RAY_BONUS_H
+# define RAY_BONUS_H
 
-int	main(int argc, char **argv)
+# include "vector_bonus.h"
+
+typedef struct s_camera	t_camera;
+typedef struct s_ray	t_ray;
+
+struct s_ray
 {
-	mini_rt(argc, argv);
-	return (0);
-}
+	t_vector	origin;
+	t_vector	dir;
+};
+
+// ray.c
+t_ray	generate_ray(const t_camera *cam, double px, double py);
+
+#endif

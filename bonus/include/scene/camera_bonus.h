@@ -1,19 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_bonus.c                                       :+:      :+:    :+:   */
+/*   camera_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 14:03:52 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/26 13:45:42 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/03 14:38:16 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/26 13:41:40 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mini_rt_bonus.h"
+#ifndef CAMERA_BONUS_H
+# define CAMERA_BONUS_H
 
-int	main(int argc, char **argv)
+# include "basis_bonus.h"
+# include "matrix_bonus.h"
+
+typedef struct s_camera	t_camera;
+
+struct s_camera
 {
-	mini_rt(argc, argv);
-	return (0);
-}
+	double		aspect;
+	double		fov;
+	double		scale;
+	t_vector	dir;
+	t_vector	pos;
+	t_basis		basis;
+	t_matrix	mat;
+};
+
+// camera.c
+void	init_camera(t_camera *cam);
+
+#endif

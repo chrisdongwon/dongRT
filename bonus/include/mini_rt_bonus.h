@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/25 14:46:14 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/25 14:47:04 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/03 14:05:45 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/26 13:37:30 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 
 typedef struct s_scene	t_scene;
 
-// mini_rt_bonus.c
+// mini_rt.c
 void	mini_rt_error(t_scene *scene);
 void	mini_rt(int argc, char **argv);
 
-// validate_bonus.c
+// validate.c
 void	validate_arg(int argc, char **argv);
 
 #endif

@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_bonus.c                                       :+:      :+:    :+:   */
+/*   vector_product_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 14:03:52 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/26 13:45:42 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/07 13:37:17 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/26 13:45:37 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mini_rt_bonus.h"
+#include "vector_bonus.h"
 
-int	main(int argc, char **argv)
+double	dot(t_vector u, t_vector v)
 {
-	mini_rt(argc, argv);
-	return (0);
+	return (u.x * v.x + u.y * v.y + u.z * v.z);
+}
+
+t_vector	cross(t_vector u, t_vector v)
+{
+	t_vector	result;
+
+	result.x = u.y * v.z - u.z * v.y;
+	result.y = u.z * v.x - u.x * v.z;
+	result.z = u.x * v.y - u.y * v.x;
+	return (result);
 }

@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_bonus.c                                       :+:      :+:    :+:   */
+/*   color_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 14:03:52 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/26 13:45:42 by cwon             ###   ########.fr       */
+/*   Created: 2025/11/18 14:42:18 by cwon              #+#    #+#             */
+/*   Updated: 2025/11/26 13:45:09 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mini_rt_bonus.h"
+#include "color_bonus.h"
 
-int	main(int argc, char **argv)
+#include <math.h>
+
+int	color_to_rgb(const t_color *c)
 {
-	mini_rt(argc, argv);
-	return (0);
+	int	r;
+	int	g;
+	int	b;
+
+	r = fmin(fmax(c->r * 255.0, 0.0), 255.0);
+	g = fmin(fmax(c->g * 255.0, 0.0), 255.0);
+	b = fmin(fmax(c->b * 255.0, 0.0), 255.0);
+	return (r << 16 | g << 8 | b);
 }
