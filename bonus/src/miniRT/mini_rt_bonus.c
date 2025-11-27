@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 14:08:13 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/26 13:42:17 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/27 15:08:56 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 void	mini_rt_error(t_scene *scene)
 {
-	perror("miniRT");
+	perror("miniRT_bonus");
 	flush_scene(scene);
 	exit(EXIT_FAILURE);
 }

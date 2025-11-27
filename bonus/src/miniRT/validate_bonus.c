@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 15:33:18 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/26 13:42:13 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/27 15:09:06 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	validate_error(const char *msg)
 void	validate_arg(int argc, char **argv)
 {
 	if (argc != 2)
-		validate_error("usage: miniRT <scene.rt>");
+		validate_error("usage: miniRT_bonus <scene.rt>");
 	if (!has_extension(argv[1], ".rt"))
-		validate_error("miniRT: Scene file must have .rt extension");
+		validate_error("miniRT_bonus: Scene file must have .rt extension");
 }

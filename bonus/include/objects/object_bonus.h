@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 15:02:56 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/26 13:41:15 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/27 15:06:58 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef t_hit			(*t_hit_fn)(const t_ray *, const t_object *);
 enum e_obj_type
 {
 	CYLINDER,
+	PARABOLOID,
 	PLANE,
 	SPHERE
 };
