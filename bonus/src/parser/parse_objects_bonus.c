@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 12:26:56 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/26 14:16:34 by cwon             ###   ########.fr       */
+/*   Updated: 2025/11/28 14:11:24 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "cylinder_bonus.h"
 #include "libft.h"
 #include "object_bonus.h"
+#include "paraboloid_bonus.h"
 #include "plane_bonus.h"
 #include "sphere_bonus.h"
 
@@ -33,6 +34,15 @@ void	parse_cylinder(t_parser *p)
 	cylinder = parser_malloc(p, sizeof(t_cylinder));
 	*cylinder = temp;
 	append_object(p, cylinder, CYLINDER, color);
+}
+
+void	parse_paraboloid(t_parser *p)
+{
+	t_paraboloid	*paraboloid;
+	t_paraboloid	temp;
+
+	check_token_count(p, 6);
+	
 }
 
 void	parse_plane(t_parser *p)
