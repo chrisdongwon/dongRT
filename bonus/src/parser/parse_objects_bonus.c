@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 12:26:56 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/28 14:11:24 by cwon             ###   ########.fr       */
+/*   Updated: 2025/12/01 08:47:34 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,19 @@ void	parse_cylinder(t_parser *p)
 
 void	parse_paraboloid(t_parser *p)
 {
+	t_color			color;
 	t_paraboloid	*paraboloid;
 	t_paraboloid	temp;
 
 	check_token_count(p, 6);
-	
+	temp.center = get_vector(p, 1, false);
+	temp.normal = get_vector(p, 2, true);
+	temp.k = get_float(p, 3);
+	temp.height = get_float(p, 4);
+	color = get_color(p, 5);
+	paraboloid = parser_malloc(p, sizeof(t_paraboloid));
+	*paraboloid = temp;
+	append_object(p, paraboloid, PARABOLOID, color);
 }
 
 void	parse_plane(t_parser *p)

@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 12:27:14 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/26 13:41:31 by cwon             ###   ########.fr       */
+/*   Updated: 2025/12/01 08:56:04 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ struct s_hit
 
 // hit_cylinder.c
 t_hit	hit_cylinder(const t_ray *r, const t_object *obj);
+
+// hit_paraboloid.c
+t_hit	hit_paraboloid(const t_ray *r, const t_object *obj);
 
 // hit_plane.c
 t_hit	hit_plane(const t_ray *r, const t_object *obj);

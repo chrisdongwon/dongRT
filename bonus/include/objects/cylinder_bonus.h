@@ -6,12 +6,12 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 15:07:41 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/26 13:41:09 by cwon             ###   ########.fr       */
+/*   Updated: 2025/12/01 08:50:08 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CYLINDER_BONUS_H
-# define CYLINDE_BONUS_H
+# define CYLINDER_BONUS_H
 
 # include "vector_bonus.h"
 

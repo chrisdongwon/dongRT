@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 21:21:43 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/26 13:41:28 by cwon             ###   ########.fr       */
+/*   Updated: 2025/12/01 08:54:30 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void		parse_light(t_parser *p);
 
 // parse_objects.c
 void		parse_cylinder(t_parser *p);
+void		parse_paraboloid(t_parser *p);
 void		parse_plane(t_parser *p);
 void		parse_sphere(t_parser *p);
 
