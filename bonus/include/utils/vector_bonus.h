@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 14:34:56 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/26 13:37:26 by cwon             ###   ########.fr       */
+/*   Updated: 2025/12/04 14:40:56 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ t_vector	perp(t_vector u, t_vector v);
 
 // vector.c
 t_vector	add(t_vector u, t_vector v);
+t_vector	reflect(t_vector v, t_vector n);
 t_vector	scale(double c, t_vector v);
 t_vector	subtract(t_vector u, t_vector v);
 
