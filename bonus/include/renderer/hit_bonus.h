@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 12:27:14 by cwon              #+#    #+#             */
-/*   Updated: 2025/12/01 08:56:04 by cwon             ###   ########.fr       */
+/*   Updated: 2025/12/11 14:41:06 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,6 @@ void	init_hit(t_hit *h);
 
 // shade.c
 t_color	lambertian_shade(const t_hit *h, const t_light *l);
+t_color	phong_shade(const t_hit *h, const t_light *l);
 
 #endif

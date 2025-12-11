@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 13:28:28 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/26 13:44:42 by cwon             ###   ########.fr       */
+/*   Updated: 2025/12/11 14:44:21 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 #include <math.h>
 
+#include "camera_bonus.h"
 #include "light_bonus.h"
 
 static double	compute_projection(const t_hit *h, const t_light *l)
@@ -34,4 +35,9 @@ t_color	lambertian_shade(const t_hit *h, const t_light *l)
 	color.g = h->color.g * proj * l->brightness;
 	color.b = h->color.b * proj * l->brightness;
 	return (color);
+}
+
+t_color	phong_shade(const t_hit *h, const t_light *l, const t_camera *c)
+{
+	// STUB
 }
