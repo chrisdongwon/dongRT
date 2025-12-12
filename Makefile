@@ -6,7 +6,7 @@
 #    By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/04 15:11:00 by cwon              #+#    #+#              #
-#    Updated: 2025/12/12 14:10:27 by cwon             ###   ########.fr        #
+#    Updated: 2025/12/12 15:37:37 by cwon             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -102,6 +102,7 @@ PARSER_BONUS_SRC := \
 	parser/parser_bonus.c
 
 RENDERER_BONUS_SRC := \
+	renderer/checkerboard_bonus.c \
 	renderer/hit_bonus.c \
 	renderer/hit_cylinder_bonus.c \
 	renderer/hit_paraboloid_bonus.c \
