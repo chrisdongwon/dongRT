@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 14:42:18 by cwon              #+#    #+#             */
-/*   Updated: 2025/12/11 15:55:33 by cwon             ###   ########.fr       */
+/*   Updated: 2025/12/12 14:11:12 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,5 @@ t_color	scale_color(t_color c, double scale)
 	c.r *= scale;
 	c.g *= scale;
 	c.b *= scale;
-	return (c); 
+	return (c);
 }

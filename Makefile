@@ -6,7 +6,7 @@
 #    By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/04 15:11:00 by cwon              #+#    #+#              #
-#    Updated: 2025/12/01 09:02:28 by cwon             ###   ########.fr        #
+#    Updated: 2025/12/12 14:10:27 by cwon             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -102,15 +102,16 @@ PARSER_BONUS_SRC := \
 	parser/parser_bonus.c
 
 RENDERER_BONUS_SRC := \
+	renderer/hit_bonus.c \
 	renderer/hit_cylinder_bonus.c \
 	renderer/hit_paraboloid_bonus.c \
 	renderer/hit_plane_bonus.c \
 	renderer/hit_sphere_bonus.c \
-	renderer/hit_bonus.c \
+	renderer/lambertian_bonus.c \
 	renderer/minilibx_bonus.c \
+	renderer/phong_bonus.c \
 	renderer/render_bonus.c \
-	renderer/renderer_bonus.c \
-	renderer/shade_bonus.c
+	renderer/renderer_bonus.c
 
 SCENE_BONUS_SRC := \
 	scene/camera_bonus.c \

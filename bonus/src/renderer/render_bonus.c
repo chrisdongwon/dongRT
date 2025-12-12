@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 07:46:04 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/26 13:44:26 by cwon             ###   ########.fr       */
+/*   Updated: 2025/12/12 14:05:43 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 #include <stdio.h>
 
+#include "camera_bonus.h"
 #include "hit_bonus.h"
 #include "mini_rt_bonus.h"
 #include "minilibx_bonus.h"
@@ -31,7 +32,8 @@ static int	render_pixel(int px, int py, const t_scene *s)
 	hit = hit_scene(s, &ray);
 	if (hit.is_hit)
 	{
-		color = lambertian_shade(&hit, s->light);
+		// color = lambertian_shade(&hit, s->light);
+		color = phong_shade(&hit, s->light, s->camera);
 		return (color_to_rgb(&color));
 	}
 	return (create_trgb(0, px * 255 / WIDTH, py * 255 / HEIGHT, 128));
