@@ -6,14 +6,14 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 14:34:56 by cwon              #+#    #+#             */
-/*   Updated: 2025/12/04 14:40:56 by cwon             ###   ########.fr       */
+/*   Updated: 2026/02/21 14:37:00 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VECTOR_BONUS_H
 # define VECTOR_BONUS_H
 
-# define EPSILON 1e-6
+# define EPS_NORM 1e-4
 
 # include <stdbool.h>
 

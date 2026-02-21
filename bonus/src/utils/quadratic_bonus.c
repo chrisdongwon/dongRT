@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 12:44:18 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/26 13:45:21 by cwon             ###   ########.fr       */
+/*   Updated: 2026/02/21 14:37:39 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ static void	swap(double *a, double *b)
 
 double	min_positive_root(const t_quadratic *q)
 {
-	if (q->t1 > EPSILON && q->t2 > EPSILON)
+	if (q->t1 > EPS_ZERO && q->t2 > EPS_ZERO)
 		return (q->t1);
-	if (q->t1 > EPSILON)
+	if (q->t1 > EPS_ZERO)
 		return (q->t1);
-	if (q->t2 > EPSILON)
+	if (q->t2 > EPS_ZERO)
 		return (q->t2);
 	return (-1.0);
 }

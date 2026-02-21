@@ -6,14 +6,14 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 14:34:56 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/21 13:10:00 by cwon             ###   ########.fr       */
+/*   Updated: 2026/02/21 14:35:18 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VECTOR_H
 # define VECTOR_H
 
-# define EPSILON 1e-6
+# define EPS_NORM 1e-6
 
 # include <stdbool.h>
 

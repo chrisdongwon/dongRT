@@ -6,14 +6,14 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 12:41:01 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/26 13:37:19 by cwon             ###   ########.fr       */
+/*   Updated: 2026/02/21 14:37:05 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef QUADRATIC_BONUS_H
 # define QUADRATIC_BONUS_H
 
-# define EPSILON 1e-6
+# define EPS_ZERO 1e-6
 
 # include <stdbool.h>
 

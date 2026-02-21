@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 08:54:55 by cwon              #+#    #+#             */
-/*   Updated: 2025/12/04 14:32:03 by cwon             ###   ########.fr       */
+/*   Updated: 2026/02/21 15:39:16 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ t_hit *h)
 	if (h->is_hit)
 		return ;
 	proj = dot(r->dir, p->normal);
-	if (fabs(proj) < EPSILON)
+	if (fabs(proj) < EPS_ZERO)
 		return ;
 	h->t = (p->height - dot(*v, p->normal)) / proj;
-	if (h->t < EPSILON)
+	if (h->t < EPS_ZERO)
 		return ;
 	h->point = add(r->origin, scale(h->t, r->dir));
 	center = add(p->center, scale(p->height, p->normal));
@@ -71,7 +71,7 @@ const t_quadratic *q, t_hit *h)
 	i = -1;
 	while (++i < 2)
 	{
-		if (soln[i] < EPSILON)
+		if (soln[i] < EPS_ZERO)
 			continue ;
 		h->point = add(r->origin, scale(soln[i], r->dir));
 		v = subtract(h->point, p->center);

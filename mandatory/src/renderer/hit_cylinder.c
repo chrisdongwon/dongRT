@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 09:49:44 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/21 14:43:59 by cwon             ###   ########.fr       */
+/*   Updated: 2026/02/21 15:36:48 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ const t_quadratic *q, t_hit *h)
 	i = -1;
 	while (++i < 2)
 	{
-		if (soln[i] < EPSILON)
+		if (soln[i] < EPS_ZERO)
 			continue ;
 		point = add(r->origin, scale(soln[i], r->dir));
 		height = dot(subtract(point, c->center), c->axis);
@@ -71,10 +71,10 @@ const t_vector *v, t_hit *h)
 	if (h->is_hit)
 		return ;
 	proj = dot(r->dir, c->axis);
-	if (fabs(proj) > EPSILON)
+	if (fabs(proj) > EPS_ZERO)
 	{
 		h->t = -dot(*v, c->axis) / proj;
-		if (h->t > EPSILON)
+		if (h->t > EPS_ZERO)
 		{
 			h->point = add(r->origin, scale(h->t, r->dir));
 			length = norm(subtract(h->point, c->center));
@@ -97,10 +97,10 @@ const t_vector *v, t_hit *h)
 	if (h->is_hit)
 		return ;
 	proj = dot(r->dir, c->axis);
-	if (fabs(proj) > EPSILON)
+	if (fabs(proj) > EPS_ZERO)
 	{
 		h->t = (c->height - dot(*v, c->axis)) / proj;
-		if (h->t > EPSILON)
+		if (h->t > EPS_ZERO)
 		{
 			center = add(c->center, scale(c->height, c->axis));
 			h->point = add(r->origin, scale(h->t, r->dir));

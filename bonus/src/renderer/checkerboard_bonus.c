@@ -6,13 +6,15 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 15:22:37 by cwon              #+#    #+#             */
-/*   Updated: 2025/12/12 15:36:24 by cwon             ###   ########.fr       */
+/*   Updated: 2026/02/21 15:40:21 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <math.h>
+
 #include "hit_bonus.h"
 
-int checker_plane(const t_vector p, double scale)
+int	checker_plane(const t_vector p, double scale)
 {
 	int	x;
 	int	y;

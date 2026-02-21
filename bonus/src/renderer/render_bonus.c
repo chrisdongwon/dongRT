@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 07:46:04 by cwon              #+#    #+#             */
-/*   Updated: 2025/12/12 14:05:43 by cwon             ###   ########.fr       */
+/*   Updated: 2026/02/21 15:40:34 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ static int	render_pixel(int px, int py, const t_scene *s)
 	hit = hit_scene(s, &ray);
 	if (hit.is_hit)
 	{
-		// color = lambertian_shade(&hit, s->light);
 		color = phong_shade(&hit, s->light, s->camera);
 		return (color_to_rgb(&color));
 	}
