@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 14:42:18 by cwon              #+#    #+#             */
-/*   Updated: 2025/12/12 14:11:12 by cwon             ###   ########.fr       */
+/*   Updated: 2026/02/22 14:37:55 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,11 @@ t_color	add_color(t_color a, t_color b)
 	c.g = a.g + b.g;
 	c.b = a.b + b.b;
 	return (c);
+}
+
+t_color	invert_color(t_color c)
+{
+	return ((t_color){1.0 - c.r, 1.0 - c.g, 1.0 - c.b});
 }
 
 t_color	multiply_color(t_color a, t_color b)

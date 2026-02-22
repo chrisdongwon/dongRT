@@ -6,11 +6,13 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 12:26:56 by cwon              #+#    #+#             */
-/*   Updated: 2025/12/01 08:47:34 by cwon             ###   ########.fr       */
+/*   Updated: 2026/02/22 14:37:10 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser_bonus.h"
+
+#include <math.h>
 
 #include "cylinder_bonus.h"
 #include "libft.h"
@@ -18,6 +20,15 @@
 #include "paraboloid_bonus.h"
 #include "plane_bonus.h"
 #include "sphere_bonus.h"
+
+static void	set_plane_basis(t_plane *p)
+{
+	p->u = cross((t_vector){1, 0, 0}, p->normal);
+	if (fabs(p->normal.x) > 0.9)
+		p->u = cross((t_vector){0, 1, 0}, p->normal);
+	p->u = normalize(p->u);
+	p->v = cross(p->normal, p->u);
+}
 
 void	parse_cylinder(t_parser *p)
 {
@@ -63,6 +74,7 @@ void	parse_plane(t_parser *p)
 	temp.point = get_vector(p, 1, false);
 	temp.normal = get_vector(p, 2, true);
 	color = get_color(p, 3);
+	set_plane_basis(&temp);
 	plane = parser_malloc(p, sizeof(t_plane));
 	*plane = temp;
 	append_object(p, plane, PLANE, color);

@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 15:06:40 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/26 13:41:17 by cwon             ###   ########.fr       */
+/*   Updated: 2026/02/22 13:57:00 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ struct s_plane
 {
 	t_vector	normal;
 	t_vector	point;
+	t_vector	u;
+	t_vector	v;
 };
 
 #endif

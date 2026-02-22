@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 07:46:04 by cwon              #+#    #+#             */
-/*   Updated: 2026/02/22 13:29:18 by cwon             ###   ########.fr       */
+/*   Updated: 2026/02/22 14:19:00 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,7 @@
 static t_color	get_surface_color(const t_hit *hit)
 {
 	if (hit->obj->type == PLANE)
-	{
-		if (((int)(hit->point.x) + (int)(hit->point.z)) % 2)
-			return ((t_color){255, 255, 255}); // this should be white or black depending on the object color
-	}
+		return (checkerboard(hit));
 	return (hit->obj->color);
 }
 
