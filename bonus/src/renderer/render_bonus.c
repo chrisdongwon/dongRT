@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 07:46:04 by cwon              #+#    #+#             */
-/*   Updated: 2026/02/21 15:40:34 by cwon             ###   ########.fr       */
+/*   Updated: 2026/02/22 13:29:18 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,19 @@
 #include "mini_rt_bonus.h"
 #include "minilibx_bonus.h"
 #include "mlx.h"
+#include "object_bonus.h"
 #include "ray_bonus.h"
 #include "scene_bonus.h"
+
+static t_color	get_surface_color(const t_hit *hit)
+{
+	if (hit->obj->type == PLANE)
+	{
+		if (((int)(hit->point.x) + (int)(hit->point.z)) % 2)
+			return ((t_color){255, 255, 255}); // this should be white or black depending on the object color
+	}
+	return (hit->obj->color);
+}
 
 static int	render_pixel(int px, int py, const t_scene *s)
 {
@@ -32,7 +43,7 @@ static int	render_pixel(int px, int py, const t_scene *s)
 	hit = hit_scene(s, &ray);
 	if (hit.is_hit)
 	{
-		color = phong_shade(&hit, s->light, s->camera);
+		color = phong_shade(&hit, s->light, s->camera, get_surface_color(&hit));
 		return (color_to_rgb(&color));
 	}
 	return (create_trgb(0, px * 255 / WIDTH, py * 255 / HEIGHT, 128));

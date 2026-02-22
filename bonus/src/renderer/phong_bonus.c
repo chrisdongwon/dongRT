@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 14:07:55 by cwon              #+#    #+#             */
-/*   Updated: 2025/12/12 14:11:24 by cwon             ###   ########.fr       */
+/*   Updated: 2026/02/22 13:13:32 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,14 @@
 
 #include "light_bonus.h"
 #include "camera_bonus.h"
+#include "object_bonus.h"
 
-static t_color	phong_ambient(const t_hit *h)
+static t_color	phong_ambient(t_color color)
 {
-	return (scale_color(h->color, KA));
+	return (scale_color(color, KA));
 }
 
-static t_color	phong_diffuse(const t_hit *h, const t_light *l)
+static t_color	phong_diffuse(const t_hit *h, const t_light *l, t_color color)
 {
 	double		diff;
 	t_vector	v;
@@ -30,7 +31,7 @@ static t_color	phong_diffuse(const t_hit *h, const t_light *l)
 	v = normalize(subtract(l->pos, h->point));
 	diff = fmax(0.0, dot(h->normal, v));
 	diff *= KD * l->brightness;
-	return (scale_color(h->color, diff));
+	return (scale_color(color, diff));
 }
 
 static t_color	phong_specular(const t_hit *h, const t_light *l,
@@ -54,15 +55,16 @@ const t_camera *c)
 	return (scale_color(l->color, spec));
 }
 
-t_color	phong_shade(const t_hit *h, const t_light *l, const t_camera *c)
+t_color	phong_shade(const t_hit *h, const t_light *l, const t_camera *c, \
+t_color color)
 {
 	t_color	amb;
 	t_color	diff;
 	t_color	out;
 	t_color	spec;
 
-	amb = phong_ambient(h);
-	diff = phong_diffuse(h, l);
+	amb = phong_ambient(color);
+	diff = phong_diffuse(h, l, color);
 	spec = phong_specular(h, l, c);
 	out = add_color(amb, diff);
 	out = add_color(out, spec);

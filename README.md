@@ -228,12 +228,7 @@ cy 5,0,20 0,1,0 4 10 0,0,255
 
 ---
 
-## Bonus Scene Format Overview
-
-This section describes the minimal scene format used to demonstrate bonus features.  
-All bonus parameters are optional, use defaults where not specified, and remain **backward compatible** with the mandatory format.
-
----
+## Bonus Features Overview
 
 ### Multiple and Colored Lights (Auto-Facing Spotlights)
 
@@ -243,7 +238,7 @@ Multiple lights can be declared with several `L` lines:
 L <x,y,z> <brightness> <R,G,B>
 ```
 
-- `<x,y,z>`: Light position  
+- `<x,y,z>`: Light position
 - `<brightness>`: Light intensity ratio `[0.0, 1.0]`  
 - `<R,G,B>`: Light color `[0,255]`  
 
@@ -268,18 +263,7 @@ All objects, by default, will be rendered with specular reflection in the bonus 
 
 ### Checkerboard Pattern
 
-Planes can include a checkerboard pattern by adding the keyword `checker`:
-
-```
-pl <x,y,z> <nx,ny,nz> <R1,G1,B1> checker
-```
-
-- `<R1,G1,B1>`: Base color  
-
-Example:
-```
-pl 0,-5,0 0,1,0 255,255,255 checker
-```
+All plane objects, by default, will be rendered with checkerboard pattern in the bonus project.
 
 ---
 
@@ -306,12 +290,7 @@ pb 5,0,20 0,1,0 0.5 10 200,100,50
 
 ### Bump Mapping
 
-Bump mapping can be enabled minimally by appending `bump` to the sphere object:
-
-Example:
-```
-sp 0,0,20 5 255,0,0 bump
-```
+All sphere objects, by default, will be rendered with checkerboard pattern in the bonus project.
 
 ---
 
@@ -324,9 +303,9 @@ C 0,0,0 0,0,1 70
 L 10,10,10 0.7 255,255,255
 L -5,8,5 0.4 255,200,200
 
-sp 0,0,20 5 255,0,0 bump
+sp 0,0,20 5 255,0,0
 
-pl 0,-5,0 0,1,0 255,255,255 checker
+pl 0,-5,0 0,1,0 255,255,255
 
 pb 5,0,20 0,1,0 0.5 10 200,100,50
 ```
