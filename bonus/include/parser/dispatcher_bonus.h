@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 13:50:49 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/26 13:41:24 by cwon             ###   ########.fr       */
+/*   Updated: 2026/02/22 16:38:27 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ struct s_dispatcher
 	t_hit_fn	hit_fn;
 };
 
-// dispatcher.c
+// dispatcher_bonus.c
 t_hit_fn	get_hit_fn(t_parser *p);
 void		dispatch_subparser(t_parser *p);
 

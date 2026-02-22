@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mini_rt_bonus.h                                    :+:      :+:    :+:   */
+/*   spotlight_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 14:05:45 by cwon              #+#    #+#             */
-/*   Updated: 2026/02/22 16:39:58 by cwon             ###   ########.fr       */
+/*   Created: 2026/02/22 16:30:53 by cwon              #+#    #+#             */
+/*   Updated: 2026/02/22 16:31:34 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINI_RT_BONUS_H
-# define MINI_RT_BONUS_H
+#ifndef SPOTLIGHT_BONUS_H
+# define SPOTLIGHT_BONUS_H
 
-# define WIDTH 800
-# define HEIGHT 600
+# include "color_bonus.h"
+# include "vector_bonus.h"
 
-typedef struct s_scene	t_scene;
+typedef struct s_spotlight	t_spotlight;
 
-// mini_rt_bonus.c
-void	mini_rt_error(t_scene *scene);
-void	mini_rt(int argc, char **argv);
-
-// validate_bonus.c
-void	validate_arg(int argc, char **argv);
+struct s_spotlight
+{
+	double		brightness;
+	t_color		color;
+	t_vector	dir;
+	t_vector	pos;
+};
 
 #endif

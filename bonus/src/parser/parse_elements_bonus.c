@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 12:09:44 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/26 13:43:09 by cwon             ###   ########.fr       */
+/*   Updated: 2026/02/22 16:51:56 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include "light_bonus.h"
 #include "mini_rt_bonus.h"
 #include "scene_bonus.h"
+#include "spotlight_bonus.h"
 
 void	parse_ambient(t_parser *p)
 {
@@ -47,4 +48,18 @@ void	parse_light(t_parser *p)
 	p->scene->light->pos = get_vector(p, 1, false);
 	p->scene->light->brightness = get_ratio(p, 2);
 	p->scene->light->color = get_color(p, 3);
+}
+
+void	parse_spotlight(t_parser *p)
+{
+	t_spotlight	temp;
+	t_spotlight	*spotlight;
+
+	check_token_count(p, 4);
+	temp.pos = get_vector(p, 1, false);
+	temp.brightness = get_ratio(p, 2);
+	temp.color = get_color(p, 3);
+	spotlight = parser_malloc(p, sizeof(t_spotlight));
+	*spotlight = temp;
+	append_spotlight(p, spotlight);
 }

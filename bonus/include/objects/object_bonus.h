@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 15:02:56 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/27 15:06:58 by cwon             ###   ########.fr       */
+/*   Updated: 2026/02/22 16:38:16 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ struct s_object
 	void		*ptr;
 };
 
-// object.c
+// object_bonus.c
 void	append_object(t_parser *p, void *ptr, t_obj_type t, t_color c);
 void	free_object(void *ptr);
 

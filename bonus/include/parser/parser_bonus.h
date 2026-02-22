@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 21:21:43 by cwon              #+#    #+#             */
-/*   Updated: 2025/12/01 08:54:30 by cwon             ###   ########.fr       */
+/*   Updated: 2026/02/22 16:38:47 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,38 +33,39 @@ struct s_parser
 	t_scene			*scene;
 };
 
-// convert_utils.c
+// convert_utils_bonus.c
 void		check_rgb(t_parser *p, char **arr);
 void		check_vector(t_parser *p, char **arr);
 
-// convert.c
+// convert_bonus.c
 double		get_float(t_parser *p, size_t index);
 double		get_fov(t_parser *p, size_t index);
 double		get_ratio(t_parser *p, size_t index);
 t_color		get_color(t_parser *p, size_t index);
 t_vector	get_vector(t_parser *p, size_t index, bool normalized);
 
-// parse_elements.c
+// parse_elements_bonus.c
 void		parse_ambient(t_parser *p);
 void		parse_camera(t_parser *p);
 void		parse_light(t_parser *p);
+void		parse_spotlight(t_parser *p);
 
-// parse_objects.c
+// parse_objects_bonus.c
 void		parse_cylinder(t_parser *p);
 void		parse_paraboloid(t_parser *p);
 void		parse_plane(t_parser *p);
 void		parse_sphere(t_parser *p);
 
-// parse_utils.c
+// parse_utils_bonus.c
 void		*parser_malloc(t_parser *p, size_t size);
 void		check_multiple_declarations(t_parser *p, const void *ptr);
 void		check_commas(t_parser *p, const char *str);
 void		check_token_count(t_parser *p, size_t expected);
 
-// parse.c
+// parse_bonus.c
 void		parse(const char *filename, t_scene *scene);
 
-// parser.c
+// parser_bonus.c
 void		flush_parser(t_parser *p);
 void		init_parser(t_parser *p, const char *path, t_scene *s);
 void		parser_error(t_parser *p, const char *msg);

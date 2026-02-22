@@ -6,7 +6,7 @@
 #    By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/04 15:11:00 by cwon              #+#    #+#              #
-#    Updated: 2026/02/22 12:59:08 by cwon             ###   ########.fr        #
+#    Updated: 2026/02/22 16:45:49 by cwon             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -115,7 +115,8 @@ RENDERER_BONUS_SRC := \
 
 SCENE_BONUS_SRC := \
 	scene/camera_bonus.c \
-	scene/scene_bonus.c
+	scene/scene_bonus.c \
+	scene/spotlight_bonus.c
 
 UTILS_BONUS_SRC := \
 	utils/basis_bonus.c \

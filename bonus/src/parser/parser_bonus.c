@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 21:23:37 by cwon              #+#    #+#             */
-/*   Updated: 2026/02/21 15:56:22 by cwon             ###   ########.fr       */
+/*   Updated: 2026/02/22 16:49:39 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	init_parser(t_parser *p, const char *path, t_scene *s)
 {"A", parse_ambient, NULL}, \
 {"C", parse_camera, NULL}, \
 {"L", parse_light, NULL}, \
+{"S", parse_spotlight, NULL}, \
 {"sp", parse_sphere, hit_sphere}, \
 {"pb", parse_paraboloid, hit_paraboloid}, \
 {"pl", parse_plane, hit_plane}, \

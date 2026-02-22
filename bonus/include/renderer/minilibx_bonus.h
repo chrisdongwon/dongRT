@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 08:07:31 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/26 13:36:46 by cwon             ###   ########.fr       */
+/*   Updated: 2026/02/22 16:38:59 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ struct s_minilibx
 	void	*win;
 };
 
-// minilibx.c
+// minilibx_bonus.c
 bool	init_minilibx(t_minilibx *m);
 int		close_window(t_renderer *r);
 int		create_trgb(int t, int r, int g, int b);

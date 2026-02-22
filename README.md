@@ -64,7 +64,7 @@ Available rules:
 make        # Compile mandatory project
 make clean  # Remove object files
 make fclean # Remove objects and executable
-make re     # Recompile everything
+make re     # Recompile
 make bonus  # Compile bonus project
 ```
 
@@ -137,7 +137,7 @@ L <x,y,z> <brightness> <R,G,B>
 
 - `<x,y,z>`: Light position
 - `<brightness>`: Light brightness ratio `[0.0,1.0]`
-- `<R,G,B>`: Light color `[0,255]` (unused in mandatory project)
+- `<R,G,B>`: Light color `[0,255]`
 
 Example:
 ```
@@ -230,27 +230,32 @@ cy 5,0,20 0,1,0 4 10 0,0,255
 
 ## Bonus Features Overview
 
-### Multiple and Colored Lights (Auto-Facing Spotlights)
-
-Multiple lights can be declared with several `L` lines:
+### Colored and Multi-Spot Lights
 
 ```
-L <x,y,z> <brightness> <R,G,B>
+S <x,y,z> <brightness> <R,G,B>
 ```
 
-- `<x,y,z>`: Light position
+- `<x,y,z>`: Spotlight position  
 - `<brightness>`: Light intensity ratio `[0.0, 1.0]`  
 - `<R,G,B>`: Light color `[0,255]`  
 
-> All lights behave as **auto-facing spotlights**:  
-> - Default cone angle: 30°  
-> - Each light automatically points toward the geometric center of the scene objects.  
-> - No direction or angle needs to be specified in the `.rt` file.
+`S` represents a colored spotlight with the following default behavior:
 
-Example:
+- Default cone angle: 30°  
+- The spotlight automatically faces the geometric center of the scene objects  
+- No direction or cutoff angle needs to be specified in the `.rt` file  
+- Illumination is applied only to surfaces inside the spotlight cone
+- Multiple declarations allowed
+
+---
+
+#### Example
+
 ```
-L 10,10,10 0.7 255,255,255
-L -5,8,5 0.4 255,200,200
+L 10,10,10 0.5 255,255,255
+S -5,8,5 0.7 255,200,200
+S 5,10,-5 0.6 200,200,255
 ```
 
 ---
@@ -299,14 +304,11 @@ All sphere objects, by default, will be rendered with checkerboard pattern in th
 ```
 A 0.2 255,255,255
 C 0,0,0 0,0,1 70
-
-L 10,10,10 0.7 255,255,255
-L -5,8,5 0.4 255,200,200
-
+L 10,10,10 0.5 255,255,255
+S -5,8,5 0.7 255,200,200
+S 5,10,-5 0.6 200,200,255
 sp 0,0,20 5 255,0,0
-
 pl 0,-5,0 0,1,0 255,255,255
-
 pb 5,0,20 0,1,0 0.5 10 200,100,50
 ```
 

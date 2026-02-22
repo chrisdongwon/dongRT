@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 14:38:16 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/26 13:41:40 by cwon             ###   ########.fr       */
+/*   Updated: 2026/02/22 16:39:07 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ struct s_camera
 	t_matrix	mat;
 };
 
-// camera.c
+// camera_bonus.c
 void	init_camera(t_camera *cam);
 
 #endif
