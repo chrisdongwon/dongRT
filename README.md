@@ -263,7 +263,7 @@ All objects, by default, will be rendered with specular reflection in the bonus 
 
 ### Checkerboard Pattern
 
-All plane objects, by default, will be rendered with checkerboard pattern in the bonus project.
+All plane objects, by default, will be rendered with checkerboard pattern in the bonus project. The checkerboard is composed of the surface color and the inverted surface color.
 
 ---
 
