@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 21:21:43 by cwon              #+#    #+#             */
-/*   Updated: 2026/02/22 16:38:47 by cwon             ###   ########.fr       */
+/*   Updated: 2026/02/28 16:19:49 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_dispatcher	t_dispatcher;
 typedef struct s_list		t_list;
 typedef struct s_parser		t_parser;
 typedef struct s_scene		t_scene;
+typedef struct s_spotlight	t_spotlight;
 
 struct s_parser
 {
@@ -55,6 +56,9 @@ void		parse_cylinder(t_parser *p);
 void		parse_paraboloid(t_parser *p);
 void		parse_plane(t_parser *p);
 void		parse_sphere(t_parser *p);
+
+// parse_spotlight_bonus.c
+void		append_spotlight(t_parser *p, t_spotlight *ptr);
 
 // parse_utils_bonus.c
 void		*parser_malloc(t_parser *p, size_t size);

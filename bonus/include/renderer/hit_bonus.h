@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 12:27:14 by cwon              #+#    #+#             */
-/*   Updated: 2026/02/22 13:13:18 by cwon             ###   ########.fr       */
+/*   Updated: 2026/02/28 15:53:19 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # define KA 0.1
 # define KD 0.9
 # define KS 0.3
-# define SHININESS 30
+# define SHININESS 50
 
 # include "color_bonus.h"
 # include "vector_bonus.h"
