@@ -6,17 +6,17 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 12:27:14 by cwon              #+#    #+#             */
-/*   Updated: 2026/02/28 15:53:19 by cwon             ###   ########.fr       */
+/*   Updated: 2026/02/28 16:48:21 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HIT_BONUS_H
 # define HIT_BONUS_H
 
-# define KA 0.1
-# define KD 0.9
-# define KS 0.3
-# define SHININESS 50
+# define KA 0.05
+# define KD 1.0
+# define KS 0.35
+# define SHININESS 100
 
 # include "color_bonus.h"
 # include "vector_bonus.h"
