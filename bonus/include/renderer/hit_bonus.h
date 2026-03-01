@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 12:27:14 by cwon              #+#    #+#             */
-/*   Updated: 2026/02/28 16:48:21 by cwon             ###   ########.fr       */
+/*   Updated: 2026/02/28 17:39:01 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ t_hit	hit_scene(const t_scene *s, const t_ray *r);
 void	init_hit(t_hit *h);
 
 // phong_bonus.c
-t_color	phong_shade(const t_hit *h, const t_light *l, const t_camera *c, \
-t_color color);
+t_color	phong_shade(const t_hit *h, const t_scene *s, t_color color);
 
 #endif

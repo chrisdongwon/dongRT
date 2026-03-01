@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 14:07:55 by cwon              #+#    #+#             */
-/*   Updated: 2026/02/28 16:45:09 by cwon             ###   ########.fr       */
+/*   Updated: 2026/03/01 13:58:24 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 #include <math.h>
 
-#include "light_bonus.h"
 #include "camera_bonus.h"
+#include "libft.h"
+#include "light_bonus.h"
 #include "object_bonus.h"
+#include "scene_bonus.h"
 
 static t_color	phong_ambient(t_color color)
 {
@@ -55,8 +57,7 @@ const t_camera *c)
 	return (scale_color(l->color, spec));
 }
 
-t_color	phong_shade(const t_hit *h, const t_light *l, const t_camera *c, \
-t_color color)
+t_color	phong_shade(const t_hit *h, const t_scene *s, t_color color)
 {
 	t_color	amb;
 	t_color	diff;
@@ -65,10 +66,10 @@ t_color color)
 	t_color	out;
 
 	amb = phong_ambient(color);
-	diff = phong_diffuse(h, l, color);
-	spec = phong_specular(h, l, c);
+	diff = phong_diffuse(h, s->light, color);
+	spec = phong_specular(h, s->light, s->camera);
 	light_part = add_color(diff, spec);
-	light_part = scale_color(light_part, l->brightness);
+	light_part = scale_color(light_part, s->light->brightness);
 	out = add_color(amb, light_part);
 	return (out);
 }
