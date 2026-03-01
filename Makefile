@@ -6,7 +6,7 @@
 #    By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/04 15:11:00 by cwon              #+#    #+#              #
-#    Updated: 2026/02/28 16:24:51 by cwon             ###   ########.fr        #
+#    Updated: 2026/03/01 14:48:44 by cwon             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -110,6 +110,7 @@ RENDERER_BONUS_SRC := \
 	renderer/hit_sphere_bonus.c \
 	renderer/minilibx_bonus.c \
 	renderer/phong_bonus.c \
+	renderer/phong_util_bonus.c \
 	renderer/render_bonus.c \
 	renderer/renderer_bonus.c
 

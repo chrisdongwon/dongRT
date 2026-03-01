@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 12:35:44 by cwon              #+#    #+#             */
-/*   Updated: 2026/02/22 12:58:19 by cwon             ###   ########.fr       */
+/*   Updated: 2026/03/01 14:34:37 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,52 @@
 
 #include "libft.h"
 #include "object_bonus.h"
+#include "ray_bonus.h"
 #include "scene_bonus.h"
+
+bool	in_shadow(const t_hit *h, t_vector light_pos, t_list *objects)
+{
+	double		light_dist;
+	double		t;
+	t_object	*obj;
+	t_ray		shadow_ray;
+	t_vector	to_light;
+
+	to_light = subtract(light_pos, h->point);
+	light_dist = norm(to_light);
+	shadow_ray.origin = add(h->point, scale(1e-4, h->normal));
+	shadow_ray.dir = normalize(to_light);
+	while (objects)
+	{
+		obj = (t_object *)objects->content;
+		if (intersect(obj, &shadow_ray, &t) && (t > 0 && t < light_dist))
+			return (true);
+		objects = objects->next;
+	}
+	return (false);
+}
+
+bool	intersect(const t_object *obj, const t_ray *ray, double *t)
+{
+	t_hit	hit;
+
+	if (!obj || !ray || !t)
+		return (false);
+	if (obj->type == CYLINDER)
+		hit = hit_cylinder(ray, obj);
+	else if (obj->type == PARABOLOID)
+		hit = hit_paraboloid(ray, obj);
+	else if (obj->type == SPHERE)
+		hit = hit_sphere(ray, obj);
+	else if (obj->type == PLANE)
+		hit = hit_plane(ray, obj);
+	else
+		return (false);
+	if (!hit.is_hit)
+		return (false);
+	*t = hit.t;
+	return (true);
+}
 
 t_hit	hit_scene(const t_scene *s, const t_ray *r)
 {

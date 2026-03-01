@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 12:09:44 by cwon              #+#    #+#             */
-/*   Updated: 2026/02/22 16:51:56 by cwon             ###   ########.fr       */
+/*   Updated: 2026/03/01 16:07:25 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,11 @@ void	parse_spotlight(t_parser *p)
 	t_spotlight	temp;
 	t_spotlight	*spotlight;
 
-	check_token_count(p, 4);
+	check_token_count(p, 5);
 	temp.pos = get_vector(p, 1, false);
-	temp.brightness = get_ratio(p, 2);
-	temp.color = get_color(p, 3);
+	temp.dir = get_vector(p, 2, true);
+	temp.brightness = get_ratio(p, 3);
+	temp.color = get_color(p, 4);
 	spotlight = parser_malloc(p, sizeof(t_spotlight));
 	*spotlight = temp;
 	append_spotlight(p, spotlight);

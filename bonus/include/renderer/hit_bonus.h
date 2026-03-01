@@ -6,24 +6,19 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 12:27:14 by cwon              #+#    #+#             */
-/*   Updated: 2026/02/28 17:39:01 by cwon             ###   ########.fr       */
+/*   Updated: 2026/03/01 14:51:19 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HIT_BONUS_H
 # define HIT_BONUS_H
 
-# define KA 0.05
-# define KD 1.0
-# define KS 0.35
-# define SHININESS 100
-
-# include "color_bonus.h"
 # include "vector_bonus.h"
 
 typedef struct s_camera	t_camera;
 typedef struct s_hit	t_hit;
 typedef struct s_light	t_light;
+typedef struct s_list	t_list;
 typedef struct s_object	t_object;
 typedef struct s_ray	t_ray;
 typedef struct s_scene	t_scene;
@@ -50,10 +45,9 @@ t_hit	hit_plane(const t_ray *r, const t_object *obj);
 t_hit	hit_sphere(const t_ray *r, const t_object *obj);
 
 // hit_bonus.c
+bool	in_shadow(const t_hit *h, t_vector light_pos, t_list *objects);
+bool	intersect(const t_object *obj, const t_ray *ray, double *t);
 t_hit	hit_scene(const t_scene *s, const t_ray *r);
 void	init_hit(t_hit *h);
-
-// phong_bonus.c
-t_color	phong_shade(const t_hit *h, const t_scene *s, t_color color);
 
 #endif

@@ -6,26 +6,28 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 14:07:55 by cwon              #+#    #+#             */
-/*   Updated: 2026/03/01 13:58:24 by cwon             ###   ########.fr       */
+/*   Updated: 2026/03/01 16:00:13 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "hit_bonus.h"
+#include "renderer_bonus.h"
 
 #include <math.h>
 
 #include "camera_bonus.h"
+#include "hit_bonus.h"
 #include "libft.h"
 #include "light_bonus.h"
 #include "object_bonus.h"
 #include "scene_bonus.h"
+#include "spotlight_bonus.h"
 
 static t_color	phong_ambient(t_color color)
 {
 	return (scale_color(color, KA));
 }
 
-static t_color	phong_diffuse(const t_hit *h, const t_light *l, t_color color)
+t_color	phong_diffuse(const t_hit *h, const t_light *l, t_color color)
 {
 	double		diff;
 	t_vector	u;
@@ -36,8 +38,27 @@ static t_color	phong_diffuse(const t_hit *h, const t_light *l, t_color color)
 	return (scale_color(color, diff));
 }
 
-static t_color	phong_specular(const t_hit *h, const t_light *l, \
-const t_camera *c)
+t_color	phong_shade(const t_hit *h, const t_scene *s, t_color color)
+{
+	t_color		total;
+	t_list		*node;
+	t_spotlight	*sp;
+
+	total = phong_ambient(color);
+	if (s->light && !in_shadow(h, s->light->pos, s->objects))
+		total = add_color(total, contribute_light(h, s, color));
+	node = s->spotlights;
+	while (node)
+	{
+		sp = (t_spotlight *)(node->content);
+		if (!in_shadow(h, sp->pos, s->objects) && in_spotlight(h, sp))
+			total = add_color(total, contribute_spot(h, sp, s->camera, color));
+		node = node->next;
+	}
+	return (total);
+}
+
+t_color	phong_specular(const t_hit *h, const t_light *l, const t_camera *c)
 {
 	double		rv;
 	double		spec;
@@ -55,21 +76,4 @@ const t_camera *c)
 		return ((t_color){0, 0, 0});
 	spec = KS * pow(rv, SHININESS);
 	return (scale_color(l->color, spec));
-}
-
-t_color	phong_shade(const t_hit *h, const t_scene *s, t_color color)
-{
-	t_color	amb;
-	t_color	diff;
-	t_color	spec;
-	t_color	light_part;
-	t_color	out;
-
-	amb = phong_ambient(color);
-	diff = phong_diffuse(h, s->light, color);
-	spec = phong_specular(h, s->light, s->camera);
-	light_part = add_color(diff, spec);
-	light_part = scale_color(light_part, s->light->brightness);
-	out = add_color(amb, light_part);
-	return (out);
 }
