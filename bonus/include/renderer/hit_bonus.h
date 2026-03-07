@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 12:27:14 by cwon              #+#    #+#             */
-/*   Updated: 2026/03/01 14:51:19 by cwon             ###   ########.fr       */
+/*   Updated: 2026/03/07 16:31:26 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ t_hit	hit_sphere(const t_ray *r, const t_object *obj);
 
 // hit_bonus.c
 bool	in_shadow(const t_hit *h, t_vector light_pos, t_list *objects);
-bool	intersect(const t_object *obj, const t_ray *ray, double *t);
 t_hit	hit_scene(const t_scene *s, const t_ray *r);
 void	init_hit(t_hit *h);
 

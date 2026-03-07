@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 12:27:14 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/20 15:33:29 by cwon             ###   ########.fr       */
+/*   Updated: 2026/03/07 16:46:04 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef struct s_light	t_light;
 typedef struct s_object	t_object;
 typedef struct s_ray	t_ray;
 typedef struct s_scene	t_scene;
+typedef struct s_list	t_list;
 
 struct s_hit
 {
@@ -41,10 +42,11 @@ t_hit	hit_plane(const t_ray *r, const t_object *obj);
 t_hit	hit_sphere(const t_ray *r, const t_object *obj);
 
 // hit.c
+bool	in_shadow(const t_hit *h, t_vector light_pos, t_list *objects);
 t_hit	hit_scene(const t_scene *s, const t_ray *r);
 void	init_hit(t_hit *h);
 
 // shade.c
-t_color	lambertian_shade(const t_hit *h, const t_light *l);
+t_color	lambertian_shade(const t_hit *h, const t_scene *s);
 
 #endif

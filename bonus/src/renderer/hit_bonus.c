@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 12:35:44 by cwon              #+#    #+#             */
-/*   Updated: 2026/03/01 14:34:37 by cwon             ###   ########.fr       */
+/*   Updated: 2026/03/07 16:31:06 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,28 @@
 #include "object_bonus.h"
 #include "ray_bonus.h"
 #include "scene_bonus.h"
+
+static bool	intersect(const t_object *obj, const t_ray *ray, double *t)
+{
+	t_hit	hit;
+
+	if (!obj || !ray || !t)
+		return (false);
+	if (obj->type == CYLINDER)
+		hit = hit_cylinder(ray, obj);
+	else if (obj->type == PARABOLOID)
+		hit = hit_paraboloid(ray, obj);
+	else if (obj->type == SPHERE)
+		hit = hit_sphere(ray, obj);
+	else if (obj->type == PLANE)
+		hit = hit_plane(ray, obj);
+	else
+		return (false);
+	if (!hit.is_hit)
+		return (false);
+	*t = hit.t;
+	return (true);
+}
 
 bool	in_shadow(const t_hit *h, t_vector light_pos, t_list *objects)
 {
@@ -39,28 +61,6 @@ bool	in_shadow(const t_hit *h, t_vector light_pos, t_list *objects)
 		objects = objects->next;
 	}
 	return (false);
-}
-
-bool	intersect(const t_object *obj, const t_ray *ray, double *t)
-{
-	t_hit	hit;
-
-	if (!obj || !ray || !t)
-		return (false);
-	if (obj->type == CYLINDER)
-		hit = hit_cylinder(ray, obj);
-	else if (obj->type == PARABOLOID)
-		hit = hit_paraboloid(ray, obj);
-	else if (obj->type == SPHERE)
-		hit = hit_sphere(ray, obj);
-	else if (obj->type == PLANE)
-		hit = hit_plane(ray, obj);
-	else
-		return (false);
-	if (!hit.is_hit)
-		return (false);
-	*t = hit.t;
-	return (true);
 }
 
 t_hit	hit_scene(const t_scene *s, const t_ray *r)

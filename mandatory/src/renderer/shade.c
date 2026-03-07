@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 13:28:28 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/26 13:44:53 by cwon             ###   ########.fr       */
+/*   Updated: 2026/03/07 16:47:27 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <math.h>
 
 #include "light.h"
+#include "scene.h"
 
 static double	compute_projection(const t_hit *h, const t_light *l)
 {
@@ -24,14 +25,18 @@ static double	compute_projection(const t_hit *h, const t_light *l)
 	return (fmax(0, dot(h->normal, dir)));
 }
 
-t_color	lambertian_shade(const t_hit *h, const t_light *l)
+t_color	lambertian_shade(const t_hit *h, const t_scene *s)
 {
 	double		proj;
 	t_color		color;
 
-	proj = compute_projection(h, l);
-	color.r = h->color.r * proj * l->brightness;
-	color.g = h->color.g * proj * l->brightness;
-	color.b = h->color.b * proj * l->brightness;
+	color = (t_color){0, 0, 0};
+	if (!in_shadow(h, s->light->pos, s->objects))
+	{
+		proj = compute_projection(h, s->light);
+		color.r = h->color.r * proj * s->light->brightness;
+		color.g = h->color.g * proj * s->light->brightness;
+		color.b = h->color.b * proj * s->light->brightness;
+	}
 	return (color);
 }
