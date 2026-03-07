@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 07:46:04 by cwon              #+#    #+#             */
-/*   Updated: 2026/02/28 17:38:48 by cwon             ###   ########.fr       */
+/*   Updated: 2026/03/07 14:54:11 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 #include "ray_bonus.h"
 #include "scene_bonus.h"
 
-static t_color	get_surface_color(const t_hit *hit)
+static t_color	get_surface(const t_hit *hit)
 {
 	if (hit->obj->type == PLANE)
 		return (checkerboard(hit));
@@ -40,7 +40,9 @@ static int	render_pixel(int px, int py, const t_scene *s)
 	hit = hit_scene(s, &ray);
 	if (hit.is_hit)
 	{
-		color = phong_shade(&hit, s, get_surface_color(&hit));
+		if (hit.obj->type == SPHERE)
+			bump_map(&hit);
+		color = phong_shade(&hit, s, get_surface(&hit));
 		return (color_to_rgb(&color));
 	}
 	return (create_trgb(0, px * 255 / WIDTH, py * 255 / HEIGHT, 128));

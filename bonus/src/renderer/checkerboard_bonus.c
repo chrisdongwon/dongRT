@@ -6,11 +6,11 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 15:22:37 by cwon              #+#    #+#             */
-/*   Updated: 2026/02/22 14:35:11 by cwon             ###   ########.fr       */
+/*   Updated: 2026/03/07 14:45:34 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "hit_bonus.h"
+#include "renderer_bonus.h"
 
 #include <math.h>
 

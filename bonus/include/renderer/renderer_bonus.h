@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 07:46:14 by cwon              #+#    #+#             */
-/*   Updated: 2026/03/01 15:45:52 by cwon             ###   ########.fr       */
+/*   Updated: 2026/03/07 14:55:46 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ struct s_renderer
 	t_minilibx	*minilibx;
 	t_scene		*scene;
 };
+
+// bump_map_bonus.c
+void		bump_map(t_hit *hit);
 
 // checkerboard_bonus.c
 t_color		checkerboard(const t_hit *hit);
