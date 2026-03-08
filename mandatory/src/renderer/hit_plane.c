@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 09:51:53 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/20 15:33:47 by cwon             ###   ########.fr       */
+/*   Updated: 2026/03/08 16:05:50 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "plane.h"
 #include "ray.h"
 
-t_hit	hit_plane(const t_ray *r, const t_object *obj)
+t_hit	hit_plane(const t_ray *r, t_object *obj)
 {
 	double		proj;
 	t_hit		hit;
@@ -35,5 +35,6 @@ t_hit	hit_plane(const t_ray *r, const t_object *obj)
 	hit.is_hit = true;
 	hit.point = add(r->origin, scale(hit.t, r->dir));
 	hit.normal = p->normal;
+	hit.obj = obj;
 	return (hit);
 }

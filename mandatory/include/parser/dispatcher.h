@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 13:50:49 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/20 13:42:59 by cwon             ###   ########.fr       */
+/*   Updated: 2026/03/08 16:06:48 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ typedef struct s_dispatcher	t_dispatcher;
 typedef struct s_parser		t_parser;
 typedef struct s_ray		t_ray;
 typedef struct s_renderer	t_renderer;
-typedef t_hit				(*t_hit_fn)(const t_ray *, const t_object *);
+typedef t_hit				(*t_hit_fn)(const t_ray *, t_object *);
 typedef void				(*t_parser_fn)(t_parser *);
 
 struct s_dispatcher

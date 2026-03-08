@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 12:27:14 by cwon              #+#    #+#             */
-/*   Updated: 2026/03/07 16:46:04 by cwon             ###   ########.fr       */
+/*   Updated: 2026/03/08 16:08:06 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,21 @@ struct s_hit
 	bool		is_hit;
 	double		t;
 	t_color		color;
+	t_object	*obj;
 	t_vector	normal;
 	t_vector	point;
 };
 
 // hit_cylinder.c
-t_hit	hit_cylinder(const t_ray *r, const t_object *obj);
+t_hit	hit_cylinder(const t_ray *r, t_object *obj);
 
 // hit_plane.c
-t_hit	hit_plane(const t_ray *r, const t_object *obj);
+t_hit	hit_plane(const t_ray *r, t_object *obj);
 
 // hit_sphere.c
-t_hit	hit_sphere(const t_ray *r, const t_object *obj);
+t_hit	hit_sphere(const t_ray *r, t_object *obj);
 
 // hit.c
-bool	in_shadow(const t_hit *h, t_vector light_pos, t_list *objects);
 t_hit	hit_scene(const t_scene *s, const t_ray *r);
 void	init_hit(t_hit *h);
 

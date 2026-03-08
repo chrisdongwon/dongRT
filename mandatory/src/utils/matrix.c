@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 15:50:20 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/20 14:49:37 by cwon             ###   ########.fr       */
+/*   Updated: 2026/03/08 17:02:49 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ t_matrix	basis_matrix(const t_basis *b, bool invert_z)
 	dir = -2.0 * invert_z + 1.0;
 	mat = id_matrix();
 	mat.m[0][0] = b->right.x;
-	mat.m[0][1] = b->right.y;
-	mat.m[0][2] = b->right.z;
-	mat.m[1][0] = b->up.x;
+	mat.m[1][0] = b->right.y;
+	mat.m[2][0] = b->right.z;
+	mat.m[0][1] = b->up.x;
 	mat.m[1][1] = b->up.y;
-	mat.m[1][2] = b->up.z;
-	mat.m[2][0] = dir * b->forward.x;
-	mat.m[2][1] = dir * b->forward.y;
+	mat.m[2][1] = b->up.z;
+	mat.m[0][2] = dir * b->forward.x;
+	mat.m[1][2] = dir * b->forward.y;
 	mat.m[2][2] = dir * b->forward.z;
 	return (mat);
 }

@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 13:28:28 by cwon              #+#    #+#             */
-/*   Updated: 2026/03/07 16:47:27 by cwon             ###   ########.fr       */
+/*   Updated: 2026/03/08 16:10:44 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,40 @@
 
 #include <math.h>
 
+#include "ambient.h"
 #include "light.h"
+#include "object.h"
+#include "ray.h"
 #include "scene.h"
 
-static double	compute_projection(const t_hit *h, const t_light *l)
+static bool	in_shadow(const t_hit *h, const t_scene *s)
 {
-	t_vector	dir;
+	double		dist;
+	t_hit		hit;
+	t_ray		shadow;
+	t_vector	to_light;
 
-	dir = normalize(subtract(l->pos, h->point));
-	return (fmax(0, dot(h->normal, dir)));
+	to_light = subtract(s->light->pos, h->point);
+	dist = norm(to_light);
+	shadow.origin = add(h->point, scale(1e-6, h->normal));
+	shadow.dir = normalize(to_light);
+	hit = hit_scene(s, &shadow);
+	return (hit.is_hit && hit.t < dist);
 }
 
 t_color	lambertian_shade(const t_hit *h, const t_scene *s)
 {
-	double		proj;
-	t_color		color;
+	double		diff;
+	t_color		result;
+	t_vector	light_dir;
 
-	color = (t_color){0, 0, 0};
-	if (!in_shadow(h, s->light->pos, s->objects))
+	result = scale_color(h->obj->color, s->ambient->ratio);
+	if (!in_shadow(h, s))
 	{
-		proj = compute_projection(h, s->light);
-		color.r = h->color.r * proj * s->light->brightness;
-		color.g = h->color.g * proj * s->light->brightness;
-		color.b = h->color.b * proj * s->light->brightness;
+		light_dir = normalize(subtract(s->light->pos, h->point));
+		diff = fmax(0.0, dot(h->normal, light_dir));
+		diff *= s->light->brightness;
+		result = add_color(result, scale_color(h->obj->color, diff));
 	}
-	return (color);
+	return (result);
 }

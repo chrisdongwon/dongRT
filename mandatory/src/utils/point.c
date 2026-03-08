@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 14:43:26 by cwon              #+#    #+#             */
-/*   Updated: 2026/03/08 11:51:46 by cwon             ###   ########.fr       */
+/*   Updated: 2026/03/08 15:45:35 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,6 @@ t_point	init_ndc(double px, double py)
 	ndc.x = (px + 0.5) / (double)WIDTH;
 	ndc.y = (py + 0.5) / (double)HEIGHT;
 	return (ndc);
-}
-
-t_vector	ssc_to_vector(const t_camera *cam, const t_point *p)
-{
-	t_vector	v;
-
-	v.x = p->x * cam->scale * cam->aspect;
-	v.y = p->y * cam->scale;
-	v.z = -1.0;
-	return (v);
 }
 
 void	ndc_to_ssc(t_point *p)

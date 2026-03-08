@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 09:49:44 by cwon              #+#    #+#             */
-/*   Updated: 2026/02/21 15:36:48 by cwon             ###   ########.fr       */
+/*   Updated: 2026/03/08 16:05:44 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ const t_vector *v, t_hit *h)
 	}
 }
 
-t_hit	hit_cylinder(const t_ray *r, const t_object *obj)
+t_hit	hit_cylinder(const t_ray *r, t_object *obj)
 {
 	t_cylinder	*c;
 	t_hit		hit;
@@ -130,5 +130,6 @@ t_hit	hit_cylinder(const t_ray *r, const t_object *obj)
 	hit_sides(r, c, &q, &hit);
 	hit_bottom_cap(r, c, &v, &hit);
 	hit_top_cap(r, c, &v, &hit);
+	hit.obj = obj;
 	return (hit);
 }

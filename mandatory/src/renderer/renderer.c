@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 08:19:07 by cwon              #+#    #+#             */
-/*   Updated: 2026/03/08 13:02:30 by cwon             ###   ########.fr       */
+/*   Updated: 2026/03/08 15:04:24 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ t_renderer	init_renderer(t_scene *s, t_minilibx *m)
 	init_camera(s->camera);
 	r.scene = s;
 	r.minilibx = m;
-	r.width = WIDTH;
-	r.height = HEIGHT;
 	return (r);
 }
 
