@@ -233,18 +233,17 @@ cy 5,0,20 0,1,0 4 10 0,0,255
 ### Colored and Multi-Spot Lights
 
 ```
-S <x,y,z> <brightness> <R,G,B>
+S <x,y,z> <nx,ny,nz> <brightness> <R,G,B>
 ```
 
-- `<x,y,z>`: Spotlight position  
+- `<x,y,z>`: Spotlight position
+- `<nx,ny,nz>`: Normalized direction vector
 - `<brightness>`: Light intensity ratio `[0.0, 1.0]`  
 - `<R,G,B>`: Light color `[0,255]`  
 
 `S` represents a colored spotlight with the following default behavior:
 
 - Default cone angle: 30°  
-- The spotlight automatically faces the geometric center of the scene objects  
-- No direction or cutoff angle needs to be specified in the `.rt` file  
 - Illumination is applied only to surfaces inside the spotlight cone
 - Multiple declarations allowed
 
@@ -254,8 +253,8 @@ S <x,y,z> <brightness> <R,G,B>
 
 ```
 L 10,10,10 0.5 255,255,255
-S -5,8,5 0.7 255,200,200
-S 5,10,-5 0.6 200,200,255
+S -5,8,5 0,0,1 0.7 255,200,200
+S 5,10,-5 1,0,0 0.6 200,200,255
 ```
 
 ---
@@ -295,7 +294,7 @@ pb 5,0,20 0,1,0 0.5 10 200,100,50
 
 ### Bump Mapping
 
-All sphere objects, by default, will be rendered with checkerboard pattern in the bonus project.
+All sphere objects, by default, will be rendered with bump map pattern in the bonus project.
 
 ---
 
@@ -305,8 +304,8 @@ All sphere objects, by default, will be rendered with checkerboard pattern in th
 A 0.2 255,255,255
 C 0,0,0 0,0,1 70
 L 10,10,10 0.5 255,255,255
-S -5,8,5 0.7 255,200,200
-S 5,10,-5 0.6 200,200,255
+S -5,8,5 0,1,0 0.7 255,200,200
+S 5,10,-5 0,0,1 0.6 200,200,255
 sp 0,0,20 5 255,0,0
 pl 0,-5,0 0,1,0 255,255,255
 pb 5,0,20 0,1,0 0.5 10 200,100,50
