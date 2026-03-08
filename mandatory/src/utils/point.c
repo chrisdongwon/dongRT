@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 14:43:26 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/20 14:50:24 by cwon             ###   ########.fr       */
+/*   Updated: 2026/03/08 11:51:46 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_vector	ssc_to_vector(const t_camera *cam, const t_point *p)
 
 	v.x = p->x * cam->scale * cam->aspect;
 	v.y = p->y * cam->scale;
-	v.z = -1.0 / cam->scale;
+	v.z = -1.0;
 	return (v);
 }
 

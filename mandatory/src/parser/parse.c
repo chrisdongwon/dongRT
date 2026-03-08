@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 09:21:31 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/20 13:38:01 by cwon             ###   ########.fr       */
+/*   Updated: 2026/03/08 12:24:44 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include "dispatcher.h"
 #include "libft.h"
 #include "mini_rt.h"
+#include "scene.h"
 
 static char	*trim_whitespace(char *line, t_parser *p)
 {
@@ -43,6 +44,28 @@ static void	parse_element(t_parser *p)
 	dispatch_subparser(p);
 }
 
+static void	validate_scene(t_parser *p)
+{
+	if (p->scene->ambient == NULL)
+	{
+		p->id = "A";
+		parser_error(p, "Elements defined by a capital letter can only be \
+declared once in the scene");
+	}
+	if (p->scene->camera == NULL)
+	{
+		p->id = "C";
+		parser_error(p, "Elements defined by a capital letter can only be \
+declared once in the scene");
+	}
+	if (p->scene->light == NULL)
+	{
+		p->id = "L";
+		parser_error(p, "Elements defined by a capital letter can only be \
+declared once in the scene");
+	}
+}
+
 void	parse(const char *filename, t_scene *scene)
 {
 	t_parser	p;
@@ -55,5 +78,6 @@ void	parse(const char *filename, t_scene *scene)
 			parse_element(&p);
 		reset_parser(&p);
 	}
+	validate_scene(&p);
 	flush_parser(&p);
 }

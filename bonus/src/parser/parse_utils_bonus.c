@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 09:56:29 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/26 13:43:21 by cwon             ###   ########.fr       */
+/*   Updated: 2026/03/08 12:30:38 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ void	*parser_malloc(t_parser *p, size_t size)
 void	check_multiple_declarations(t_parser *p, const void *ptr)
 {
 	if (ptr != NULL)
-		parser_error(p, "Multiple declaration detected");
+		parser_error(p, "Elements defined by a capital letter can only be \
+declared once in the scene");
 }
 
 void	check_commas(t_parser *p, const char *str)

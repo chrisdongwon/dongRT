@@ -6,13 +6,11 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 07:46:04 by cwon              #+#    #+#             */
-/*   Updated: 2026/03/07 14:54:11 by cwon             ###   ########.fr       */
+/*   Updated: 2026/03/08 13:22:09 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "renderer_bonus.h"
-
-#include <stdio.h>
 
 #include "camera_bonus.h"
 #include "hit_bonus.h"
@@ -23,18 +21,12 @@
 #include "ray_bonus.h"
 #include "scene_bonus.h"
 
-static t_color	get_surface(const t_hit *hit)
-{
-	if (hit->obj->type == PLANE)
-		return (checkerboard(hit));
-	return (hit->obj->color);
-}
-
 static int	render_pixel(int px, int py, const t_scene *s)
 {
 	t_ray	ray;
 	t_hit	hit;
 	t_color	color;
+	t_color	surface;
 
 	ray = generate_ray(s->camera, px, py);
 	hit = hit_scene(s, &ray);
@@ -42,13 +34,16 @@ static int	render_pixel(int px, int py, const t_scene *s)
 	{
 		if (hit.obj->type == SPHERE)
 			bump_map(&hit);
-		color = phong_shade(&hit, s, get_surface(&hit));
+		surface = hit.obj->color;
+		if (hit.obj->type == PLANE)
+			surface = checkerboard(&hit);
+		color = phong_shade(&hit, s, surface);
 		return (color_to_rgb(&color));
 	}
 	return (create_trgb(0, px * 255 / WIDTH, py * 255 / HEIGHT, 128));
 }
 
-static void	render_scene(t_renderer *const r)
+static void	render_scene_image(t_renderer *r)
 {
 	int			trgb;
 	int			x;
@@ -68,9 +63,29 @@ static void	render_scene(t_renderer *const r)
 		}
 		y++;
 	}
+}
+
+static int	redraw(void *param)
+{
+	t_minilibx	*m;
+	t_renderer	*r;
+
+	r = (t_renderer *)param;
+	m = r->minilibx;
+	mlx_put_image_to_window(m->mlx, m->win, m->img, 0, 0);
+	return (0);
+}
+
+static void	render_scene(t_renderer *r)
+{
+	t_minilibx	*m;
+
+	m = r->minilibx;
+	render_scene_image(r);
 	mlx_put_image_to_window(m->mlx, m->win, m->img, 0, 0);
 	mlx_key_hook(m->win, handle_key, r);
 	mlx_hook(m->win, X_BUTTON, 0, close_window, r);
+	mlx_expose_hook(m->win, redraw, r);
 	mlx_loop(m->mlx);
 }
 

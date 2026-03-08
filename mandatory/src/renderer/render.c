@@ -6,13 +6,11 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 07:46:04 by cwon              #+#    #+#             */
-/*   Updated: 2026/03/07 16:47:44 by cwon             ###   ########.fr       */
+/*   Updated: 2026/03/08 13:16:59 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "renderer.h"
-
-#include <stdio.h>
 
 #include "hit.h"
 #include "mini_rt.h"
@@ -37,7 +35,7 @@ static int	render_pixel(int px, int py, const t_scene *s)
 	return (create_trgb(0, px * 255 / WIDTH, py * 255 / HEIGHT, 128));
 }
 
-static void	render_scene(t_renderer *const r)
+static void	render_scene_image(t_renderer *r)
 {
 	int			trgb;
 	int			x;
@@ -57,16 +55,36 @@ static void	render_scene(t_renderer *const r)
 		}
 		y++;
 	}
+}
+
+static int	redraw(void *param)
+{
+	t_minilibx	*m;
+	t_renderer	*r;
+
+	r = (t_renderer *)param;
+	m = r->minilibx;
+	mlx_put_image_to_window(m->mlx, m->win, m->img, 0, 0);
+	return (0);
+}
+
+static void	render_scene(t_renderer *r)
+{
+	t_minilibx	*m;
+
+	m = r->minilibx;
+	render_scene_image(r);
 	mlx_put_image_to_window(m->mlx, m->win, m->img, 0, 0);
 	mlx_key_hook(m->win, handle_key, r);
 	mlx_hook(m->win, X_BUTTON, 0, close_window, r);
+	mlx_expose_hook(m->win, redraw, r);
 	mlx_loop(m->mlx);
 }
 
 void	render(t_scene *const s)
 {
-	t_renderer	renderer;
 	t_minilibx	minilibx;
+	t_renderer	renderer;
 
 	renderer = init_renderer(s, &minilibx);
 	render_scene(&renderer);

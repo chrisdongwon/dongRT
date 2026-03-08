@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 07:46:14 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/20 15:35:30 by cwon             ###   ########.fr       */
+/*   Updated: 2026/03/08 13:05:50 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,14 @@ struct s_renderer
 {
 	t_minilibx	*minilibx;
 	t_scene		*scene;
+	int			width;
+	int			height;
 };
+
+// render_util.c
+// int	redraw(void *param);
+// int	resize(int width, int height, void *param);
+// void	render_scene_image(t_renderer *r);
 
 // render.c
 void		render(t_scene *s);
