@@ -208,7 +208,7 @@ cy 5,0,20 0,1,0 4 10 0,0,255
 ### Notes on Validity
 
 - All numeric values must be valid floats or integers.
-- Orientation vectors must have length 1 within a tolerance of ±1e-3.
+- Orientation vectors must have length 1 within a tolerance of ±1e-2.
 - Colors must be within `[0,255]`.
 - Ratios must be within `[0.0,1.0]`.
 - The program should return an error if the scene file is malformed.

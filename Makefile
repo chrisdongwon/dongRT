@@ -6,7 +6,7 @@
 #    By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/04 15:11:00 by cwon              #+#    #+#              #
-#    Updated: 2026/03/08 13:14:53 by cwon             ###   ########.fr        #
+#    Updated: 2026/03/08 17:39:37 by cwon             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,8 +63,6 @@ SCENE_SRC := \
 UTILS_SRC := \
 	utils/basis.c \
 	utils/color.c \
-	utils/matrix_transform.c \
-	utils/matrix.c \
 	utils/point.c \
 	utils/quadratic.c \
 	utils/ray.c \
@@ -123,8 +121,6 @@ SCENE_BONUS_SRC := \
 UTILS_BONUS_SRC := \
 	utils/basis_bonus.c \
 	utils/color_bonus.c \
-	utils/matrix_transform_bonus.c \
-	utils/matrix_bonus.c \
 	utils/point_bonus.c \
 	utils/quadratic_bonus.c \
 	utils/ray_bonus.c \

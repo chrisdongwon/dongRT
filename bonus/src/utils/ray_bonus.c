@@ -6,26 +6,29 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 14:15:13 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/26 13:45:27 by cwon             ###   ########.fr       */
+/*   Updated: 2026/03/08 17:41:10 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ray_bonus.h"
 
 #include "camera_bonus.h"
+#include "mini_rt_bonus.h"
 #include "point_bonus.h"
 
 t_ray	generate_ray(const t_camera *cam, double px, double py)
 {
-	static const t_vector	origin = {0, 0, 0};
-	t_point					p;
-	t_ray					r;
-	t_vector				v;
+	t_point		p;
+	t_ray		ray;
+	t_vector	v;
 
-	p = init_ndc(px, py);
-	ndc_to_ssc(&p);
-	v = ssc_to_vector(cam, &p);
-	r.dir = normalize(transform(&cam->mat, &v, false));
-	r.origin = transform(&cam->mat, &origin, true);
-	return (r);
+	p.x = (px + 0.5) / WIDTH;
+	p.y = (py + 0.5) / HEIGHT;
+	p.x = 2.0 * p.x - 1.0;
+	p.y = 1.0 - 2.0 * p.y;
+	v = add(cam->basis.forward, add(scale(p.x * cam->scale * cam->aspect, \
+cam->basis.right), scale(p.y * cam->scale, cam->basis.up)));
+	ray.dir = normalize(v);
+	ray.origin = cam->pos;
+	return (ray);
 }

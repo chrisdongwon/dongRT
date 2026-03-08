@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 14:54:39 by cwon              #+#    #+#             */
-/*   Updated: 2026/03/07 15:45:18 by cwon             ###   ########.fr       */
+/*   Updated: 2026/03/08 17:47:29 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,6 @@ void	bump_map(t_hit *hit)
 	cu_cv[0] = fmod(uv[0] * 40.0, 1.0) - 0.5;
 	cu_cv[1] = fmod(uv[1] * 40.0, 1.0) - 0.5;
 	dimple = fmax(0.0, 0.25 - sqrt(cu_cv[0] * cu_cv[0] + cu_cv[1] * cu_cv[1]) \
-+ random_offset(uv[0], uv[1], 0.05));
++ random_offset(uv[0], uv[1], 0.15));
 	perturb_normal(&hit->normal, cu_cv[0], cu_cv[1], dimple);
 }

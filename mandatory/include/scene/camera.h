@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 14:38:16 by cwon              #+#    #+#             */
-/*   Updated: 2025/11/20 13:43:36 by cwon             ###   ########.fr       */
+/*   Updated: 2026/03/08 17:35:27 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define CAMERA_H
 
 # include "basis.h"
-# include "matrix.h"
 
 typedef struct s_camera	t_camera;
 
@@ -26,7 +25,6 @@ struct s_camera
 	t_vector	dir;
 	t_vector	pos;
 	t_basis		basis;
-	t_matrix	mat;
 };
 
 // camera.c

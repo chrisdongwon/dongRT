@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 13:46:58 by cwon              #+#    #+#             */
-/*   Updated: 2026/03/08 11:48:48 by cwon             ###   ########.fr       */
+/*   Updated: 2026/03/08 17:44:42 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 
 t_basis	init_basis(t_vector forward)
 {
-	const t_vector	alt_up = {0.0, 0.0, 1.0};
-	const t_vector	world_up = {0.0, 1.0, 0.0};
+	const t_vector	world_up = {0, 1, 0};
+	const t_vector	alt_up = {0, 0, 1};
 	t_basis			basis;
 
-	basis.forward = forward;
-	basis.right = normalize(cross(world_up, basis.forward));
+	basis.forward = normalize(forward);
+	basis.right = cross(basis.forward, world_up);
 	if (norm(basis.right) < EPS_NORM)
-		basis.right = normalize(cross(basis.forward, alt_up));
+		basis.right = cross(basis.forward, alt_up);
+	basis.right = normalize(basis.right);
 	basis.up = cross(basis.right, basis.forward);
 	return (basis);
 }
