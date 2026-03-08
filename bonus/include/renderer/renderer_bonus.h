@@ -6,7 +6,7 @@
 /*   By: cwon <cwon@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 07:46:14 by cwon              #+#    #+#             */
-/*   Updated: 2026/03/07 14:55:46 by cwon             ###   ########.fr       */
+/*   Updated: 2026/03/08 19:14:46 by cwon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # define KA 0.05
 # define KD 1.0
 # define KS 0.35
-# define SHININESS 100
+# define SHININESS 200
 
 typedef struct s_camera		t_camera;
 typedef struct s_hit		t_hit;
